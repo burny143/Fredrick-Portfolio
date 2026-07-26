@@ -3,33 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fredrick Mahinay — Building with AI</title>
-<meta name="description" content="Fredrick Mahinay — civil engineer turned network systems specialist, now building AI-powered applications. From structural loads to model weights.">
+<title>Fredrick Mahinay - Building with AI</title>
+<meta name="description" content="Fredrick Mahinay - civil engineer turned network systems specialist, now building AI-powered applications. From structural loads to model weights.">
 
 <!--
   ============================================================
-  DESIGN CONCEPT — read this before editing
+  DESIGN CONCEPT - read this before editing
   ============================================================
   The signature element is one continuous line drawing in the
   hero: it begins as a civil-engineering TRUSS (load-bearing
   triangles) and resolves into a NEURAL GRAPH (nodes + weighted
-  edges) — "structural loads" becoming "model weights," drawn
+  edges) - "structural loads" becoming "model weights," drawn
   once, no caption needed. That's the whole positioning in one
   shape.
 
   PALETTE
     --void        #10121A   graphite-black (dark sections)
-    --signal      #7C5CFF   electric violet — the "AI" accent
+    --signal      #7C5CFF   electric violet - the "AI" accent
     --amber       #E2A33B   warm accent, used ONLY for "current" tags
-    --paper       #EDEAE2   stone paper (light sections — cooler
+    --paper       #EDEAE2   stone paper (light sections - cooler
                              and greyer than a cream default)
     --paper-ink   #15161C   text on paper sections
     --slate       #8E93A6   muted secondary text
 
   TYPE
-    Display : "Newsreader" italic  — hero line, section titles
-    Body    : "Space Grotesk"      — working text, geometric/engineered feel
-    Utility : "JetBrains Mono"     — dates, tags, labels (the "code editor" voice)
+    Display : "Newsreader" italic  - hero line, section titles
+    Body    : "Space Grotesk"      - working text, geometric/engineered feel
+    Utility : "JetBrains Mono"     - dates, tags, labels (the "code editor" voice)
 
   HOW TO ADD A NEW PROJECT
     Find the <!-- PROJECT CARD TEMPLATE --> comment in the
@@ -270,6 +270,7 @@
   section.on-paper{ background: var(--paper); color: var(--paper-ink); }
   section.on-paper .slate-text{ color: var(--slate-on-paper); }
   .slate-text{ color: var(--slate); }
+  section.sites-section{ background: var(--paper-raised); border-top: 1px solid var(--line-paper); }
 
   .section-head{ max-width: 62ch; margin-bottom: 3rem; }
   .section-head h2{ font-size: clamp(1.7rem, 3.4vw, 2.5rem); margin-top: 0.5rem; }
@@ -389,6 +390,40 @@
   .project-card.is-template h3{ color: #5b3fd6; }
   .project-card.is-template p{ flex-grow:0; }
 
+  /* ---- Sites showcase ---- */
+  .sites-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+  @media (max-width: 980px){ .sites-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 660px){ .sites-grid{ grid-template-columns: 1fr; } }
+
+  .site-card{
+    background: #fff; border: 1px solid var(--line-paper); border-radius: 10px;
+    display:flex; flex-direction:column; overflow:hidden;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .site-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px rgba(21,22,28,0.08); border-color: rgba(91,63,214,0.3); }
+  .site-thumb{ display:block; aspect-ratio: 16 / 10; overflow:hidden; background: var(--paper-raised); }
+  .site-thumb img{ width:100%; height:100%; object-fit:cover; transition: transform .5s ease; }
+  .site-card:hover .site-thumb img{ transform: scale(1.05); }
+  .site-body{ padding: 1.5rem 1.6rem 1.7rem; display:flex; flex-direction:column; flex-grow:1; }
+  .site-body h3{ font-size: 1.1rem; margin: 0 0 0.5rem; font-style: normal; color: var(--paper-ink); }
+  .site-body p{ font-size: 0.92rem; color: var(--slate-on-paper); margin: 0 0 1.2rem; flex-grow:1; }
+  .site-visit{
+    font-family:'JetBrains Mono'; font-size: 0.74rem; letter-spacing:0.03em;
+    text-decoration:none; color: #5b3fd6; display:inline-flex; align-items:center; gap:0.4em;
+    margin-top:auto; align-self:flex-start;
+  }
+  .site-visit svg{ width:12px; height:12px; transition: transform .2s ease; }
+  .site-visit:hover svg{ transform: translate(2px,-2px); }
+
+  .empty-card{
+    background: transparent; border: 1.5px dashed rgba(91,63,214,0.35);
+    border-radius: 10px; padding: 1.8rem;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; min-height: 220px; grid-column: 1 / -1;
+  }
+  .empty-card h3{ color: #5b3fd6; font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .empty-card p{ color: var(--slate-on-paper); font-size: 0.92rem; margin:0; max-width: 46ch; }
+
   /* ---- Skills ---- */
   .skills-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem 3rem; }
   @media (max-width: 700px){ .skills-grid{ grid-template-columns: 1fr; } }
@@ -439,19 +474,20 @@
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#sites">Sites</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-right">
       <div class="nav-social">
         <!-- TODO: replace # with your real profile URLs -->
-        <a class="social-btn" href="#" aria-label="GitHub profile" target="_blank" rel="noopener">
+        <a class="social-btn" href="#" data-link="github" aria-label="GitHub profile" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
         </a>
-        <a class="social-btn" href="#" aria-label="LinkedIn profile" target="_blank" rel="noopener">
+        <a class="social-btn" href="#" data-link="linkedin" aria-label="LinkedIn profile" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
         </a>
-        <a class="social-btn" href="#" aria-label="Facebook profile" target="_blank" rel="noopener">
+        <a class="social-btn" href="#" data-link="facebook" aria-label="Facebook profile" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
         </a>
       </div>
@@ -467,7 +503,7 @@
       <div>
         <span class="eyebrow">Civil Engineer → Systems Engineer → AI Builder</span>
         <h1>From structural loads to <em>model weights.</em></h1>
-        <p class="hero-sub">Fredrick Mahinay — licensed civil engineer turned enterprise network &amp; systems specialist, now spending every spare hour designing, building, and shipping applications with AI as a core collaborator. Currently building a hero-analytics tool for Mobile Legends and a live crypto market dashboard, end to end.</p>
+        <p class="hero-sub">Fredrick Mahinay - licensed civil engineer turned enterprise network &amp; systems specialist, now spending every spare hour designing, building, and shipping applications with AI as a core collaborator. Currently building a hero-analytics tool for Mobile Legends and a live crypto market dashboard, end to end.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#projects">See what I'm building</a>
           <a class="btn btn-ghost" href="#contact">Get in touch</a>
@@ -476,13 +512,13 @@
           <span class="label">Find me on</span>
           <div class="social-row">
             <!-- TODO: replace # with your real profile URLs -->
-            <a class="social-btn" href="#" aria-label="GitHub profile" target="_blank" rel="noopener">
+            <a class="social-btn" href="#" data-link="github" aria-label="GitHub profile" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
             </a>
-            <a class="social-btn" href="#" aria-label="LinkedIn profile" target="_blank" rel="noopener">
+            <a class="social-btn" href="#" data-link="linkedin" aria-label="LinkedIn profile" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
             </a>
-            <a class="social-btn" href="#" aria-label="Facebook profile" target="_blank" rel="noopener">
+            <a class="social-btn" href="#" data-link="facebook" aria-label="Facebook profile" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
             </a>
           </div>
@@ -541,18 +577,18 @@
       </div>
       <div class="reveal">
         <span class="pivot-badge">◆ Now building AI-powered apps</span>
-        <p>From 2017 to 2022, Fredrick worked as a licensed civil engineer — Project Engineer, Project Supervisor, and Design &amp; Engineering Operations In-Charge across four companies — running site inspections, structural QA/QC, cost estimation, and cross-functional coordination on live construction sites. He passed the civil engineering licensure exam in November 2016.</p>
+        <p>From 2017 to 2022, Fredrick worked as a licensed civil engineer - Project Engineer, Project Supervisor, and Design &amp; Engineering Operations In-Charge across four companies - running site inspections, structural QA/QC, cost estimation, and cross-functional coordination on live construction sites. He passed the civil engineering licensure exam in November 2016.</p>
         <p>In 2023 he rebuilt that foundation inside IT, applying the same inspect-before-you-trust discipline to enterprise systems: supporting network infrastructure at Accenture, then managing Tier-2 network and security operations for the Asian Development Bank project at Indra.</p>
-        <p>Today that discipline is pointed at a new frontier. He treats AI as a genuine collaborator in the build process — pairing with it on architecture decisions, data pipelines, and interface design — and is actively shipping two full applications this way: a hero-matchup analytics engine for Mobile Legends: Bang Bang, and a live cryptocurrency dashboard with its own ETL pipeline. The goal is a full move into AI engineering, building on an already-proven habit of verifying everything before it ships.</p>
+        <p>Today that discipline is pointed at a new frontier. He treats AI as a genuine collaborator in the build process - pairing with it on architecture decisions, data pipelines, and interface design - and is actively shipping two full applications this way: a hero-matchup analytics engine for Mobile Legends: Bang Bang, and a live cryptocurrency dashboard with its own ETL pipeline. The goal is a full move into AI engineering, building on an already-proven habit of verifying everything before it ships.</p>
         <div class="stat-strip">
           <div class="stat"><span class="num">6 yrs</span><span class="label">Civil engineering foundation</span></div>
           <div class="stat"><span class="num">2</span><span class="label">AI-assisted apps in active build</span></div>
           <div class="stat"><span class="num">1,000+</span><span class="label">Users supported in IT ops</span></div>
         </div>
         <div class="cred-strip">
-          <div class="cred-item"><span class="cred-when">2016</span><span>Licensed Civil Engineer — PRC License No. 0147997</span></div>
+          <div class="cred-item"><span class="cred-when">2016</span><span>Licensed Civil Engineer - PRC License No. 0147997</span></div>
           <div class="cred-item"><span class="cred-when">2023</span><span>Dell Boomi Associate &amp; Professional Integration Developer certifications</span></div>
-          <div class="cred-item"><span class="cred-when">Now</span><span>Self-directed study in AI engineering — prompting, agentic workflows, applied ML tooling</span></div>
+          <div class="cred-item"><span class="cred-when">Now</span><span>Self-directed study in AI engineering - prompting, agentic workflows, applied ML tooling</span></div>
         </div>
       </div>
     </div>
@@ -580,7 +616,7 @@
               <span class="status-pill current">May 2025 - Present</span>
               <span class="role-meta">Ortigas, Pasig City</span>
             </div>
-            <div class="role-org">INDRA — Asian Development Bank (ADB) Project</div>
+            <div class="role-org">INDRA - Asian Development Bank (ADB) Project</div>
             <ul>
               <li><strong>L2 network escalation &amp; incident resolution:</strong> Root-cause isolation for Zscaler connectivity, DNS conflicts, website whitelisting, and Wi-Fi/internet issues across ADB offices and remote setups.</li>
               <li><strong>ZPA firewall onboarding:</strong> Primary point of contact for Zscaler Private Access onboarding, coordinating access requirements between IT Security and the Network team.</li>
@@ -602,23 +638,23 @@
               <li><strong>Application portfolio management:</strong> Tier-2 support across 50+ enterprise applications, from high-security systems to niche low-volume tools.</li>
               <li><strong>Data &amp; integration troubleshooting:</strong> Investigated production data errors using Oracle SQL and Microsoft SQL, tracing pipelines through Dell Boomi and TIBCO.</li>
               <li><strong>Change management:</strong> Authored and executed Change Requests and Service Requests for backend updates and Windows Server / SQL Server upgrades with zero downtime.</li>
-              <li><strong>Incident coordination:</strong> Rotational Incident Coordinator for P1–P3 incidents, keeping global operations uninterrupted.</li>
+              <li><strong>Incident coordination:</strong> Rotational Incident Coordinator for P1 to P3 incidents, keeping global operations uninterrupted.</li>
               <li><strong>Vendor &amp; SME collaboration:</strong> Worked directly with client SMEs and third-party vendors on bug diagnosis and patch deployment.</li>
             </ul>
-            <div class="role-skills">Oracle SQL &amp; MS SQL · Dell Boomi / TIBCO · Incident Mgmt (P1–P3) · Change Mgmt (CHG/RITM) · Post-migration Config</div>
+            <div class="role-skills">Oracle SQL &amp; MS SQL · Dell Boomi / TIBCO · Incident Mgmt (P1 to P3) · Change Mgmt (CHG/RITM) · Post-migration Config</div>
           </div>
 
           <div class="role reveal">
             <div class="role-top">
-              <h3>Independent — AI-Assisted App Development</h3>
+              <h3>Independent - AI-Assisted App Development</h3>
               <span class="status-pill current">2025 - Present</span>
               <span class="role-meta">Self-directed</span>
             </div>
             <div class="role-org">Personal projects</div>
             <ul>
-              <li><strong>MLBB hero counter-pick analyzer:</strong> Multi-sheet scoring engine evaluating hero matchups across role advantage, stat differentials, damage type, power-spike timing, and hard-counter rules — now being scaled from Excel into a Supabase + Python web app.</li>
+              <li><strong>MLBB hero counter-pick analyzer:</strong> Multi-sheet scoring engine evaluating hero matchups across role advantage, stat differentials, damage type, power-spike timing, and hard-counter rules - now being scaled from Excel into a Supabase + Python web app.</li>
               <li><strong>Crypto market dashboard &amp; ETL pipeline:</strong> Dark-themed live dashboard with candlestick charts and technical indicators (SMA, RSI), backed by a Python/yfinance ingestion script and a GitHub Actions deployment pipeline to Supabase and GitHub Pages.</li>
-              <li><strong>Working method:</strong> Uses AI as an active collaborator across architecture decisions, debugging, and iteration — while retaining full ownership of data structure, formula logic, and quality review.</li>
+              <li><strong>Working method:</strong> Uses AI as an active collaborator across architecture decisions, debugging, and iteration - while retaining full ownership of data structure, formula logic, and quality review.</li>
             </ul>
             <div class="role-skills">Prompt Engineering · Python · Supabase · GitHub Actions · GitHub Pages · SQL · Excel/VBA Modeling</div>
           </div>
@@ -695,7 +731,7 @@
 
         <div class="pivot-note reveal">
           <h3>Why the pivot holds up</h3>
-          <p>Civil engineering trains you to inspect before you trust something — a beam, a wall, a login, a model's output. That habit is the reason this pivot didn't cost rigor; it just changed what he's inspecting.</p>
+          <p>Civil engineering trains you to inspect before you trust something - a beam, a wall, a login, a model's output. That habit is the reason this pivot didn't cost rigor; it just changed what he's inspecting.</p>
         </div>
       </div>
     </div>
@@ -709,61 +745,25 @@
         <h2>Shipped, and still shipping.</h2>
       </div>
 
-      <div class="projects-grid">
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Cards are generated from settings.txt. Add, edit, or remove a project there
+             and this grid rearranges itself, no HTML editing needed. -->
+      </div>
+    </div>
+  </section>
 
-        <article class="project-card reveal">
-          <span class="project-status">● In active development</span>
-          <h3>MLBB Hero Counter-Pick Analyzer</h3>
-          <p>A scoring engine that recommends the best counter-pick for any Mobile Legends: Bang Bang hero matchup — weighing role advantage, stat differentials, difficulty gap, damage type, power-spike timing, style matchup, and hard-counter rules. Started as a multi-sheet Excel workbook with 100+ dependent hard-counter rules; now being rebuilt as a full web app.</p>
-          <div class="project-tags">
-            <span>Excel / VBA</span>
-            <span>Python</span>
-            <span>Supabase</span>
-            <span>GitHub Pages</span>
-          </div>
-          <div class="project-links">
-            <!-- TODO: add your real demo/repo links -->
-            <a href="#" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
-              Demo
-            </a>
-            <a href="#" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
-              Code
-            </a>
-          </div>
-        </article>
+  <!-- ================= SITES I'VE BUILT ================= -->
+  <section id="sites" class="on-paper sites-section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Live on the web</span>
+        <h2>Sites I've built.</h2>
+        <p class="slate-text">A few projects and client sites built end to end, from layout to deployment.</p>
+      </div>
 
-        <article class="project-card reveal">
-          <span class="project-status">● Live</span>
-          <h3>Crypto Market Dashboard &amp; ETL Pipeline</h3>
-          <p>A dark-themed, real-time cryptocurrency dashboard with live candlestick charts and technical indicators (SMA, RSI). Backed by a Python ETL script that pulls OHLCV data via yfinance across daily, hourly, and 4-hour timeframes for five coins, upserting into Supabase through an automated GitHub Actions pipeline.</p>
-          <div class="project-tags">
-            <span>JavaScript</span>
-            <span>Python / yfinance</span>
-            <span>Supabase</span>
-            <span>GitHub Actions</span>
-          </div>
-          <div class="project-links">
-            <!-- TODO: add your real demo/repo links -->
-            <a href="#" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
-              Demo
-            </a>
-            <a href="#" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
-              Code
-            </a>
-          </div>
-        </article>
-
-        <!-- PROJECT CARD TEMPLATE — duplicate this whole <article> block to add a new project.
-             Fill in: status text, title, description, tags, and the two links. -->
-        <article class="project-card is-template reveal">
-          <h3>Your next project</h3>
-          <p class="slate-text">Duplicate this card in the HTML — title, description, tech tags, demo link, and GitHub link all follow the same structure as the cards above.</p>
-        </article>
-
+      <div class="sites-grid" id="sitesGrid">
+        <!-- Cards are generated from settings.txt. Add or remove a SITE block there
+             and this grid rearranges itself, no HTML editing needed. -->
       </div>
     </div>
   </section>
@@ -795,7 +795,7 @@
         <div class="skill-group reveal">
           <h3>Network &amp; Systems</h3>
           <ul class="skill-list">
-            <li>Zscaler VPN — Tier 2 support <span class="bar"><span style="width:92%"></span></span></li>
+            <li>Zscaler VPN - Tier 2 support <span class="bar"><span style="width:92%"></span></span></li>
             <li>ServiceNow &amp; Active Directory <span class="bar"><span style="width:88%"></span></span></li>
             <li>Windows Server, SQL Server, Dell Boomi <span class="bar"><span style="width:80%"></span></span></li>
           </ul>
@@ -817,21 +817,21 @@
     <div class="wrap reveal">
       <span class="eyebrow">Open channel</span>
       <h2>Let's build something with AI.</h2>
-      <p class="slate-text">Based in Biñan, Laguna — open to AI engineering, AI-assisted application development, and integration roles.</p>
+      <p class="slate-text" data-link-text="location">Based in Biñan, Laguna - open to AI engineering, AI-assisted application development, and integration roles.</p>
       <div class="contact-links">
-        <a href="mailto:fredrickmahinay18@gmail.com">fredrickmahinay18@gmail.com</a>
-        <a href="tel:+639610030671">0961 003 0671</a>
+        <a href="mailto:fredrickmahinay18@gmail.com" data-link="email" data-link-text="email">fredrickmahinay18@gmail.com</a>
+        <a href="tel:+639610030671" data-link="phone" data-link-text="phone">0961 003 0671</a>
       </div>
       <div class="contact-socials">
         <div class="social-row">
           <!-- TODO: replace # with your real profile URLs -->
-          <a class="social-btn" href="#" aria-label="GitHub profile" target="_blank" rel="noopener">
+          <a class="social-btn" href="#" data-link="github" aria-label="GitHub profile" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
           </a>
-          <a class="social-btn" href="#" aria-label="LinkedIn profile" target="_blank" rel="noopener">
+          <a class="social-btn" href="#" data-link="linkedin" aria-label="LinkedIn profile" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
           </a>
-          <a class="social-btn" href="#" aria-label="Facebook profile" target="_blank" rel="noopener">
+          <a class="social-btn" href="#" data-link="facebook" aria-label="Facebook profile" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
           </a>
         </div>
@@ -844,17 +844,17 @@
 <footer>
   <div class="social-row">
     <!-- TODO: replace # with your real profile URLs -->
-    <a class="social-btn" href="#" aria-label="GitHub profile" target="_blank" rel="noopener">
+    <a class="social-btn" href="#" data-link="github" aria-label="GitHub profile" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
     </a>
-    <a class="social-btn" href="#" aria-label="LinkedIn profile" target="_blank" rel="noopener">
+    <a class="social-btn" href="#" data-link="linkedin" aria-label="LinkedIn profile" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
     </a>
-    <a class="social-btn" href="#" aria-label="Facebook profile" target="_blank" rel="noopener">
+    <a class="social-btn" href="#" data-link="facebook" aria-label="Facebook profile" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
     </a>
   </div>
-  <div class="foot-mark">FREDRICK MAHINAY — BUILDING WITH AI — 2026</div>
+  <div class="foot-mark">FREDRICK MAHINAY - BUILDING WITH AI - 2026</div>
 </footer>
 
 <script>
@@ -892,23 +892,230 @@
     });
   })();
 
-  // Scroll reveal
-  (function(){
-    const items = document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){
-      items.forEach(el => el.classList.add('in'));
+  // ------------------------------------------------------------------
+  // Scroll reveal - reusable so cards built later (projects, sites)
+  // fade in the same way as everything else on the page.
+  // ------------------------------------------------------------------
+  const revealIO = ('IntersectionObserver' in window)
+    ? new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('in');
+            revealIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 })
+    : null;
+
+  function observeReveal(el){
+    if(revealIO){ revealIO.observe(el); }
+    else{ el.classList.add('in'); }
+  }
+
+  document.querySelectorAll('.reveal').forEach(observeReveal);
+
+  // ------------------------------------------------------------------
+  // SETTINGS: everything that changes often (links, email, phone,
+  // the project list, and the sites showcase) lives in settings.txt
+  // so it can be edited without touching any HTML or CSS.
+  //
+  // settings.txt is fetched at page load. If the file can't be
+  // reached (for instance when the page is opened directly from a
+  // folder instead of being served by a web server) the page falls
+  // back to the defaults built into FALLBACK_SETTINGS below, so the
+  // site never breaks, it just won't reflect settings.txt edits
+  // until it's served properly (any static host, including GitHub
+  // Pages, works fine).
+  // ------------------------------------------------------------------
+  const FALLBACK_SETTINGS = `
+EMAIL = fredrickmahinay18@gmail.com
+PHONE_DISPLAY = 0961 003 0671
+PHONE_LINK = +639610030671
+LOCATION = Based in Bi\u00f1an, Laguna. Open to AI engineering, AI-assisted application development, and integration roles.
+GITHUB = #
+LINKEDIN = #
+FACEBOOK = #
+
+PROJECT_START
+STATUS = In active development
+TITLE = MLBB Hero Counter-Pick Analyzer
+DESCRIPTION = A scoring engine that recommends the best counter-pick for any Mobile Legends: Bang Bang hero matchup, weighing role advantage, stat differentials, difficulty gap, damage type, power-spike timing, style matchup, and hard-counter rules. Started as a multi-sheet Excel workbook with 100+ dependent hard-counter rules, now being rebuilt as a full web app.
+TAGS = Excel / VBA, Python, Supabase, GitHub Pages
+DEMO_LINK = #
+CODE_LINK = #
+PROJECT_END
+
+PROJECT_START
+STATUS = Live
+TITLE = Crypto Market Dashboard & ETL Pipeline
+DESCRIPTION = A dark-themed, real-time cryptocurrency dashboard with live candlestick charts and technical indicators (SMA, RSI). Backed by a Python ETL script that pulls OHLCV data via yfinance across daily, hourly, and 4-hour timeframes for five coins, upserting into Supabase through an automated GitHub Actions pipeline.
+TAGS = JavaScript, Python / yfinance, Supabase, GitHub Actions
+DEMO_LINK = #
+CODE_LINK = #
+PROJECT_END
+`;
+
+  // A calm placeholder image (no outside network request) shown until
+  // a real screenshot is added, or if an IMAGE link fails to load.
+  const PLACEHOLDER_IMG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#dad5c7"/>
+          <stop offset="1" stop-color="#c8c2b2"/>
+        </linearGradient>
+      </defs>
+      <rect width="600" height="375" fill="url(#g)"/>
+      <g fill="none" stroke="#5b3fd6" stroke-width="1.6" stroke-linecap="round" opacity="0.55">
+        <circle cx="300" cy="168" r="34"/>
+        <path d="M300 134 L300 202 M266 168 L334 168"/>
+      </g>
+      <text x="300" y="240" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#5b3fd6" opacity="0.7">PREVIEW COMING SOON</text>
+    </svg>
+  `);
+
+  function escapeHtml(str){
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  // Parses the block-based settings.txt format:
+  //   KEY = value                (top level -> links/contact info)
+  //   PROJECT_START ... PROJECT_END   (repeatable project blocks)
+  //   SITE_START ... SITE_END         (repeatable site blocks)
+  function parseSettings(text){
+    const data = { links: {}, projects: [], sites: [] };
+    let block = null;
+    text.replace(/\r\n/g, '\n').split('\n').forEach(rawLine => {
+      const line = rawLine.trim();
+      if(!line || line.startsWith('#')) return;
+      if(line === 'PROJECT_START'){ block = { type:'project', obj:{} }; return; }
+      if(line === 'PROJECT_END'){ if(block) data.projects.push(block.obj); block = null; return; }
+      if(line === 'SITE_START'){ block = { type:'site', obj:{} }; return; }
+      if(line === 'SITE_END'){ if(block) data.sites.push(block.obj); block = null; return; }
+      const eq = line.indexOf('=');
+      if(eq === -1) return;
+      const key = line.slice(0, eq).trim();
+      const value = line.slice(eq + 1).trim();
+      if(block){ block.obj[key] = value; }
+      else{ data.links[key] = value; }
+    });
+    return data;
+  }
+
+  async function loadSettings(){
+    try{
+      const res = await fetch('settings.txt', { cache: 'no-store' });
+      if(!res.ok) throw new Error('settings.txt not found (' + res.status + ')');
+      const text = await res.text();
+      return parseSettings(text);
+    }catch(err){
+      console.warn('Using built-in default settings because settings.txt could not be loaded. ' +
+        'This is expected if you are previewing the file locally by double-clicking it ' +
+        'instead of through a web server or GitHub Pages.', err);
+      return parseSettings(FALLBACK_SETTINGS);
+    }
+  }
+
+  function renderLinks(links){
+    document.querySelectorAll('[data-link="github"]').forEach(a => { a.href = links.GITHUB || '#'; });
+    document.querySelectorAll('[data-link="linkedin"]').forEach(a => { a.href = links.LINKEDIN || '#'; });
+    document.querySelectorAll('[data-link="facebook"]').forEach(a => { a.href = links.FACEBOOK || '#'; });
+    document.querySelectorAll('[data-link="email"]').forEach(a => {
+      const email = links.EMAIL || '';
+      a.href = email ? ('mailto:' + email) : '#';
+      a.textContent = email;
+    });
+    document.querySelectorAll('[data-link="phone"]').forEach(a => {
+      a.href = links.PHONE_LINK ? ('tel:' + links.PHONE_LINK) : '#';
+      a.textContent = links.PHONE_DISPLAY || '';
+    });
+    document.querySelectorAll('[data-link-text="location"]').forEach(el => {
+      el.textContent = links.LOCATION || '';
+    });
+  }
+
+  const ICON_DEMO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>';
+  const ICON_GITHUB = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>';
+  const ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>';
+
+  function renderProjects(projects){
+    const grid = document.getElementById('projectsGrid');
+    if(!grid) return;
+    grid.innerHTML = '';
+
+    if(!projects.length){
+      const empty = document.createElement('div');
+      empty.className = 'empty-card reveal';
+      empty.innerHTML = '<h3>No projects listed yet</h3><p>Add a PROJECT_START / PROJECT_END block in settings.txt to feature one here.</p>';
+      grid.appendChild(empty);
+      observeReveal(empty);
       return;
     }
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    items.forEach(el => io.observe(el));
-  })();
+
+    projects.forEach(p => {
+      const tags = (p.TAGS || '').split(',').map(t => t.trim()).filter(Boolean);
+      const art = document.createElement('article');
+      art.className = 'project-card reveal';
+      art.innerHTML = `
+        <span class="project-status">\u25CF ${escapeHtml(p.STATUS || '')}</span>
+        <h3>${escapeHtml(p.TITLE || '')}</h3>
+        <p>${escapeHtml(p.DESCRIPTION || '')}</p>
+        <div class="project-tags">${tags.map(t => `<span>${escapeHtml(t)}</span>`).join('')}</div>
+        <div class="project-links">
+          <a href="${escapeHtml(p.DEMO_LINK || '#')}" target="_blank" rel="noopener">${ICON_DEMO} Demo</a>
+          <a href="${escapeHtml(p.CODE_LINK || '#')}" target="_blank" rel="noopener">${ICON_GITHUB} Code</a>
+        </div>
+      `;
+      grid.appendChild(art);
+      observeReveal(art);
+    });
+  }
+
+  function renderSites(sites){
+    const grid = document.getElementById('sitesGrid');
+    if(!grid) return;
+    grid.innerHTML = '';
+
+    if(!sites.length){
+      const empty = document.createElement('div');
+      empty.className = 'empty-card reveal';
+      empty.innerHTML = '<h3>No sites listed yet</h3><p>Add a SITE_START / SITE_END block in settings.txt with a name, link, image, and short description to feature it here.</p>';
+      grid.appendChild(empty);
+      observeReveal(empty);
+      return;
+    }
+
+    sites.forEach(s => {
+      const image = (s.IMAGE || '').trim() || PLACEHOLDER_IMG;
+      const link = s.LINK || '#';
+      const art = document.createElement('article');
+      art.className = 'site-card reveal';
+      art.innerHTML = `
+        <a class="site-thumb" href="${escapeHtml(link)}" target="_blank" rel="noopener">
+          <img src="${escapeHtml(image)}" alt="${escapeHtml(s.NAME || 'Site preview')}" loading="lazy">
+        </a>
+        <div class="site-body">
+          <h3>${escapeHtml(s.NAME || '')}</h3>
+          <p>${escapeHtml(s.DESCRIPTION || '')}</p>
+          <a class="site-visit" href="${escapeHtml(link)}" target="_blank" rel="noopener">Visit site ${ICON_ARROW}</a>
+        </div>
+      `;
+      const img = art.querySelector('img');
+      img.addEventListener('error', () => { img.src = PLACEHOLDER_IMG; }, { once: true });
+      grid.appendChild(art);
+      observeReveal(art);
+    });
+  }
+
+  loadSettings().then(settings => {
+    renderLinks(settings.links);
+    renderProjects(settings.projects);
+    renderSites(settings.sites);
+  });
 </script>
 
 </body>

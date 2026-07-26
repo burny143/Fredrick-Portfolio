@@ -1,0 +1,112 @@
+# ============================================================
+# SITE SETTINGS
+# ============================================================
+# This is the one file you should need to touch for day to day
+# updates: contact info, social links, the projects list, and
+# the sites showcase. The page reads this file when it loads.
+#
+# HOW TO EDIT
+#   - Change anything after the "=" sign. Leave the part before
+#     the "=" alone, that's how the page finds each value.
+#   - Lines starting with # are just notes for you. The page
+#     ignores them completely, edit or delete them freely.
+#   - Leave a value blank to use the built in placeholder
+#     (mainly useful for IMAGE, see the SITES section below).
+#
+# HEADS UP ON LOCAL PREVIEW
+#   Browsers won't let a page opened by double-clicking (a
+#   file:// address) read another file next to it, that's a
+#   security rule, not a bug in this site. If you open index.html
+#   directly and your edits here don't show up, that's why. Two
+#   easy fixes:
+#     1) Upload both files to GitHub Pages (or any web host) and
+#        view it there, this works perfectly.
+#     2) Preview locally with a tiny local server, for example
+#        running "python3 -m http.server" in this folder and then
+#        opening http://localhost:8000 in your browser.
+#   Either way, the page never breaks, it just falls back to its
+#   built in defaults until it can read this file.
+# ============================================================
+
+
+# ---------------- CONTACT INFO ----------------
+EMAIL = fredrickmahinay18@gmail.com
+PHONE_DISPLAY = 0961 003 0671
+PHONE_LINK = +639610030671
+LOCATION = Based in Biñan, Laguna. Open to AI engineering, AI-assisted application development, and integration roles.
+
+
+# ---------------- SOCIAL LINKS ----------------
+# Replace # with your real profile URLs, for example:
+# GITHUB = https://github.com/burny143
+GITHUB = https://github.com/burny143
+LINKEDIN = https://www.linkedin.com/in/fredrick-mahinay-62a4a8358/
+FACEBOOK = https://www.facebook.com/fredrick.mahinay/
+
+
+# ============================================================
+# PROJECTS
+# ============================================================
+# Each project lives between PROJECT_START and PROJECT_END.
+#   - To add a project: copy a whole block below (both the
+#     PROJECT_START and PROJECT_END lines), paste it, and fill
+#     in your own details.
+#   - To remove a project: delete its whole block.
+#   - The grid on the page rearranges itself automatically,
+#     no other editing needed.
+#   - TAGS is a comma separated list, it can be as short or long
+#     as you like.
+# ============================================================
+
+PROJECT_START
+STATUS = Live
+TITLE = MLBB Hero Counter-Pick Analyzer
+DESCRIPTION = A scoring engine that recommends the best counter-pick for any Mobile Legends: Bang Bang hero matchup, weighing role advantage, stat differentials, difficulty gap, damage type, power-spike timing, style matchup, and hard-counter rules. Started as a multi-sheet Excel workbook with 100+ dependent hard-counter rules, now being rebuilt as a full web app.
+TAGS = Excel / VBA, Python, Supabase, GitHub Pages
+DEMO_LINK = #
+CODE_LINK = #
+PROJECT_END
+
+PROJECT_START
+STATUS = In active development
+TITLE = Crypto Market Dashboard & ETL Pipeline
+DESCRIPTION = A dark-themed, real-time cryptocurrency dashboard with live candlestick charts and technical indicators (SMA, RSI). Backed by a Python ETL script that pulls OHLCV data via yfinance across daily, hourly, and 4-hour timeframes for five coins, upserting into Supabase through an automated GitHub Actions pipeline.
+TAGS = JavaScript, Python / yfinance, Supabase, GitHub Actions
+DEMO_LINK = #
+CODE_LINK = #
+PROJECT_END
+
+
+# ============================================================
+# SITES YOU'VE BUILT (image, name, link, short description)
+# ============================================================
+# Same idea as PROJECTS above: copy a whole SITE_START to
+# SITE_END block to add a site, delete a whole block to remove
+# one. The showcase grid rearranges itself automatically.
+#
+#   NAME        the site's name
+#   IMAGE       a link to a screenshot or preview image. Leave
+#               blank to show a placeholder graphic until you
+#               have one ready.
+#   LINK        the live URL people should be sent to
+#   DESCRIPTION one or two short sentences about what it does
+#
+# Two starter examples are below, replace them with your real
+# sites (or delete both blocks if you don't want this section
+# to show anything yet, it will display a friendly empty note
+# instead).
+# ============================================================
+
+SITE_START
+NAME = Your site name here
+IMAGE =
+LINK = #
+DESCRIPTION = A short one or two sentence description of what this site is and who it's for.
+SITE_END
+
+SITE_START
+NAME = Another site name here
+IMAGE =
+LINK = #
+DESCRIPTION = Swap this out for a real project, or delete this whole block if you only have one to show right now.
+SITE_END
