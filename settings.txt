@@ -76,37 +76,3 @@ DEMO_LINK = https://github.com/burny143/crypto-etl
 CODE_LINK = https://burny143.github.io/crypto-etl/
 PROJECT_END
 
-
-# ============================================================
-# SITES YOU'VE BUILT (image, name, link, short description)
-# ============================================================
-# Same idea as PROJECTS above: copy a whole SITE_START to
-# SITE_END block to add a site, delete a whole block to remove
-# one. The showcase grid rearranges itself automatically.
-#
-#   NAME        the site's name
-#   IMAGE       a link to a screenshot or preview image. Leave
-#               blank to show a placeholder graphic until you
-#               have one ready.
-#   LINK        the live URL people should be sent to
-#   DESCRIPTION one or two short sentences about what it does
-#
-# Two starter examples are below, replace them with your real
-# sites (or delete both blocks if you don't want this section
-# to show anything yet, it will display a friendly empty note
-# instead).
-# ============================================================
-
-SITE_START
-NAME = Your site name here
-IMAGE = 
-LINK = #
-DESCRIPTION = A short one or two sentence description of what this site is and who it's for.
-SITE_END
-
-SITE_START
-NAME = Another site name here
-IMAGE =
-LINK = #
-DESCRIPTION = Swap this out for a real project, or delete this whole block if you only have one to show right now.
-SITE_END

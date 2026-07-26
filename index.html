@@ -474,7 +474,6 @@
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
-      <a href="#sites">Sites</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -747,22 +746,6 @@
 
       <div class="projects-grid" id="projectsGrid">
         <!-- Cards are generated from settings.txt. Add, edit, or remove a project there
-             and this grid rearranges itself, no HTML editing needed. -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SITES I'VE BUILT ================= -->
-  <section id="sites" class="on-paper sites-section">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Live on the web</span>
-        <h2>Sites I've built.</h2>
-        <p class="slate-text">A few projects and client sites built end to end, from layout to deployment.</p>
-      </div>
-
-      <div class="sites-grid" id="sitesGrid">
-        <!-- Cards are generated from settings.txt. Add or remove a SITE block there
              and this grid rearranges itself, no HTML editing needed. -->
       </div>
     </div>
@@ -1114,7 +1097,6 @@ PROJECT_END
   loadSettings().then(settings => {
     renderLinks(settings.links);
     renderProjects(settings.projects);
-    renderSites(settings.sites);
   });
 </script>
 
