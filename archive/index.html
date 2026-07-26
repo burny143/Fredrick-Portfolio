@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fredrick Mahinay, Network Support &amp; Systems Engineer</title>
+    <meta name="description" content="Fredrick Mahinay, Network Support Engineer at Indra (Asian Development Bank project). From licensed civil engineer to enterprise network &amp; systems specialist.">
+
+<!--
+  ============================================================
+  DESIGN CONCEPT
+  ============================================================
+  Fredrick's story is a pivot: six years laying foundations as a
+  licensed civil engineer, then a rebuild into enterprise network
+  and systems support - VPN tunnels, incident queues, server
+  upgrades. Nothing about that arc is generic, so the site is
+  built around a single visual idea: the CYANOTYPE BLUEPRINT.
+
+  Blueprints are how civil engineers draw before they build, and
+  "blueprint" is also exactly the right word for network topology
+  diagrams. The hero opens with one continuous line drawing that
+  starts as a site-plan foundation and resolves into a network
+  diagram - the pivot, drawn once, without a word of explanation
+  needed.
+
+  PALETTE
+    --ink        #0B121C  deep drafting-table navy (dark sections)
+    --cyan       #4FB8C9  cyanotype blueprint line
+    --amber      #E2A33B  signal / status accent (used sparingly)
+    --paper      #EDF1EC  cool graph-paper white (light sections -
+                          deliberately NOT warm cream, to avoid the
+                          templated "cream + terracotta" look)
+    --paper-ink  #10151F  text on paper sections
+    --slate      #8D9AAE  muted secondary text
+
+  TYPE
+    Display : "Fraunces"      - soft structural serif, used only
+                                 for the hero line and section titles
+    Body    : "Inter"          - clean, high-legibility working text
+Utility : "IBM Plex Mono" - timestamps, status pills, labels -
+                                  the "terminal / ticket log" voice
+
+  SIGNATURE ELEMENT
+    The hero blueprint-to-topology line drawing, and its echo: the
+    experience timeline is styled like a status log (ACTIVE /
+    RESOLVED pills + monospace date ranges) rather than arbitrary
+    01/02/03 numbering, because that's literally how his job runs -
+    tickets that are open or closed.
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink: #0B121C;
+    --ink-raised: #121b29;
+    --cyan: #4FB8C9;
+    --cyan-dim: #4fb8c94d;
+    --amber: #E2A33B;
+    --paper: #EDF1EC;
+    --paper-raised: #E3E9E1;
+    --paper-ink: #10151F;
+    --slate: #8D9AAE;
+    --slate-on-paper: #5b6676;
+    --line: rgba(255,255,255,0.09);
+    --line-paper: rgba(16,21,31,0.1);
+    --maxw: 1120px;
+    --pad: clamp(1.25rem, 5vw, 3.5rem);
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *,*::before,*::after{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background: var(--ink);
+    color: #DCE3EA;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,h2,h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    line-height: 1.08;
+    margin: 0 0 0.5em;
+    letter-spacing: -0.01em;
+  }
+
+  em{ font-style: italic; color: var(--cyan); }
+
+  a{ color: inherit; }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+  }
+  .eyebrow::before{
+    content: "";
+    width: 22px; height: 1px;
+    background: var(--cyan);
+    display: inline-block;
+  }
+  section.on-paper .eyebrow{ color: #2f7883; }
+  section.on-paper .eyebrow::before{ background: #2f7883; }
+
+  .wrap{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+
+  :focus-visible{
+    outline: 2px solid var(--amber);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* ---------------- NAV ---------------- */
+  header.site-nav{
+    position: fixed; top:0; left:0; right:0; z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(11,18,28,0.72);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad);
+    display:flex; align-items:center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-mark{
+    font-family:'IBM Plex Mono'; font-size:0.85rem; letter-spacing:0.08em;
+    color:#fff; text-decoration:none;
+  }
+  .nav-mark b{ color: var(--cyan); }
+  nav.nav-links{ display:flex; gap: 1.75rem; }
+  nav.nav-links a{
+    font-family:'IBM Plex Mono'; font-size:0.72rem; letter-spacing:0.08em;
+    text-transform: uppercase; text-decoration:none; color: var(--slate);
+    transition: color .2s ease;
+  }
+  nav.nav-links a:hover{ color: var(--cyan); }
+  @media (max-width: 640px){ nav.nav-links{ display:none; } }
+
+  /* ---------------- HERO ---------------- */
+  .hero{
+    position: relative;
+    min-height: 100svh;
+    display:flex; align-items:center;
+    padding-top: 96px; padding-bottom: 4rem;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 85% 12%, rgba(79,184,201,0.10), transparent 45%),
+      var(--ink);
+  }
+  .hero::before{ /* graph-paper grid */
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 42px 42px;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 78%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 78%);
+    opacity: 0.5;
+    pointer-events:none;
+  }
+  .hero-grid{
+    position: relative; z-index: 1;
+    display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem;
+    align-items:center;
+    width:100%;
+  }
+  @media (max-width: 880px){ .hero-grid{ grid-template-columns: 1fr; } }
+
+  .hero h1{
+    font-size: clamp(2.4rem, 5.4vw, 4.1rem);
+    color:#fff;
+    max-width: 14ch;
+  }
+  .hero-sub{
+    max-width: 46ch;
+    color: var(--slate);
+    font-size: 1.05rem;
+    margin-top: 1.1rem;
+  }
+  .hero-cta{ display:flex; gap:0.9rem; margin-top: 2rem; flex-wrap: wrap; }
+  .btn{
+    font-family:'IBM Plex Mono'; font-size: 0.78rem; letter-spacing:0.06em;
+    text-transform: uppercase; text-decoration:none;
+    padding: 0.9em 1.4em; border-radius: 3px;
+    display:inline-flex; align-items:center; gap: 0.5em;
+    transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  }
+  .btn-primary{ background: var(--cyan); color: #071016; }
+  .btn-primary:hover{ transform: translateY(-2px); background:#63c9d8; }
+  .btn-ghost{ border: 1px solid var(--line); color: #fff; }
+  .btn-ghost:hover{ border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
+
+  /* signature schematic */
+  .schematic-wrap{
+    position:relative;
+    aspect-ratio: 1 / 1;
+    max-width: 420px;
+    justify-self: center;
+  }
+  .schematic-wrap svg{ width:100%; height:100%; overflow: visible; }
+  .schem-line{
+    fill:none; stroke: var(--cyan); stroke-width: 1.6;
+    stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 900; stroke-dashoffset: 900;
+    animation: draw 3.2s ease forwards 0.3s;
+  }
+  .schem-line.dim{ stroke: rgba(79,184,201,0.35); stroke-width:1; }
+  .schem-node{ fill: var(--ink); stroke: var(--cyan); stroke-width: 1.6; opacity:0; animation: fadeIn .6s ease forwards; }
+  .schem-node.amber{ stroke: var(--amber); }
+  .schem-label{ font-family:'IBM Plex Mono'; font-size: 7px; fill: var(--slate); opacity:0; animation: fadeIn .6s ease forwards; }
+  @keyframes draw{ to{ stroke-dashoffset: 0; } }
+  @keyframes fadeIn{ to{ opacity:1; } }
+
+  /* ---------------- AVATAR ---------------- */
+  .avatar{
+    width: 132px; height:132px; border-radius: 6px;
+    border: 1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden; position:relative;
+    background: linear-gradient(160deg, var(--ink-raised), var(--ink));
+    margin-bottom: 1.6rem;
+  }
+  .avatar img{ width:100%; height:100%; object-fit: cover; display:none; }
+  .avatar .monogram{
+    font-family:'Fraunces'; font-size: 2.1rem; color: var(--cyan);
+  }
+  .avatar .corner{ position:absolute; width:10px; height:10px; border: 1.5px solid var(--cyan); opacity:0.7; }
+  .avatar .corner.tl{ top:6px; left:6px; border-right:none; border-bottom:none; }
+  .avatar .corner.br{ bottom:6px; right:6px; border-left:none; border-top:none; }
+
+  /* ---------------- SECTIONS ---------------- */
+  section{ padding: clamp(4rem, 9vw, 7rem) 0; position: relative; }
+  section.on-paper{ background: var(--paper); color: var(--paper-ink); }
+  section.on-paper .slate-text{ color: var(--slate-on-paper); }
+  .slate-text{ color: var(--slate); }
+
+  .section-head{ max-width: 62ch; margin-bottom: 3rem; }
+  .section-head h2{ font-size: clamp(1.7rem, 3.4vw, 2.5rem); margin-top: 0.5rem; }
+
+  /* ---- About ---- */
+  .about-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items:start; }
+  @media (max-width: 800px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-grid p{ margin: 0 0 1.15em; font-size: 1.02rem; }
+  .about-grid p:last-child{ margin-bottom:0; }
+  .pivot-badge{
+    display:inline-flex; align-items:center; gap:0.6em;
+    font-family:'IBM Plex Mono'; font-size: 0.72rem; letter-spacing: 0.08em;
+    text-transform:uppercase; color:#2f7883;
+    border: 1px solid rgba(47,120,131,0.35); border-radius: 3px;
+    padding: 0.45em 0.8em; margin-bottom: 1.4rem;
+  }
+  .stat-strip{ display:grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.2rem; }
+  .stat{ border-left: 2px solid rgba(47,120,131,0.3); padding-left: 1rem; }
+  .stat .num{ font-family:'Fraunces'; font-size: 2rem; color:#10151F; display:block; }
+  .stat .label{ font-family:'IBM Plex Mono'; font-size: 0.68rem; letter-spacing:0.05em; text-transform:uppercase; color: var(--slate-on-paper); }
+  @media (max-width: 520px){ .stat-strip{ grid-template-columns: 1fr; } }
+
+  /* ---- Experience timeline ---- */
+  .timeline{ position:relative; margin-top: 1rem; }
+  .timeline::before{
+    content:""; position:absolute; left: 0; top:6px; bottom: 6px; width:1px;
+    background: linear-gradient(to bottom, var(--cyan), transparent);
+  }
+  .role{ position:relative; padding: 0 0 2.6rem 2.2rem; }
+  .role:last-child{ padding-bottom:0; }
+  .role::before{
+    content:""; position:absolute; left:-4px; top:6px; width:9px; height:9px;
+    border-radius: 50%; background: var(--ink); border: 1.5px solid var(--cyan);
+  }
+  .role.active::before{ background: var(--cyan); box-shadow: 0 0 0 4px var(--cyan-dim); }
+  .role-top{ display:flex; flex-wrap:wrap; align-items: baseline; gap: 0.8em 1em; margin-bottom: 0.35rem; }
+  .role-top h3{ font-size: 1.3rem; color:#fff; margin:0; }
+  .role-meta{ font-family:'IBM Plex Mono'; font-size: 0.7rem; letter-spacing:0.05em; color: var(--slate); }
+  .status-pill{
+    font-family:'IBM Plex Mono'; font-size: 0.62rem; letter-spacing:0.08em; text-transform:uppercase;
+    padding: 0.25em 0.6em; border-radius: 2px; border:1px solid;
+  }
+  .status-pill.active{ color: var(--amber); border-color: rgba(226,163,59,0.45); background: rgba(226,163,59,0.08); }
+  .status-pill.resolved{ color: var(--slate); border-color: var(--line); }
+  .role-org{ font-family:'IBM Plex Mono'; font-size: 0.78rem; color: #6fc7d4; margin-bottom: 0.9rem; }
+  .role ul{ margin: 0; padding-left: 1.1rem; color: #C4CCD6; }
+  .role li{ margin-bottom: 0.5rem; }
+  .role li::marker{ color: var(--cyan); }
+
+  .pivot-note{
+    margin-top: 2.6rem; padding: 1.4rem 1.6rem; border-left: 2px solid var(--amber);
+    background: rgba(226,163,59,0.05); border-radius: 0 4px 4px 0;
+  }
+  .pivot-note h3{ font-size: 1rem; color:#fff; margin-bottom: 0.4rem;}
+  .pivot-note p{ margin:0; color: var(--slate); font-size: 0.94rem; }
+
+  /* ---- Impact cards ---- */
+  .impact-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+  @media (max-width: 880px){ .impact-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){ .impact-grid{ grid-template-columns: 1fr; } }
+  .impact-card{
+    background: var(--paper-raised); border-radius: 6px; padding: 1.7rem 1.5rem;
+    border: 1px solid var(--line-paper);
+  }
+  .impact-card .tag{ font-family:'IBM Plex Mono'; font-size:0.65rem; letter-spacing:0.06em; text-transform:uppercase; color:#2f7883; }
+  .impact-card h3{ font-size: 1.15rem; margin: 0.5rem 0 0.5rem; color: var(--paper-ink); }
+  .impact-card p{ margin:0; font-size: 0.92rem; color: var(--slate-on-paper); }
+
+  /* ---- Skills ---- */
+  .skills-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem 3rem; }
+  @media (max-width: 700px){ .skills-grid{ grid-template-columns: 1fr; } }
+  .skill-group h3{
+    font-family:'IBM Plex Mono'; font-size: 0.78rem; letter-spacing:0.08em; text-transform:uppercase;
+    color: var(--cyan); font-weight:500; margin-bottom: 1rem;
+  }
+  .skill-list{ list-style:none; margin:0; padding:0; }
+  .skill-list li{
+    display:flex; justify-content:space-between; align-items:center;
+    padding: 0.7em 0; border-bottom: 1px solid var(--line);
+    font-size: 0.95rem;
+  }
+  .skill-list li:last-child{ border-bottom:none; }
+  .skill-list .bar{ width: 90px; height:3px; background: var(--line); position:relative; border-radius:2px; overflow:hidden; }
+  .skill-list .bar span{ position:absolute; left:0; top:0; bottom:0; background: var(--cyan); border-radius:2px; }
+
+  /* ---- Education / certs ---- */
+  .cred-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 0.5rem; }
+  @media (max-width: 880px){ .cred-grid{ grid-template-columns: 1fr; } }
+  .cred-card{ border: 1px solid var(--line-paper); border-radius: 6px; padding: 1.5rem; background: #fff; }
+  .cred-card .eyebrow{ margin-bottom: 0.6rem; }
+  .cred-card h3{ font-size: 1.05rem; margin: 0 0 0.3rem; color: var(--paper-ink); }
+  .cred-card p{ margin:0; font-size:0.85rem; color: var(--slate-on-paper); font-family:'IBM Plex Mono'; }
+
+  /* ---- Contact ---- */
+  .contact{ background: var(--ink); text-align:center; }
+  .contact .wrap{ max-width: 720px; }
+  .contact h2{ font-size: clamp(2rem, 5vw, 3.2rem); color:#fff; }
+  .contact-links{ display:flex; justify-content:center; gap:1.2rem; margin-top: 2.4rem; flex-wrap:wrap; }
+  .contact-links a{
+    font-family:'IBM Plex Mono'; font-size:0.82rem; text-decoration:none; color: var(--slate);
+    border:1px solid var(--line); padding: 0.9em 1.3em; border-radius:3px;
+    transition: all .2s ease;
+  }
+  .contact-links a:hover{ color: var(--cyan); border-color: var(--cyan); transform: translateY(-2px); }
+
+  footer{ padding: 2.4rem var(--pad); text-align:center; font-family:'IBM Plex Mono'; font-size:0.7rem; color: var(--slate); letter-spacing:0.04em; }
+
+  /* reveal-on-scroll */
+  .reveal{ opacity:0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform: none; }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">FM<b>.</b>DRAFT&nbsp;→&nbsp;NETWORK</a>
+    <nav class="nav-links" aria-label="Section navigation">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#impact">Impact</a>
+      <a href="#skills">Skills</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Technology enthusiast and lifelong learner</span>
+        <h1>Building <em>AI-powered projects</em> with passion.</h1>
+        <p class="hero-sub">Fredrick Mahinay - graduated from Technological University of the Philippines with a B.S. in Civil Engineering (PRC License No. 0147997). After 6 years in construction (2017-2022), I transitioned to IT in 2023, bringing engineering precision to enterprise systems. Currently focused on AI applications, database integrations, and automation.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost" href="#experience">See the work</a>
+        </div>
+      </div>
+
+      <div class="schematic-wrap" aria-hidden="true">
+        <!-- Signature element: network topology diagram -->
+        <svg viewBox="0 0 400 400">
+          <!-- network topology -->
+          <path class="schem-line" d="M200,120 L300,120 L300,70" style="animation-delay:1.4s" />
+          <path class="schem-line" d="M200,120 L360,150" style="animation-delay:1.5s" />
+          <path class="schem-line" d="M200,120 L250,230" style="animation-delay:1.7s" />
+
+          <circle class="schem-node amber" cx="300" cy="120" r="5" style="animation-delay:1.1s" />
+          <circle class="schem-node" cx="300" cy="70" r="4" style="animation-delay:1.9s" />
+          <circle class="schem-node" cx="360" cy="150" r="4" style="animation-delay:2s" />
+          <circle class="schem-node" cx="250" cy="230" r="4" style="animation-delay:2.2s" />
+
+          <text class="schem-label" x="300" y="60" style="animation-delay:2.6s">VPN</text>
+          <text class="schem-label" x="112" y="172" style="animation-delay:2.5s">AUTOMATION</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="on-paper">
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <div class="avatar">
+          <img id="avatarImg" alt="Portrait of Fredrick Mahinay">
+          <span class="monogram" id="avatarFallback">FM</span>
+          <span class="corner tl"></span><span class="corner br"></span>
+        </div>
+        <span class="eyebrow">The story</span>
+        <h2>Built for stability, then accelerated with AI.</h2>
+      </div>
+      <div class="reveal">
+        <span class="pivot-badge">◆ Career pivot - 2023</span>
+        <p>From 2017 to 2022, Fredrick worked as a licensed civil engineer - Project Engineer, Project Supervisor, and Operations-in-Charge across four companies, running site inspections, quality assurance, cost estimation, and cross-functional coordination on active construction sites. He passed the civil engineering licensure exam in November 2016.</p>
+        <p>In 2023 he rebuilt that foundation inside IT, applying the same precision to enterprise systems. From supporting enterprise network infrastructure at Accenture to managing the Asian Development Bank project at Indra, he now focuses on building AI-powered projects, exploring database integrations, workflow automation, and developing a comprehensive task management application.</p>
+        <p>Currently exploring the intersection of AI and infrastructure, working on projects that combine network automation with intelligent task management systems. Passionate about applying proven engineering principles to software development and emerging technologies.</p>
+        <div class="stat-strip">
+          <div class="stat"><span class="num">1,000+</span><span class="label">Users supported</span></div>
+          <div class="stat"><span class="num">20+</span><span class="label">Tickets resolved / day</span></div>
+          <div class="stat"><span class="num">6 yrs</span><span class="label">Civil engineering experience</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Experience log</span>
+        <h2>Where the work has run.</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="role reveal">
+          <div class="role-top">
+            <h3>Network & Deskside Support Engineer</h3>
+            <span class="status-pill active">May 2025 - Present</span>
+            <span class="role-meta">Ortigas, Pasig City</span>
+          </div>
+          <div class="role-org">INDRA, Asian Development Bank (ADB) Project</div>
+          <ul>
+            <li><strong>L2 Network Escalation & Incident Resolution:</strong> Manage escalated network tickets from L1 support - performing root-cause isolation and issue replication for Zscaler connectivity, DNS conflicts, website whitelisting, and Wi-Fi/internet slowness across ADB offices and remote setups</li>
+            <li><strong>ZPA Firewall Onboarding Coordination:</strong> Act as the primary Point of Contact (POC) for Zscaler Private Access (ZPA) firewall onboarding requests, coordinating user access requirements with IT Security for approval and aligning with the Network team for technical fulfillment</li>
+            <li><strong>End-to-End Ownership & User Experience:</strong> Maintain continuous communication with impacted users, delivering clear status updates from initial isolation through ticket resolution or L3 escalation to ensure a smooth support experience</li>
+            <li><strong>On-Site Network & Port Activation:</strong> Conduct physical site visits within ADB offices to diagnose Wi-Fi signal coverage, verify wall port connectivity, and coordinate directly with Facilities for network port activations</li>
+            <li><strong>Deskside & End-User Support:</strong> Provided front-face IT operations support - issuing Windows/Mac hardware and accessories, performing Active Directory account resets, conducting initial hardware/software diagnostics, and logging detailed tickets in ServiceNow (SNOW)</li>
+          </ul>
+          <div class="role-meta"><strong>Key Skills:</strong> L2 Network Troubleshooting • ZPA Firewall Onboarding • Zscaler & DNS Diagnostics • ServiceNow (SNOW) • Active Directory • On-Site Hardware/Port Activation • Cross-Team Coordination (IT Sec & Network Teams)</div>
+          <div class="role-meta"><strong>Scope Focus:</strong> High-volume network ticket resolution, secure application access coordination, and enterprise IT support for ADB operations</div>
+        </div>
+<div class="role reveal">
+          <div class="role-top">
+            <h3>Custom Associate Software Engineer</h3>
+            <span class="status-pill resolved">May 2023 - Feb 2025</span>
+            <span class="role-meta">Mandaluyong</span>
+          </div>
+          <div class="role-org">Accenture</div>
+          <ul>
+            <li><strong>L2 Application Portfolio Management (BTME Tower):</strong> Provided Tier-2 support and continuous maintenance across a diverse portfolio of 50+ enterprise applications, ranging from high-security nuclear systems to low-to-medium priority niche tools serving small user groups (5-10 users)</li>
+            <li><strong>System Configuration & Maintenance:</strong> Performed critical post-migration and post-upgrade system reconfigurations, managed admin credentials, and updated application front-ends to reflect personnel, website, and operational changes</li>
+            <li><strong>Data Integration & Database Troubleshooting:</strong> Investigated production data errors and database table discrepancies using Oracle SQL and Microsoft SQL, leveraging integration platforms like Dell Boomi and TIBCO to trace data flow pipelines</li>
+            <li><strong>Change Management & Server Upgrades:</strong> Authored and executed formal Change Requests (CHGs) and Service Requests (RITMs) for backend updates, production database modifications, and Windows Server / Microsoft SQL Server upgrades while maintaining zero downtime</li>
+            <li><strong>Application Access & Security Administration:</strong> Managed application-level user provisioning, role-based access privileges, admin passwords, and high-security annual credential reset cycles directly via Oracle SQL and Microsoft SQL (outside AD)</li>
+            <li><strong>Incident Coordination & 24/7 Readiness:</strong> Acted as primary Incident Coordinator on a weekly rotational basis, orchestrating response efforts for P1, P2, and P3 incidents and alerting primary support SMEs to ensure uninterrupted global operations</li>
+            <li><strong>Vendor & Client SME Collaboration:</strong> Worked directly with client-side Subject Matter Experts (SMEs) and third-party software vendors to diagnose system bugs, conduct technical risk assessments, and deploy software patches</li>
+          </ul>
+          <div class="role-meta"><strong>Key Skills:</strong> Tier-2 Application Support (50+ Apps Portfolio) • Oracle SQL & Microsoft SQL • Post-Migration Configuration • Incident Management (P1 - P3) • Change Management (CHG / RITM) • Integration Flow Analysis (Dell Boomi / TIBCO)</div>
+          <div class="role-meta"><strong>Scope Focus:</strong> Multi-app enterprise portfolio maintenance, database troubleshooting, post-upgrade configurations, and critical system availability</div>
+        </div>
+        
+        
+        
+        
+        <div class="role reveal">
+          <div class="role-top">
+            <h3>Design and Engineering Operations In-Charge</h3>
+            <span class="status-pill resolved">July 8, 2021 - Sept 16, 2022</span>
+            <span class="role-meta">Pasig / Ortigas</span>
+          </div>
+          <div class="role-org">Winsom Building Products Co. Ltd.</div>
+          <ul>
+            <li><strong>Technical Design Support & Estimation:</strong> Conducted precise site surveys and field measurements to support 2D CAD shop drawing preparation, material quantity take-offs, and cost estimation for architectural product proposals</li>
+            <li><strong>Supply Chain & Delivery Logistics:</strong> Managed end-to-end material delivery - coordinating directly with client architects, warehouse personnel, and site teams to ensure complete and accurate delivery of specialized architectural systems (e.g., sliding louvers)</li>
+            <li><strong>Site Mobilization & Permitting:</strong> Handled all administrative and site-level mobilization logistics, securing necessary work permits and aligning delivery schedules with client site rules</li>
+            <li><strong>Subcontractor & Installation QA/QC:</strong> Supervised third-party installation crews, provided technical installation guides and methodologies, and performed rigorous quality inspections to ensure installed products matched approved shop drawings</li>
+          </ul>
+          <div class="role-meta"><strong>Key Skills:</strong> Site Field Surveys • 2D CAD Shop Drawings • Quantity Take-off & Costing • Subcontractor Management • Architectural Product QA/QC • Site Permitting</div>
+          <div class="role-meta"><strong>Scope Focus:</strong> Technical supply and installation supervision of specialized architectural building products</div>
+        </div>
+        
+        
+        
+        <div class="role reveal">
+          <div class="role-top">
+            <h3>Project Civil Engineer</h3>
+            <span class="status-pill resolved">Jan 27, 2020 - Feb 15, 2021</span>
+            <span class="role-meta">Mandaluyong</span>
+          </div>
+          <div class="role-org">Hanston Commercial and Industrial Corp.</div>
+          <ul>
+            <li>Owner's Site Representative & QA/QC: Represented property owners on-site for a multi-story commercial development, leading daily structural quality inspections to ensure full adherence to engineering plans, specifications, and building standards</li>
+            <li>Pre-Pour Inspection & Sign-Off: Inspected formwork alignment, rebar placement, and rebar surface condition (addressing corrosion and cleanliness) before issuing formal approvals for concrete pours</li>
+            <li>Defect Remediation & High-Strength Testing: Coordinated directly with structural consultants and specialized subcontractors to rectify honeycomb defects, witnessing material testing (including 10,000 PSI concrete repair mixes) to ensure approved remediation methodologies were strictly followed</li>
+            <li>Live Monitoring & Owner Reporting: Supervised major concrete casting operations on-site to maintain quality control, serving as the direct line of communication to keep project owners updated on progress and field issues</li>
+          </ul>
+          <div class="role-meta">Key Skills: Structural QA/QC Inspection • Concrete Pour Approval • Defect Remediation & Material Testing • Owner Representation • Technical Stakeholder Coordination</div>
+          <div class="role-meta">Scope Focus: Commercial multi-story building development and structural quality control</div>
+        </div>
+
+        <div class="role reveal">
+          <div class="role-top">
+            <h3>Project Engineer / Project Manager</h3>
+            <span class="status-pill resolved">Nov 2018 - Jan 2020</span>
+            <span class="role-meta">Pasay City / Bulacan Sites</span>
+          </div>
+          <div class="role-org">Jetti Petroleum Inc.</div>
+          <ul>
+            <li><strong>Full Lifecycle Contractor Management:</strong> Oversaw General Contractors from the initial tender/bidding phase through ground-up construction to final structural turnover for Jetti fuel station developments across Bulacan</li>
+            <li><strong>Scope & Bidding Administration:</strong> Defined detailed project scopes, evaluated contractor technical proposals, and managed site mobilization upon project award</li>
+            <li><strong>Quality Assurance & On-Site Inspection:</strong> Conducted rigorous site inspections to enforce quality standards, ensure material compliance, and verify alignment with approved engineering drawings and safety protocols</li>
+            <li><strong>Schedule Tracking & MS Project Reporting:</strong> Developed and tracked Gantt charts using MS Project to monitor baseline timelines, manage contractor milestones, and deliver detailed weekly progress reports to stakeholders</li>
+          </ul>
+          <div class="role-meta"><strong>Key Skills:</strong> Full Lifecycle Project Management • Contractor Bidding & Evaluation • Site Inspection & Quality Control • Timeline Tracking (MS Project / Gantt Charts) • Technical Drawing Verification</div>
+          <div class="role-meta"><strong>Scope Focus:</strong> Commercial fuel station construction and structural development</div>
+        </div>
+
+        
+
+        <div class="role reveal">
+          <div class="role-top">
+            <h3>Project Supervisor / Project Manager</h3>
+            <span class="status-pill resolved">Aug 2017 - Nov 2018</span>
+            <span class="role-meta">Biñan, Laguna</span>
+          </div>
+          <div class="role-org">CLG Shalom Builders</div>
+          <ul>
+            <li><strong>End-to-End Bank Renovation Delivery:</strong> Managed off-hours interior additions and teller counter expansions for BPI Southern Luzon branches, executing tight weekend builds (Friday 5 PM to Sunday) to prevent any disruption to bank operations</li>
+            <li><strong>Client Alignment & CAD Design:</strong> Met directly with BPI architects to review branch requirements, drafted 2D CAD layouts based on site measurements, and secured client approvals on proposed plans and cost estimates before mobilization</li>
+            <li><strong>Team & Subcontractor Leadership:</strong> Supervised two concurrent 6-person site teams (masons, carpenters, electricians, laborers) and managed specialized electrical subcontractors to maintain strict quality control and design compliance</li>
+            <li><strong>Procurement & Site Logistics:</strong> Coordinated material sourcing across hardware suppliers, scheduled vehicle logistics and site mobilization, and managed weekly crew payroll administration</li>
+            <li><strong>Time-Critical Execution:</strong> Successfully delivered up to 2 branch projects per weekend under strict client timelines and tight window constraints</li>
+          </ul>
+          <div class="role-meta"><strong>Key Skills:</strong> Client & Architect Coordination • 2D CAD Drafting • Cost Estimation • Subcontractor Management • Site Supervision</div>
+          <div class="role-meta"><strong>Key Achievement:</strong> Zero-downtime weekend turnarounds for commercial banking clients</div>
+        </div>
+      </div>
+
+      <div class="pivot-note reveal">
+        <h3>Why the pivot holds up</h3>
+        <p>Civil engineering trains you to inspect before you trust something - a beam, a wall, a login. That habit is the reason a career switch this sharp didn't cost him rigor; it just changed what he was inspecting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= IMPACT ================= -->
+  <section id="impact" class="on-paper">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Selected impact</span>
+        <h2>Measured, not just described.</h2>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-card reveal">
+          <span class="tag">Incident management</span>
+          <h3>20+ tickets / day, 1,000+ users</h3>
+          <p>Owns the full incident lifecycle in ServiceNow for the ADB project - from triage to resolution - without letting the queue back up.</p>
+        </div>
+        <div class="impact-card reveal">
+          <span class="tag">Security operations</span>
+          <h3>Enterprise web security requests</h3>
+          <p>Audits URL whitelisting and domain-blocking requests against company standards, then hands Zscaler admins a technical brief they can act on immediately.</p>
+        </div>
+        <div class="impact-card reveal">
+          <span class="tag">VPN &amp; connectivity</span>
+          <h3>Tier 2 VPN root-cause resolution</h3>
+          <p>Diagnoses Zscaler authentication and secure-tunnel failures, escalating only what genuinely needs the global backend team.</p>
+        </div>
+        <div class="impact-card reveal">
+          <span class="tag">Infrastructure upgrades</span>
+          <h3>Zero downtime, every upgrade</h3>
+          <p>Performed Windows Server and database server upgrades at Accenture with post-upgrade validation and no disruption to critical applications.</p>
+        </div>
+        <div class="impact-card reveal">
+          <span class="tag">Change management</span>
+          <h3>End-to-end Change Requests</h3>
+          <p>Ran the full CR pipeline - ticket, technical assessment, implementation - holding every production change to strict compliance standards.</p>
+        </div>
+        <div class="impact-card reveal">
+          <span class="tag">Continuity</span>
+          <h3>24/7 global operations</h3>
+          <p>Coordinated weekend incident response, prioritizing by impact to keep business continuity unbroken around the clock.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Expertise</span>
+        <h2>The stack behind the tickets.</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group reveal">
+          <h3>Network &amp; Security</h3>
+          <ul class="skill-list">
+            <li>Zscaler VPN - Tier 2 support <span class="bar"><span style="width:92%"></span></span></li>
+            <li>URL whitelisting &amp; domain policy <span class="bar"><span style="width:85%"></span></span></li>
+            <li>Traffic monitoring &amp; stability <span class="bar"><span style="width:80%"></span></span></li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Systems &amp; Infrastructure</h3>
+          <ul class="skill-list">
+            <li>ServiceNow incident management <span class="bar"><span style="width:90%"></span></span></li>
+            <li>Windows Server &amp; SQL Server <span class="bar"><span style="width:82%"></span></span></li>
+            <li>Dell Boomi integration <span class="bar"><span style="width:75%"></span></span></li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Process &amp; Governance</h3>
+          <ul class="skill-list">
+            <li>Change Request lifecycle <span class="bar"><span style="width:88%"></span></span></li>
+            <li>SLA management <span class="bar"><span style="width:84%"></span></span></li>
+            <li>Access &amp; compliance audits <span class="bar"><span style="width:80%"></span></span></li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Working style</h3>
+          <ul class="skill-list">
+            <li>Written &amp; verbal communication <span class="bar"><span style="width:90%"></span></span></li>
+            <li>Cross-functional coordination <span class="bar"><span style="width:88%"></span></span></li>
+            <li>Agentic AI &amp; workflow automation <span class="bar"><span style="width:70%"></span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CREDENTIALS ================= -->
+  <section id="credentials" class="on-paper">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Education &amp; credentials</span>
+        <h2>Licensed, certified, and still building.</h2>
+      </div>
+      <div class="cred-grid">
+        <div class="cred-card reveal">
+          <span class="eyebrow">2010 - 2016</span>
+          <h3>B.S. Civil Engineering</h3>
+          <p>Technological University of the Philippines - Taguig</p>
+        </div>
+        <div class="cred-card reveal">
+          <span class="eyebrow">Passed Nov 2016</span>
+          <h3>Licensed Civil Engineer</h3>
+          <p>PRC License No. 0147997</p>
+        </div>
+        <div class="cred-card reveal">
+          <span class="eyebrow">Completed 2023</span>
+          <h3>Boomi Professional &amp; Associate Integration Developer</h3>
+          <p>Dell Boomi Certifications</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="contact">
+    <div class="wrap reveal">
+      <span class="eyebrow">Open channel</span>
+      <h2>Let's fix something together.</h2>
+      <p class="slate-text">Based in Biñan, Laguna - open to network support, systems engineering, and integration roles.</p>
+      <div class="contact-links">
+        <a href="mailto:fredrickmahinay18@gmail.com">fredrickmahinay18@gmail.com</a>
+        <a href="tel:+639610030671">0961 003 0671</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>FREDRICK MAHINAY - NETWORK SUPPORT &amp; SYSTEMS ENGINEER - BUILT 2026</footer>
+
+<script>
+  // Avatar loader: tries DP.<ext> in the site root, falls back to monogram.
+  (function(){
+    const exts = ['jpg','jpeg','png','webp','JPG','JPEG','PNG','WEBP'];
+    const img = document.getElementById('avatarImg');
+    const fallback = document.getElementById('avatarFallback');
+    let i = 0;
+    function tryNext(){
+      if(i >= exts.length){ return; } // keep monogram fallback visible
+      const test = new Image();
+      test.onload = function(){
+        img.src = 'DP.' + exts[i];
+        img.style.display = 'block';
+        fallback.style.display = 'none';
+      };
+      test.onerror = function(){ i++; tryNext(); };
+      test.src = 'DP.' + exts[i];
+    }
+    tryNext();
+  })();
+
+  // Scroll reveal
+  (function(){
+    const items = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      items.forEach(el => el.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(el => io.observe(el));
+  })();
+</script>
+
+</body>
+</html>
