@@ -349,7 +349,7 @@ for b in [
 
 # --- Independent ---
 add_subheading(doc, 'Independent \u2014 AI-Assisted Application Development')
-add_meta_line(doc, 'Personal Projects  |  Self-directed  |  2025 \u2013 Present')
+add_meta_line(doc, 'Personal Projects  |  Self-directed  |  2025')
 for b in [
     'Independently designed, built, and deployed a multi-sheet MLBB hero counter-pick scoring engine, evaluating matchups across role advantage, stat differentials, damage type, power-spike timing, and over 100 hard-counter rules; currently scaling the project from Excel into a full Supabase and Python-powered web application.',
     'Built a live cryptocurrency market dashboard with real-time candlestick charts and technical indicators, backed by a custom Python/yfinance data ingestion script and a fully automated GitHub Actions deployment pipeline into Supabase and GitHub Pages.',
