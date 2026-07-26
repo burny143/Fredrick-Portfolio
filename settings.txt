@@ -63,8 +63,8 @@ STATUS = Live
 TITLE = MLBB Hero Counter-Pick Analyzer
 DESCRIPTION = A scoring engine that recommends the best counter-pick for any Mobile Legends: Bang Bang hero matchup, weighing role advantage, stat differentials, difficulty gap, damage type, power-spike timing, style matchup, and hard-counter rules. Started as a multi-sheet Excel workbook with 100+ dependent hard-counter rules, now being rebuilt as a full web app.
 TAGS = Excel / VBA, Python, Supabase, GitHub Pages
-DEMO_LINK = #
-CODE_LINK = #
+DEMO_LINK = https://burny143.github.io/mlbb-drafter-v2.0/
+CODE_LINK = https://github.com/burny143/mlbb-drafter-v2.0
 PROJECT_END
 
 PROJECT_START
@@ -72,8 +72,8 @@ STATUS = In active development
 TITLE = Crypto Market Dashboard & ETL Pipeline
 DESCRIPTION = A dark-themed, real-time cryptocurrency dashboard with live candlestick charts and technical indicators (SMA, RSI). Backed by a Python ETL script that pulls OHLCV data via yfinance across daily, hourly, and 4-hour timeframes for five coins, upserting into Supabase through an automated GitHub Actions pipeline.
 TAGS = JavaScript, Python / yfinance, Supabase, GitHub Actions
-DEMO_LINK = #
-CODE_LINK = #
+DEMO_LINK = https://github.com/burny143/crypto-etl
+CODE_LINK = https://burny143.github.io/crypto-etl/
 PROJECT_END
 
 
@@ -99,7 +99,7 @@ PROJECT_END
 
 SITE_START
 NAME = Your site name here
-IMAGE =
+IMAGE = 
 LINK = #
 DESCRIPTION = A short one or two sentence description of what this site is and who it's for.
 SITE_END
