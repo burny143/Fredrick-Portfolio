@@ -3,71 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fredrick Mahinay, Network Support &amp; Systems Engineer</title>
-    <meta name="description" content="Fredrick Mahinay, Network Support Engineer at Indra (Asian Development Bank project). From licensed civil engineer to enterprise network &amp; systems specialist.">
+<title>Fredrick Mahinay - Building with AI</title>
+<meta name="description" content="Fredrick Mahinay - civil engineer turned network systems specialist, now building AI-powered applications. From structural loads to model weights.">
 
 <!--
   ============================================================
-  DESIGN CONCEPT
+  DESIGN CONCEPT - read this before editing
   ============================================================
-  Fredrick's story is a pivot: six years laying foundations as a
-  licensed civil engineer, then a rebuild into enterprise network
-  and systems support - VPN tunnels, incident queues, server
-  upgrades. Nothing about that arc is generic, so the site is
-  built around a single visual idea: the CYANOTYPE BLUEPRINT.
-
-  Blueprints are how civil engineers draw before they build, and
-  "blueprint" is also exactly the right word for network topology
-  diagrams. The hero opens with one continuous line drawing that
-  starts as a site-plan foundation and resolves into a network
-  diagram - the pivot, drawn once, without a word of explanation
-  needed.
+  The signature element is one continuous line drawing in the
+  hero: it begins as a civil-engineering TRUSS (load-bearing
+  triangles) and resolves into a NEURAL GRAPH (nodes + weighted
+  edges) - "structural loads" becoming "model weights," drawn
+  once, no caption needed. That's the whole positioning in one
+  shape.
 
   PALETTE
-    --ink        #0B121C  deep drafting-table navy (dark sections)
-    --cyan       #4FB8C9  cyanotype blueprint line
-    --amber      #E2A33B  signal / status accent (used sparingly)
-    --paper      #EDF1EC  cool graph-paper white (light sections -
-                          deliberately NOT warm cream, to avoid the
-                          templated "cream + terracotta" look)
-    --paper-ink  #10151F  text on paper sections
-    --slate      #8D9AAE  muted secondary text
+    --void        #10121A   graphite-black (dark sections)
+    --signal      #7C5CFF   electric violet - the "AI" accent
+    --amber       #E2A33B   warm accent, used ONLY for "current" tags
+    --paper       #EDEAE2   stone paper (light sections - cooler
+                             and greyer than a cream default)
+    --paper-ink   #15161C   text on paper sections
+    --slate       #8E93A6   muted secondary text
 
   TYPE
-    Display : "Fraunces"      - soft structural serif, used only
-                                 for the hero line and section titles
-    Body    : "Inter"          - clean, high-legibility working text
-Utility : "IBM Plex Mono" - timestamps, status pills, labels -
-                                  the "terminal / ticket log" voice
+    Display : "Newsreader" italic  - hero line, section titles
+    Body    : "Space Grotesk"      - working text, geometric/engineered feel
+    Utility : "JetBrains Mono"     - dates, tags, labels (the "code editor" voice)
 
-  SIGNATURE ELEMENT
-    The hero blueprint-to-topology line drawing, and its echo: the
-    experience timeline is styled like a status log (ACTIVE /
-    RESOLVED pills + monospace date ranges) rather than arbitrary
-    01/02/03 numbering, because that's literally how his job runs -
-    tickets that are open or closed.
+  HOW TO ADD A NEW PROJECT
+    Find the <!-- PROJECT CARD TEMPLATE --> comment in the
+    Projects section and duplicate the whole <article> block.
   ============================================================
 -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --ink: #0B121C;
-    --ink-raised: #121b29;
-    --cyan: #4FB8C9;
-    --cyan-dim: #4fb8c94d;
+    --void: #10121A;
+    --void-raised: #181b28;
+    --signal: #7C5CFF;
+    --signal-soft: rgba(124,92,255,0.14);
+    --signal-dim: rgba(124,92,255,0.4);
     --amber: #E2A33B;
-    --paper: #EDF1EC;
-    --paper-raised: #E3E9E1;
-    --paper-ink: #10151F;
-    --slate: #8D9AAE;
-    --slate-on-paper: #5b6676;
+    --paper: #EDEAE2;
+    --paper-raised: #E2DED2;
+    --paper-ink: #15161C;
+    --slate: #9195A8;
+    --slate-on-paper: #5c5f6d;
     --line: rgba(255,255,255,0.09);
-    --line-paper: rgba(16,21,31,0.1);
-    --maxw: 1120px;
+    --line-paper: rgba(21,22,28,0.12);
+    --maxw: 1140px;
     --pad: clamp(1.25rem, 5vw, 3.5rem);
   }
 
@@ -80,32 +69,33 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
 
   body{
     margin:0;
-    background: var(--ink);
-    color: #DCE3EA;
-    font-family: 'Inter', sans-serif;
+    background: var(--void);
+    color: #DDE0EA;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
 
   h1,h2,h3{
-    font-family: 'Fraunces', serif;
+    font-family: 'Newsreader', serif;
+    font-style: italic;
     font-weight: 600;
-    line-height: 1.08;
+    line-height: 1.12;
     margin: 0 0 0.5em;
     letter-spacing: -0.01em;
   }
 
-  em{ font-style: italic; color: var(--cyan); }
-
+  em{ font-style: italic; color: var(--signal); }
   a{ color: inherit; }
+  img{ max-width:100%; display:block; }
 
   .eyebrow{
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.72rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--cyan);
+    color: var(--signal);
     display: inline-flex;
     align-items: center;
     gap: 0.6em;
@@ -113,11 +103,11 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
   .eyebrow::before{
     content: "";
     width: 22px; height: 1px;
-    background: var(--cyan);
+    background: var(--signal);
     display: inline-block;
   }
-  section.on-paper .eyebrow{ color: #2f7883; }
-  section.on-paper .eyebrow::before{ background: #2f7883; }
+  section.on-paper .eyebrow{ color: #5b3fd6; }
+  section.on-paper .eyebrow::before{ background: #5b3fd6; }
 
   .wrap{
     max-width: var(--maxw);
@@ -131,31 +121,49 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
     border-radius: 2px;
   }
 
+  /* ---------------- SOCIAL ICONS (shared) ---------------- */
+  .social-row{ display:flex; align-items:center; gap: 0.6rem; }
+  .social-btn{
+    width: 38px; height: 38px; border-radius: 8px;
+    display:flex; align-items:center; justify-content:center;
+    border: 1px solid var(--line); color: #fff;
+    transition: all .2s ease;
+    flex-shrink: 0;
+  }
+  .social-btn svg{ width:17px; height:17px; }
+  .social-btn:hover{ border-color: var(--signal); color: var(--signal); transform: translateY(-2px); background: var(--signal-soft); }
+  section.on-paper .social-btn{ border-color: var(--line-paper); color: var(--paper-ink); }
+  section.on-paper .social-btn:hover{ border-color: #5b3fd6; color:#5b3fd6; }
+
   /* ---------------- NAV ---------------- */
   header.site-nav{
     position: fixed; top:0; left:0; right:0; z-index: 50;
     backdrop-filter: blur(10px);
-    background: rgba(11,18,28,0.72);
+    background: rgba(16,18,26,0.75);
     border-bottom: 1px solid var(--line);
   }
   .nav-inner{
     max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad);
     display:flex; align-items:center; justify-content: space-between;
-    height: 64px;
+    height: 64px; gap: 1rem;
   }
   .nav-mark{
-    font-family:'IBM Plex Mono'; font-size:0.85rem; letter-spacing:0.08em;
-    color:#fff; text-decoration:none;
+    font-family:'JetBrains Mono'; font-size:0.85rem; letter-spacing:0.05em;
+    color:#fff; text-decoration:none; white-space: nowrap;
   }
-  .nav-mark b{ color: var(--cyan); }
-  nav.nav-links{ display:flex; gap: 1.75rem; }
+  .nav-mark b{ color: var(--signal); }
+  nav.nav-links{ display:flex; gap: 1.6rem; }
   nav.nav-links a{
-    font-family:'IBM Plex Mono'; font-size:0.72rem; letter-spacing:0.08em;
+    font-family:'JetBrains Mono'; font-size:0.72rem; letter-spacing:0.08em;
     text-transform: uppercase; text-decoration:none; color: var(--slate);
     transition: color .2s ease;
   }
-  nav.nav-links a:hover{ color: var(--cyan); }
-  @media (max-width: 640px){ nav.nav-links{ display:none; } }
+  nav.nav-links a:hover{ color: var(--signal); }
+  .nav-right{ display:flex; align-items:center; gap: 1.4rem; }
+  .nav-social{ display:flex; gap:0.5rem; }
+  .nav-social .social-btn{ width:32px; height:32px; border-radius:7px; }
+  .nav-social .social-btn svg{ width:14px; height:14px; }
+  @media (max-width: 760px){ nav.nav-links{ display:none; } }
 
   /* ---------------- HERO ---------------- */
   .hero{
@@ -165,10 +173,10 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
     padding-top: 96px; padding-bottom: 4rem;
     overflow: hidden;
     background:
-      radial-gradient(circle at 85% 12%, rgba(79,184,201,0.10), transparent 45%),
-      var(--ink);
+      radial-gradient(circle at 88% 15%, rgba(124,92,255,0.14), transparent 45%),
+      var(--void);
   }
-  .hero::before{ /* graph-paper grid */
+  .hero::before{
     content:"";
     position:absolute; inset:0;
     background-image:
@@ -182,71 +190,78 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
   }
   .hero-grid{
     position: relative; z-index: 1;
-    display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem;
+    display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem;
     align-items:center;
     width:100%;
   }
   @media (max-width: 880px){ .hero-grid{ grid-template-columns: 1fr; } }
 
   .hero h1{
-    font-size: clamp(2.4rem, 5.4vw, 4.1rem);
+    font-size: clamp(2.3rem, 5vw, 3.9rem);
     color:#fff;
-    max-width: 14ch;
+    max-width: 16ch;
   }
   .hero-sub{
-    max-width: 46ch;
+    max-width: 48ch;
     color: var(--slate);
     font-size: 1.05rem;
     margin-top: 1.1rem;
   }
-  .hero-cta{ display:flex; gap:0.9rem; margin-top: 2rem; flex-wrap: wrap; }
+  .hero-cta{ display:flex; gap:0.9rem; margin-top: 2rem; flex-wrap: wrap; align-items:center; }
   .btn{
-    font-family:'IBM Plex Mono'; font-size: 0.78rem; letter-spacing:0.06em;
+    font-family:'JetBrains Mono'; font-size: 0.78rem; letter-spacing:0.06em;
     text-transform: uppercase; text-decoration:none;
-    padding: 0.9em 1.4em; border-radius: 3px;
+    padding: 0.9em 1.4em; border-radius: 4px;
     display:inline-flex; align-items:center; gap: 0.5em;
     transition: transform .18s ease, background .18s ease, border-color .18s ease;
   }
-  .btn-primary{ background: var(--cyan); color: #071016; }
-  .btn-primary:hover{ transform: translateY(-2px); background:#63c9d8; }
+  .btn-primary{ background: var(--signal); color: #fff; }
+  .btn-primary:hover{ transform: translateY(-2px); background:#8f70ff; }
   .btn-ghost{ border: 1px solid var(--line); color: #fff; }
-  .btn-ghost:hover{ border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
+  .btn-ghost:hover{ border-color: var(--signal); color: var(--signal); transform: translateY(-2px); }
 
-  /* signature schematic */
+  .hero-socials{ margin-top: 2.2rem; }
+  .hero-socials .label{
+    font-family:'JetBrains Mono'; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase;
+    color: var(--slate); display:block; margin-bottom:0.7rem;
+  }
+
+  /* signature schematic: truss -> neural graph */
   .schematic-wrap{
     position:relative;
     aspect-ratio: 1 / 1;
-    max-width: 420px;
+    max-width: 440px;
     justify-self: center;
   }
   .schematic-wrap svg{ width:100%; height:100%; overflow: visible; }
   .schem-line{
-    fill:none; stroke: var(--cyan); stroke-width: 1.6;
+    fill:none; stroke: var(--signal); stroke-width: 1.6;
     stroke-linecap: round; stroke-linejoin: round;
     stroke-dasharray: 900; stroke-dashoffset: 900;
-    animation: draw 3.2s ease forwards 0.3s;
+    animation: draw 2.6s ease forwards 0.2s;
   }
-  .schem-line.dim{ stroke: rgba(79,184,201,0.35); stroke-width:1; }
-  .schem-node{ fill: var(--ink); stroke: var(--cyan); stroke-width: 1.6; opacity:0; animation: fadeIn .6s ease forwards; }
+  .schem-line.dim{ stroke: rgba(124,92,255,0.32); stroke-width:1; }
+  .schem-line.amber{ stroke: var(--amber); }
+  .schem-node{ fill: var(--void); stroke: var(--signal); stroke-width: 1.6; opacity:0; animation: fadeIn .6s ease forwards; }
   .schem-node.amber{ stroke: var(--amber); }
-  .schem-label{ font-family:'IBM Plex Mono'; font-size: 7px; fill: var(--slate); opacity:0; animation: fadeIn .6s ease forwards; }
+  .schem-label{ font-family:'JetBrains Mono'; font-size: 7px; letter-spacing:0.05em; fill: var(--slate); opacity:0; animation: fadeIn .6s ease forwards; }
   @keyframes draw{ to{ stroke-dashoffset: 0; } }
   @keyframes fadeIn{ to{ opacity:1; } }
 
   /* ---------------- AVATAR ---------------- */
   .avatar{
-    width: 132px; height:132px; border-radius: 6px;
-    border: 1px solid var(--line);
+    width: 132px; height:132px; border-radius: 10px;
+    border: 1px solid var(--line-paper);
     display:flex; align-items:center; justify-content:center;
     overflow:hidden; position:relative;
-    background: linear-gradient(160deg, var(--ink-raised), var(--ink));
+    background: linear-gradient(160deg, #dad5c7, var(--paper));
     margin-bottom: 1.6rem;
   }
   .avatar img{ width:100%; height:100%; object-fit: cover; display:none; }
   .avatar .monogram{
-    font-family:'Fraunces'; font-size: 2.1rem; color: var(--cyan);
+    font-family:'Newsreader'; font-style:italic; font-size: 2.1rem; color: #5b3fd6;
   }
-  .avatar .corner{ position:absolute; width:10px; height:10px; border: 1.5px solid var(--cyan); opacity:0.7; }
+  .avatar .corner{ position:absolute; width:10px; height:10px; border: 1.5px solid #5b3fd6; opacity:0.6; }
   .avatar .corner.tl{ top:6px; left:6px; border-right:none; border-bottom:none; }
   .avatar .corner.br{ bottom:6px; right:6px; border-left:none; border-top:none; }
 
@@ -255,6 +270,7 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
   section.on-paper{ background: var(--paper); color: var(--paper-ink); }
   section.on-paper .slate-text{ color: var(--slate-on-paper); }
   .slate-text{ color: var(--slate); }
+  section.sites-section{ background: var(--paper-raised); border-top: 1px solid var(--line-paper); }
 
   .section-head{ max-width: 62ch; margin-bottom: 3rem; }
   .section-head h2{ font-size: clamp(1.7rem, 3.4vw, 2.5rem); margin-top: 0.5rem; }
@@ -266,69 +282,154 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
   .about-grid p:last-child{ margin-bottom:0; }
   .pivot-badge{
     display:inline-flex; align-items:center; gap:0.6em;
-    font-family:'IBM Plex Mono'; font-size: 0.72rem; letter-spacing: 0.08em;
-    text-transform:uppercase; color:#2f7883;
-    border: 1px solid rgba(47,120,131,0.35); border-radius: 3px;
+    font-family:'JetBrains Mono'; font-size: 0.72rem; letter-spacing: 0.08em;
+    text-transform:uppercase; color:#5b3fd6;
+    border: 1px solid rgba(91,63,214,0.3); border-radius: 4px;
     padding: 0.45em 0.8em; margin-bottom: 1.4rem;
   }
   .stat-strip{ display:grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.2rem; }
-  .stat{ border-left: 2px solid rgba(47,120,131,0.3); padding-left: 1rem; }
-  .stat .num{ font-family:'Fraunces'; font-size: 2rem; color:#10151F; display:block; }
-  .stat .label{ font-family:'IBM Plex Mono'; font-size: 0.68rem; letter-spacing:0.05em; text-transform:uppercase; color: var(--slate-on-paper); }
+  .stat{ border-left: 2px solid rgba(91,63,214,0.3); padding-left: 1rem; }
+  .stat .num{ font-family:'Newsreader'; font-style:italic; font-size: 1.9rem; color:#15161C; display:block; }
+  .stat .label{ font-family:'JetBrains Mono'; font-size: 0.66rem; letter-spacing:0.05em; text-transform:uppercase; color: var(--slate-on-paper); }
   @media (max-width: 520px){ .stat-strip{ grid-template-columns: 1fr; } }
 
-  /* ---- Experience timeline ---- */
+  .cred-strip{ margin-top: 2.4rem; padding-top: 1.8rem; border-top: 1px solid var(--line-paper); display:flex; flex-direction:column; gap:0.7rem; }
+  .cred-item{ display:flex; gap:0.9rem; align-items:baseline; font-size:0.92rem; }
+  .cred-item .cred-when{ font-family:'JetBrains Mono'; font-size:0.68rem; color: var(--slate-on-paper); white-space:nowrap; min-width:8ch; }
+
+  /* ---- Experience tabs ---- */
+  .tab-toggle{
+    display:inline-flex; padding: 4px; border-radius: 8px;
+    background: var(--void-raised); border: 1px solid var(--line);
+    margin-bottom: 2.6rem; gap: 4px;
+  }
+  .tab-btn{
+    font-family:'JetBrains Mono'; font-size: 0.74rem; letter-spacing:0.05em; text-transform:uppercase;
+    background: transparent; border: none; color: var(--slate);
+    padding: 0.75em 1.2em; border-radius: 6px; cursor:pointer;
+    transition: all .2s ease;
+  }
+  .tab-btn.active{ background: var(--signal); color: #fff; }
+  .tab-btn:not(.active):hover{ color:#fff; }
+
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; animation: panelIn .4s ease; }
+  @keyframes panelIn{ from{ opacity:0; transform: translateY(8px); } to{ opacity:1; transform:none; } }
+
   .timeline{ position:relative; margin-top: 1rem; }
   .timeline::before{
     content:""; position:absolute; left: 0; top:6px; bottom: 6px; width:1px;
-    background: linear-gradient(to bottom, var(--cyan), transparent);
+    background: linear-gradient(to bottom, var(--signal), transparent);
   }
   .role{ position:relative; padding: 0 0 2.6rem 2.2rem; }
   .role:last-child{ padding-bottom:0; }
   .role::before{
     content:""; position:absolute; left:-4px; top:6px; width:9px; height:9px;
-    border-radius: 50%; background: var(--ink); border: 1.5px solid var(--cyan);
+    border-radius: 50%; background: var(--void); border: 1.5px solid var(--signal);
   }
-  .role.active::before{ background: var(--cyan); box-shadow: 0 0 0 4px var(--cyan-dim); }
+  .role.current::before{ background: var(--signal); box-shadow: 0 0 0 4px var(--signal-dim); }
   .role-top{ display:flex; flex-wrap:wrap; align-items: baseline; gap: 0.8em 1em; margin-bottom: 0.35rem; }
-  .role-top h3{ font-size: 1.3rem; color:#fff; margin:0; }
-  .role-meta{ font-family:'IBM Plex Mono'; font-size: 0.7rem; letter-spacing:0.05em; color: var(--slate); }
+  .role-top h3{ font-size: 1.25rem; color:#fff; margin:0; font-style: normal; }
+  .role-meta{ font-family:'JetBrains Mono'; font-size: 0.7rem; letter-spacing:0.05em; color: var(--slate); }
   .status-pill{
-    font-family:'IBM Plex Mono'; font-size: 0.62rem; letter-spacing:0.08em; text-transform:uppercase;
-    padding: 0.25em 0.6em; border-radius: 2px; border:1px solid;
+    font-family:'JetBrains Mono'; font-size: 0.62rem; letter-spacing:0.08em; text-transform:uppercase;
+    padding: 0.25em 0.6em; border-radius: 3px; border:1px solid;
   }
-  .status-pill.active{ color: var(--amber); border-color: rgba(226,163,59,0.45); background: rgba(226,163,59,0.08); }
-  .status-pill.resolved{ color: var(--slate); border-color: var(--line); }
-  .role-org{ font-family:'IBM Plex Mono'; font-size: 0.78rem; color: #6fc7d4; margin-bottom: 0.9rem; }
+  .status-pill.current{ color: var(--amber); border-color: rgba(226,163,59,0.45); background: rgba(226,163,59,0.08); }
+  .status-pill.archived{ color: var(--slate); border-color: var(--line); }
+  .role-org{ font-family:'JetBrains Mono'; font-size: 0.78rem; color: #b3a3ff; margin-bottom: 0.9rem; }
   .role ul{ margin: 0; padding-left: 1.1rem; color: #C4CCD6; }
   .role li{ margin-bottom: 0.5rem; }
-  .role li::marker{ color: var(--cyan); }
+  .role li::marker{ color: var(--signal); }
+  .role-skills{ font-family:'JetBrains Mono'; font-size: 0.72rem; color: var(--slate); margin-top: 0.9rem; line-height:1.7; }
 
   .pivot-note{
     margin-top: 2.6rem; padding: 1.4rem 1.6rem; border-left: 2px solid var(--amber);
-    background: rgba(226,163,59,0.05); border-radius: 0 4px 4px 0;
+    background: rgba(226,163,59,0.05); border-radius: 0 6px 6px 0;
   }
-  .pivot-note h3{ font-size: 1rem; color:#fff; margin-bottom: 0.4rem;}
+  .pivot-note h3{ font-size: 1rem; color:#fff; margin-bottom: 0.4rem; font-style: italic; }
   .pivot-note p{ margin:0; color: var(--slate); font-size: 0.94rem; }
 
-  /* ---- Impact cards ---- */
-  .impact-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
-  @media (max-width: 880px){ .impact-grid{ grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 560px){ .impact-grid{ grid-template-columns: 1fr; } }
-  .impact-card{
-    background: var(--paper-raised); border-radius: 6px; padding: 1.7rem 1.5rem;
-    border: 1px solid var(--line-paper);
+  /* ---- Projects ---- */
+  .projects-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+  @media (max-width: 980px){ .projects-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 660px){ .projects-grid{ grid-template-columns: 1fr; } }
+
+  .project-card{
+    background: #fff; border: 1px solid var(--line-paper); border-radius: 10px;
+    padding: 1.8rem; display:flex; flex-direction:column;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
   }
-  .impact-card .tag{ font-family:'IBM Plex Mono'; font-size:0.65rem; letter-spacing:0.06em; text-transform:uppercase; color:#2f7883; }
-  .impact-card h3{ font-size: 1.15rem; margin: 0.5rem 0 0.5rem; color: var(--paper-ink); }
-  .impact-card p{ margin:0; font-size: 0.92rem; color: var(--slate-on-paper); }
+  .project-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px rgba(21,22,28,0.08); border-color: rgba(91,63,214,0.3); }
+  .project-status{
+    font-family:'JetBrains Mono'; font-size: 0.62rem; letter-spacing:0.08em; text-transform:uppercase;
+    color: #5b3fd6; display:inline-block; margin-bottom: 0.9rem;
+  }
+  .project-card h3{ font-size: 1.25rem; margin: 0 0 0.6rem; font-style: normal; color: var(--paper-ink); }
+  .project-card p{ font-size: 0.94rem; color: var(--slate-on-paper); margin: 0 0 1.1rem; flex-grow: 1; }
+  .project-tags{ display:flex; flex-wrap:wrap; gap: 0.4rem; margin-bottom: 1.3rem; }
+  .project-tags span{
+    font-family:'JetBrains Mono'; font-size: 0.66rem; letter-spacing:0.03em;
+    background: var(--paper-raised); color: var(--slate-on-paper);
+    padding: 0.35em 0.65em; border-radius: 4px;
+  }
+  .project-links{ display:flex; gap: 0.8rem; margin-top:auto; }
+  .project-links a{
+    font-family:'JetBrains Mono'; font-size: 0.74rem; text-decoration:none;
+    color: var(--paper-ink); display:inline-flex; align-items:center; gap:0.4em;
+    padding: 0.55em 0.9em; border: 1px solid var(--line-paper); border-radius: 5px;
+    transition: all .2s ease;
+  }
+  .project-links a:hover{ border-color:#5b3fd6; color:#5b3fd6; }
+  .project-links svg{ width:13px; height:13px; }
+
+  .project-card.is-template{
+    background: transparent; border: 1.5px dashed rgba(91,63,214,0.35);
+    align-items:center; justify-content:center; text-align:center; min-height: 260px;
+  }
+  .project-card.is-template h3{ color: #5b3fd6; }
+  .project-card.is-template p{ flex-grow:0; }
+
+  /* ---- Sites showcase ---- */
+  .sites-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+  @media (max-width: 980px){ .sites-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 660px){ .sites-grid{ grid-template-columns: 1fr; } }
+
+  .site-card{
+    background: #fff; border: 1px solid var(--line-paper); border-radius: 10px;
+    display:flex; flex-direction:column; overflow:hidden;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .site-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px rgba(21,22,28,0.08); border-color: rgba(91,63,214,0.3); }
+  .site-thumb{ display:block; aspect-ratio: 16 / 10; overflow:hidden; background: var(--paper-raised); }
+  .site-thumb img{ width:100%; height:100%; object-fit:cover; transition: transform .5s ease; }
+  .site-card:hover .site-thumb img{ transform: scale(1.05); }
+  .site-body{ padding: 1.5rem 1.6rem 1.7rem; display:flex; flex-direction:column; flex-grow:1; }
+  .site-body h3{ font-size: 1.1rem; margin: 0 0 0.5rem; font-style: normal; color: var(--paper-ink); }
+  .site-body p{ font-size: 0.92rem; color: var(--slate-on-paper); margin: 0 0 1.2rem; flex-grow:1; }
+  .site-visit{
+    font-family:'JetBrains Mono'; font-size: 0.74rem; letter-spacing:0.03em;
+    text-decoration:none; color: #5b3fd6; display:inline-flex; align-items:center; gap:0.4em;
+    margin-top:auto; align-self:flex-start;
+  }
+  .site-visit svg{ width:12px; height:12px; transition: transform .2s ease; }
+  .site-visit:hover svg{ transform: translate(2px,-2px); }
+
+  .empty-card{
+    background: transparent; border: 1.5px dashed rgba(91,63,214,0.35);
+    border-radius: 10px; padding: 1.8rem;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; min-height: 220px; grid-column: 1 / -1;
+  }
+  .empty-card h3{ color: #5b3fd6; font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .empty-card p{ color: var(--slate-on-paper); font-size: 0.92rem; margin:0; max-width: 46ch; }
 
   /* ---- Skills ---- */
   .skills-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem 3rem; }
   @media (max-width: 700px){ .skills-grid{ grid-template-columns: 1fr; } }
   .skill-group h3{
-    font-family:'IBM Plex Mono'; font-size: 0.78rem; letter-spacing:0.08em; text-transform:uppercase;
-    color: var(--cyan); font-weight:500; margin-bottom: 1rem;
+    font-family:'JetBrains Mono'; font-size: 0.78rem; letter-spacing:0.08em; text-transform:uppercase;
+    color: var(--signal); font-weight:500; font-style:normal; margin-bottom: 1rem;
   }
   .skill-list{ list-style:none; margin:0; padding:0; }
   .skill-list li{
@@ -337,30 +438,27 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
     font-size: 0.95rem;
   }
   .skill-list li:last-child{ border-bottom:none; }
-  .skill-list .bar{ width: 90px; height:3px; background: var(--line); position:relative; border-radius:2px; overflow:hidden; }
-  .skill-list .bar span{ position:absolute; left:0; top:0; bottom:0; background: var(--cyan); border-radius:2px; }
-
-  /* ---- Education / certs ---- */
-  .cred-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 0.5rem; }
-  @media (max-width: 880px){ .cred-grid{ grid-template-columns: 1fr; } }
-  .cred-card{ border: 1px solid var(--line-paper); border-radius: 6px; padding: 1.5rem; background: #fff; }
-  .cred-card .eyebrow{ margin-bottom: 0.6rem; }
-  .cred-card h3{ font-size: 1.05rem; margin: 0 0 0.3rem; color: var(--paper-ink); }
-  .cred-card p{ margin:0; font-size:0.85rem; color: var(--slate-on-paper); font-family:'IBM Plex Mono'; }
+  .skill-list .bar{ width: 90px; height:3px; background: var(--line); position:relative; border-radius:2px; overflow:hidden; flex-shrink:0; margin-left: 1rem; }
+  .skill-list .bar span{ position:absolute; left:0; top:0; bottom:0; background: var(--signal); border-radius:2px; }
 
   /* ---- Contact ---- */
-  .contact{ background: var(--ink); text-align:center; }
+  .contact{ background: var(--void); text-align:center; }
   .contact .wrap{ max-width: 720px; }
-  .contact h2{ font-size: clamp(2rem, 5vw, 3.2rem); color:#fff; }
-  .contact-links{ display:flex; justify-content:center; gap:1.2rem; margin-top: 2.4rem; flex-wrap:wrap; }
+  .contact h2{ font-size: clamp(2rem, 5vw, 3.1rem); color:#fff; }
+  .contact-links{ display:flex; justify-content:center; gap:1.2rem; margin-top: 2rem; flex-wrap:wrap; }
   .contact-links a{
-    font-family:'IBM Plex Mono'; font-size:0.82rem; text-decoration:none; color: var(--slate);
-    border:1px solid var(--line); padding: 0.9em 1.3em; border-radius:3px;
+    font-family:'JetBrains Mono'; font-size:0.82rem; text-decoration:none; color: var(--slate);
+    border:1px solid var(--line); padding: 0.9em 1.3em; border-radius:5px;
     transition: all .2s ease;
   }
-  .contact-links a:hover{ color: var(--cyan); border-color: var(--cyan); transform: translateY(-2px); }
+  .contact-links a:hover{ color: var(--signal); border-color: var(--signal); transform: translateY(-2px); }
+  .contact-socials{ margin-top: 2.6rem; display:flex; justify-content:center; }
 
-  footer{ padding: 2.4rem var(--pad); text-align:center; font-family:'IBM Plex Mono'; font-size:0.7rem; color: var(--slate); letter-spacing:0.04em; }
+  footer{
+    padding: 2.6rem var(--pad); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:1.2rem;
+  }
+  footer .foot-mark{ font-family:'JetBrains Mono'; font-size:0.7rem; color: var(--slate); letter-spacing:0.04em; }
 
   /* reveal-on-scroll */
   .reveal{ opacity:0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
@@ -371,15 +469,28 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
 
 <header class="site-nav">
   <div class="nav-inner">
-    <a href="#top" class="nav-mark">FM<b>.</b>DRAFT&nbsp;→&nbsp;NETWORK</a>
+    <a href="#top" class="nav-mark">FM<b>.</b>BUILD&nbsp;→&nbsp;AI</a>
     <nav class="nav-links" aria-label="Section navigation">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
-      <a href="#impact">Impact</a>
+      <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
-      <a href="#credentials">Credentials</a>
       <a href="#contact">Contact</a>
     </nav>
+    <div class="nav-right">
+      <div class="nav-social">
+        <!-- TODO: replace # with your real profile URLs -->
+        <a class="social-btn" href="#" data-link="github" aria-label="GitHub profile" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+        </a>
+        <a class="social-btn" href="#" data-link="linkedin" aria-label="LinkedIn profile" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+        </a>
+        <a class="social-btn" href="#" data-link="facebook" aria-label="Facebook profile" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
+        </a>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -389,36 +500,69 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow">Technology enthusiast and lifelong learner</span>
-        <h1>Building <em>AI-powered projects</em> with passion.</h1>
-        <p class="hero-sub">Fredrick Mahinay - graduated from Technological University of the Philippines with a B.S. in Civil Engineering (PRC License No. 0147997). After 6 years in construction (2017-2022), I transitioned to IT in 2023, bringing engineering precision to enterprise systems. Currently focused on AI applications, database integrations, and automation.</p>
+        <span class="eyebrow">Civil Engineer → Systems Engineer → AI Builder</span>
+        <h1>From structural loads to <em>model weights.</em></h1>
+        <p class="hero-sub">Fredrick Mahinay - licensed civil engineer turned enterprise network &amp; systems specialist, now spending every spare hour designing, building, and shipping applications with AI as a core collaborator. Currently building a hero-analytics tool for Mobile Legends and a live crypto market dashboard, end to end.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#contact">Get in touch</a>
-          <a class="btn btn-ghost" href="#experience">See the work</a>
+          <a class="btn btn-primary" href="#projects">See what I'm building</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+        <div class="hero-socials">
+          <span class="label">Find me on</span>
+          <div class="social-row">
+            <!-- TODO: replace # with your real profile URLs -->
+            <a class="social-btn" href="#" data-link="github" aria-label="GitHub profile" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+            </a>
+            <a class="social-btn" href="#" data-link="linkedin" aria-label="LinkedIn profile" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            </a>
+            <a class="social-btn" href="#" data-link="facebook" aria-label="Facebook profile" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
+            </a>
+          </div>
         </div>
       </div>
 
       <div class="schematic-wrap" aria-hidden="true">
-        <!-- Signature element: network topology diagram -->
+        <!-- Signature element: truss (civil engineering) resolving into a neural graph (AI) -->
         <svg viewBox="0 0 400 400">
-          <!-- network topology -->
-          <path class="schem-line" d="M200,120 L300,120 L300,70" style="animation-delay:1.4s" />
-          <path class="schem-line" d="M200,120 L360,150" style="animation-delay:1.5s" />
-          <path class="schem-line" d="M200,120 L250,230" style="animation-delay:1.7s" />
+          <!-- truss triangles, left side -->
+          <path class="schem-line dim" d="M40,260 L100,180 L160,260 L220,180" style="animation-delay:0.2s" />
+          <path class="schem-line dim" d="M40,260 L160,260" style="animation-delay:0.3s" />
+          <path class="schem-line dim" d="M100,180 L220,180" style="animation-delay:0.35s" />
 
-          <circle class="schem-node amber" cx="300" cy="120" r="5" style="animation-delay:1.1s" />
-          <circle class="schem-node" cx="300" cy="70" r="4" style="animation-delay:1.9s" />
-          <circle class="schem-node" cx="360" cy="150" r="4" style="animation-delay:2s" />
-          <circle class="schem-node" cx="250" cy="230" r="4" style="animation-delay:2.2s" />
+          <!-- transition line: truss node becomes first neural node -->
+          <path class="schem-line" d="M220,180 L270,150 L320,120" style="animation-delay:0.9s" />
+          <!-- neural graph, right side -->
+          <path class="schem-line" d="M320,120 L360,90" style="animation-delay:1.5s" />
+          <path class="schem-line" d="M320,120 L370,150" style="animation-delay:1.6s" />
+          <path class="schem-line" d="M270,150 L320,190" style="animation-delay:1.7s" />
+          <path class="schem-line" d="M320,190 L370,150" style="animation-delay:1.9s" />
+          <path class="schem-line" d="M320,190 L360,220" style="animation-delay:2.0s" />
 
-          <text class="schem-label" x="300" y="60" style="animation-delay:2.6s">VPN</text>
-          <text class="schem-label" x="112" y="172" style="animation-delay:2.5s">AUTOMATION</text>
+          <!-- truss joint nodes -->
+          <circle class="schem-node" cx="40" cy="260" r="4" style="animation-delay:0.5s" />
+          <circle class="schem-node" cx="100" cy="180" r="4" style="animation-delay:0.55s" />
+          <circle class="schem-node" cx="160" cy="260" r="4" style="animation-delay:0.6s" />
+          <circle class="schem-node amber" cx="220" cy="180" r="5" style="animation-delay:0.7s" />
+
+          <!-- neural nodes -->
+          <circle class="schem-node" cx="270" cy="150" r="4" style="animation-delay:1.1s" />
+          <circle class="schem-node" cx="320" cy="120" r="4.5" style="animation-delay:1.3s" />
+          <circle class="schem-node" cx="360" cy="90" r="4" style="animation-delay:1.8s" />
+          <circle class="schem-node" cx="370" cy="150" r="4" style="animation-delay:2.0s" />
+          <circle class="schem-node" cx="320" cy="190" r="4.5" style="animation-delay:1.9s" />
+          <circle class="schem-node" cx="360" cy="220" r="4" style="animation-delay:2.2s" />
+
+          <text class="schem-label" x="70" y="290" style="animation-delay:2.4s">LOAD PATH</text>
+          <text class="schem-label" x="325" y="240" style="animation-delay:2.6s">MODEL WEIGHTS</text>
         </svg>
       </div>
     </div>
   </section>
 
-  <!-- ================= ABOUT ================= -->
+  <!-- ================= ABOUT / JOURNEY ================= -->
   <section id="about" class="on-paper">
     <div class="wrap about-grid">
       <div class="reveal">
@@ -427,18 +571,23 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
           <span class="monogram" id="avatarFallback">FM</span>
           <span class="corner tl"></span><span class="corner br"></span>
         </div>
-        <span class="eyebrow">The story</span>
-        <h2>Built for stability, then accelerated with AI.</h2>
+        <span class="eyebrow">The journey</span>
+        <h2>Built for rigor. Now building with AI.</h2>
       </div>
       <div class="reveal">
-        <span class="pivot-badge">◆ Career pivot - 2023</span>
-        <p>From 2017 to 2022, Fredrick worked as a licensed civil engineer - Project Engineer, Project Supervisor, and Operations-in-Charge across four companies, running site inspections, quality assurance, cost estimation, and cross-functional coordination on active construction sites. He passed the civil engineering licensure exam in November 2016.</p>
-        <p>In 2023 he rebuilt that foundation inside IT, applying the same precision to enterprise systems. From supporting enterprise network infrastructure at Accenture to managing the Asian Development Bank project at Indra, he now focuses on building AI-powered projects, exploring database integrations, workflow automation, and developing a comprehensive task management application.</p>
-        <p>Currently exploring the intersection of AI and infrastructure, working on projects that combine network automation with intelligent task management systems. Passionate about applying proven engineering principles to software development and emerging technologies.</p>
+        <span class="pivot-badge">◆ Now building AI-powered apps</span>
+        <p>From 2017 to 2022, Fredrick worked as a licensed civil engineer - Project Engineer, Project Supervisor, and Design &amp; Engineering Operations In-Charge across four companies - running site inspections, structural QA/QC, cost estimation, and cross-functional coordination on live construction sites. He passed the civil engineering licensure exam in November 2016.</p>
+        <p>In 2023 he rebuilt that foundation inside IT, applying the same inspect-before-you-trust discipline to enterprise systems: supporting network infrastructure at Accenture, then managing Tier-2 network and security operations for the Asian Development Bank project at Indra.</p>
+        <p>Today that discipline is pointed at a new frontier. He treats AI as a genuine collaborator in the build process - pairing with it on architecture decisions, data pipelines, and interface design - and is actively shipping two full applications this way: a hero-matchup analytics engine for Mobile Legends: Bang Bang, and a live cryptocurrency dashboard with its own ETL pipeline. The goal is a full move into AI engineering, building on an already-proven habit of verifying everything before it ships.</p>
         <div class="stat-strip">
-          <div class="stat"><span class="num">1,000+</span><span class="label">Users supported</span></div>
-          <div class="stat"><span class="num">20+</span><span class="label">Tickets resolved / day</span></div>
-          <div class="stat"><span class="num">6 yrs</span><span class="label">Civil engineering experience</span></div>
+          <div class="stat"><span class="num">6 yrs</span><span class="label">Civil engineering foundation</span></div>
+          <div class="stat"><span class="num">2</span><span class="label">AI-assisted apps in active build</span></div>
+          <div class="stat"><span class="num">1,000+</span><span class="label">Users supported in IT ops</span></div>
+        </div>
+        <div class="cred-strip">
+          <div class="cred-item"><span class="cred-when">2016</span><span>Licensed Civil Engineer - PRC License No. 0147997</span></div>
+          <div class="cred-item"><span class="cred-when">2023</span><span>Dell Boomi Associate &amp; Professional Integration Developer certifications</span></div>
+          <div class="cred-item"><span class="cred-when">Now</span><span>Self-directed study in AI engineering - prompting, agentic workflows, applied ML tooling</span></div>
         </div>
       </div>
     </div>
@@ -449,169 +598,154 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">Experience log</span>
-        <h2>Where the work has run.</h2>
+        <h2>Two tracks. One habit of mind.</h2>
       </div>
 
-      <div class="timeline">
-        <div class="role reveal">
-          <div class="role-top">
-            <h3>Network & Deskside Support Engineer</h3>
-            <span class="status-pill active">May 2025 - Present</span>
-            <span class="role-meta">Ortigas, Pasig City</span>
-          </div>
-          <div class="role-org">INDRA, Asian Development Bank (ADB) Project</div>
-          <ul>
-            <li><strong>L2 Network Escalation & Incident Resolution:</strong> Manage escalated network tickets from L1 support - performing root-cause isolation and issue replication for Zscaler connectivity, DNS conflicts, website whitelisting, and Wi-Fi/internet slowness across ADB offices and remote setups</li>
-            <li><strong>ZPA Firewall Onboarding Coordination:</strong> Act as the primary Point of Contact (POC) for Zscaler Private Access (ZPA) firewall onboarding requests, coordinating user access requirements with IT Security for approval and aligning with the Network team for technical fulfillment</li>
-            <li><strong>End-to-End Ownership & User Experience:</strong> Maintain continuous communication with impacted users, delivering clear status updates from initial isolation through ticket resolution or L3 escalation to ensure a smooth support experience</li>
-            <li><strong>On-Site Network & Port Activation:</strong> Conduct physical site visits within ADB offices to diagnose Wi-Fi signal coverage, verify wall port connectivity, and coordinate directly with Facilities for network port activations</li>
-            <li><strong>Deskside & End-User Support:</strong> Provided front-face IT operations support - issuing Windows/Mac hardware and accessories, performing Active Directory account resets, conducting initial hardware/software diagnostics, and logging detailed tickets in ServiceNow (SNOW)</li>
-          </ul>
-          <div class="role-meta"><strong>Key Skills:</strong> L2 Network Troubleshooting • ZPA Firewall Onboarding • Zscaler & DNS Diagnostics • ServiceNow (SNOW) • Active Directory • On-Site Hardware/Port Activation • Cross-Team Coordination (IT Sec & Network Teams)</div>
-          <div class="role-meta"><strong>Scope Focus:</strong> High-volume network ticket resolution, secure application access coordination, and enterprise IT support for ADB operations</div>
-        </div>
-<div class="role reveal">
-          <div class="role-top">
-            <h3>Custom Associate Software Engineer</h3>
-            <span class="status-pill resolved">May 2023 - Feb 2025</span>
-            <span class="role-meta">Mandaluyong</span>
-          </div>
-          <div class="role-org">Accenture</div>
-          <ul>
-            <li><strong>L2 Application Portfolio Management (BTME Tower):</strong> Provided Tier-2 support and continuous maintenance across a diverse portfolio of 50+ enterprise applications, ranging from high-security nuclear systems to low-to-medium priority niche tools serving small user groups (5-10 users)</li>
-            <li><strong>System Configuration & Maintenance:</strong> Performed critical post-migration and post-upgrade system reconfigurations, managed admin credentials, and updated application front-ends to reflect personnel, website, and operational changes</li>
-            <li><strong>Data Integration & Database Troubleshooting:</strong> Investigated production data errors and database table discrepancies using Oracle SQL and Microsoft SQL, leveraging integration platforms like Dell Boomi and TIBCO to trace data flow pipelines</li>
-            <li><strong>Change Management & Server Upgrades:</strong> Authored and executed formal Change Requests (CHGs) and Service Requests (RITMs) for backend updates, production database modifications, and Windows Server / Microsoft SQL Server upgrades while maintaining zero downtime</li>
-            <li><strong>Application Access & Security Administration:</strong> Managed application-level user provisioning, role-based access privileges, admin passwords, and high-security annual credential reset cycles directly via Oracle SQL and Microsoft SQL (outside AD)</li>
-            <li><strong>Incident Coordination & 24/7 Readiness:</strong> Acted as primary Incident Coordinator on a weekly rotational basis, orchestrating response efforts for P1, P2, and P3 incidents and alerting primary support SMEs to ensure uninterrupted global operations</li>
-            <li><strong>Vendor & Client SME Collaboration:</strong> Worked directly with client-side Subject Matter Experts (SMEs) and third-party software vendors to diagnose system bugs, conduct technical risk assessments, and deploy software patches</li>
-          </ul>
-          <div class="role-meta"><strong>Key Skills:</strong> Tier-2 Application Support (50+ Apps Portfolio) • Oracle SQL & Microsoft SQL • Post-Migration Configuration • Incident Management (P1 - P3) • Change Management (CHG / RITM) • Integration Flow Analysis (Dell Boomi / TIBCO)</div>
-          <div class="role-meta"><strong>Scope Focus:</strong> Multi-app enterprise portfolio maintenance, database troubleshooting, post-upgrade configurations, and critical system availability</div>
-        </div>
-        
-        
-        
-        
-        <div class="role reveal">
-          <div class="role-top">
-            <h3>Design and Engineering Operations In-Charge</h3>
-            <span class="status-pill resolved">July 8, 2021 - Sept 16, 2022</span>
-            <span class="role-meta">Pasig / Ortigas</span>
-          </div>
-          <div class="role-org">Winsom Building Products Co. Ltd.</div>
-          <ul>
-            <li><strong>Technical Design Support & Estimation:</strong> Conducted precise site surveys and field measurements to support 2D CAD shop drawing preparation, material quantity take-offs, and cost estimation for architectural product proposals</li>
-            <li><strong>Supply Chain & Delivery Logistics:</strong> Managed end-to-end material delivery - coordinating directly with client architects, warehouse personnel, and site teams to ensure complete and accurate delivery of specialized architectural systems (e.g., sliding louvers)</li>
-            <li><strong>Site Mobilization & Permitting:</strong> Handled all administrative and site-level mobilization logistics, securing necessary work permits and aligning delivery schedules with client site rules</li>
-            <li><strong>Subcontractor & Installation QA/QC:</strong> Supervised third-party installation crews, provided technical installation guides and methodologies, and performed rigorous quality inspections to ensure installed products matched approved shop drawings</li>
-          </ul>
-          <div class="role-meta"><strong>Key Skills:</strong> Site Field Surveys • 2D CAD Shop Drawings • Quantity Take-off & Costing • Subcontractor Management • Architectural Product QA/QC • Site Permitting</div>
-          <div class="role-meta"><strong>Scope Focus:</strong> Technical supply and installation supervision of specialized architectural building products</div>
-        </div>
-        
-        
-        
-        <div class="role reveal">
-          <div class="role-top">
-            <h3>Project Civil Engineer</h3>
-            <span class="status-pill resolved">Jan 27, 2020 - Feb 15, 2021</span>
-            <span class="role-meta">Mandaluyong</span>
-          </div>
-          <div class="role-org">Hanston Commercial and Industrial Corp.</div>
-          <ul>
-            <li>Owner's Site Representative & QA/QC: Represented property owners on-site for a multi-story commercial development, leading daily structural quality inspections to ensure full adherence to engineering plans, specifications, and building standards</li>
-            <li>Pre-Pour Inspection & Sign-Off: Inspected formwork alignment, rebar placement, and rebar surface condition (addressing corrosion and cleanliness) before issuing formal approvals for concrete pours</li>
-            <li>Defect Remediation & High-Strength Testing: Coordinated directly with structural consultants and specialized subcontractors to rectify honeycomb defects, witnessing material testing (including 10,000 PSI concrete repair mixes) to ensure approved remediation methodologies were strictly followed</li>
-            <li>Live Monitoring & Owner Reporting: Supervised major concrete casting operations on-site to maintain quality control, serving as the direct line of communication to keep project owners updated on progress and field issues</li>
-          </ul>
-          <div class="role-meta">Key Skills: Structural QA/QC Inspection • Concrete Pour Approval • Defect Remediation & Material Testing • Owner Representation • Technical Stakeholder Coordination</div>
-          <div class="role-meta">Scope Focus: Commercial multi-story building development and structural quality control</div>
-        </div>
+      <div class="tab-toggle reveal" role="tablist" aria-label="Experience track">
+        <button class="tab-btn active" role="tab" aria-selected="true" data-tab="itai">IT, Software &amp; AI</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="civil">Civil Engineering</button>
+      </div>
 
-        <div class="role reveal">
-          <div class="role-top">
-            <h3>Project Engineer / Project Manager</h3>
-            <span class="status-pill resolved">Nov 2018 - Jan 2020</span>
-            <span class="role-meta">Pasay City / Bulacan Sites</span>
+      <!-- ===== IT / SOFTWARE / AI TAB ===== -->
+      <div class="tab-panel active" id="panel-itai">
+        <div class="timeline">
+          <div class="role reveal current">
+            <div class="role-top">
+              <h3>Network &amp; Deskside Support Engineer</h3>
+              <span class="status-pill current">May 2025 - Present</span>
+              <span class="role-meta">Ortigas, Pasig City</span>
+            </div>
+            <div class="role-org">INDRA - Asian Development Bank (ADB) Project</div>
+            <ul>
+              <li><strong>L2 network escalation &amp; incident resolution:</strong> Root-cause isolation for Zscaler connectivity, DNS conflicts, website whitelisting, and Wi-Fi/internet issues across ADB offices and remote setups.</li>
+              <li><strong>ZPA firewall onboarding:</strong> Primary point of contact for Zscaler Private Access onboarding, coordinating access requirements between IT Security and the Network team.</li>
+              <li><strong>End-to-end ownership:</strong> Clear status communication from initial isolation through resolution or L3 escalation.</li>
+              <li><strong>On-site diagnostics:</strong> Physical site visits to verify Wi-Fi coverage, wall port connectivity, and coordinate port activations with Facilities.</li>
+              <li><strong>Deskside support:</strong> Hardware provisioning, Active Directory resets, diagnostics, and detailed ServiceNow ticket logging.</li>
+            </ul>
+            <div class="role-skills">L2 Troubleshooting · ZPA Onboarding · Zscaler &amp; DNS · ServiceNow · Active Directory · Cross-team Coordination</div>
           </div>
-          <div class="role-org">Jetti Petroleum Inc.</div>
-          <ul>
-            <li><strong>Full Lifecycle Contractor Management:</strong> Oversaw General Contractors from the initial tender/bidding phase through ground-up construction to final structural turnover for Jetti fuel station developments across Bulacan</li>
-            <li><strong>Scope & Bidding Administration:</strong> Defined detailed project scopes, evaluated contractor technical proposals, and managed site mobilization upon project award</li>
-            <li><strong>Quality Assurance & On-Site Inspection:</strong> Conducted rigorous site inspections to enforce quality standards, ensure material compliance, and verify alignment with approved engineering drawings and safety protocols</li>
-            <li><strong>Schedule Tracking & MS Project Reporting:</strong> Developed and tracked Gantt charts using MS Project to monitor baseline timelines, manage contractor milestones, and deliver detailed weekly progress reports to stakeholders</li>
-          </ul>
-          <div class="role-meta"><strong>Key Skills:</strong> Full Lifecycle Project Management • Contractor Bidding & Evaluation • Site Inspection & Quality Control • Timeline Tracking (MS Project / Gantt Charts) • Technical Drawing Verification</div>
-          <div class="role-meta"><strong>Scope Focus:</strong> Commercial fuel station construction and structural development</div>
-        </div>
 
-        
-
-        <div class="role reveal">
-          <div class="role-top">
-            <h3>Project Supervisor / Project Manager</h3>
-            <span class="status-pill resolved">Aug 2017 - Nov 2018</span>
-            <span class="role-meta">Biñan, Laguna</span>
+          <div class="role reveal">
+            <div class="role-top">
+              <h3>Custom Associate Software Engineer</h3>
+              <span class="status-pill archived">May 2023 - Feb 2025</span>
+              <span class="role-meta">Mandaluyong</span>
+            </div>
+            <div class="role-org">Accenture</div>
+            <ul>
+              <li><strong>Application portfolio management:</strong> Tier-2 support across 50+ enterprise applications, from high-security systems to niche low-volume tools.</li>
+              <li><strong>Data &amp; integration troubleshooting:</strong> Investigated production data errors using Oracle SQL and Microsoft SQL, tracing pipelines through Dell Boomi and TIBCO.</li>
+              <li><strong>Change management:</strong> Authored and executed Change Requests and Service Requests for backend updates and Windows Server / SQL Server upgrades with zero downtime.</li>
+              <li><strong>Incident coordination:</strong> Rotational Incident Coordinator for P1 to P3 incidents, keeping global operations uninterrupted.</li>
+              <li><strong>Vendor &amp; SME collaboration:</strong> Worked directly with client SMEs and third-party vendors on bug diagnosis and patch deployment.</li>
+            </ul>
+            <div class="role-skills">Oracle SQL &amp; MS SQL · Dell Boomi / TIBCO · Incident Mgmt (P1 to P3) · Change Mgmt (CHG/RITM) · Post-migration Config</div>
           </div>
-          <div class="role-org">CLG Shalom Builders</div>
-          <ul>
-            <li><strong>End-to-End Bank Renovation Delivery:</strong> Managed off-hours interior additions and teller counter expansions for BPI Southern Luzon branches, executing tight weekend builds (Friday 5 PM to Sunday) to prevent any disruption to bank operations</li>
-            <li><strong>Client Alignment & CAD Design:</strong> Met directly with BPI architects to review branch requirements, drafted 2D CAD layouts based on site measurements, and secured client approvals on proposed plans and cost estimates before mobilization</li>
-            <li><strong>Team & Subcontractor Leadership:</strong> Supervised two concurrent 6-person site teams (masons, carpenters, electricians, laborers) and managed specialized electrical subcontractors to maintain strict quality control and design compliance</li>
-            <li><strong>Procurement & Site Logistics:</strong> Coordinated material sourcing across hardware suppliers, scheduled vehicle logistics and site mobilization, and managed weekly crew payroll administration</li>
-            <li><strong>Time-Critical Execution:</strong> Successfully delivered up to 2 branch projects per weekend under strict client timelines and tight window constraints</li>
-          </ul>
-          <div class="role-meta"><strong>Key Skills:</strong> Client & Architect Coordination • 2D CAD Drafting • Cost Estimation • Subcontractor Management • Site Supervision</div>
-          <div class="role-meta"><strong>Key Achievement:</strong> Zero-downtime weekend turnarounds for commercial banking clients</div>
+
+          <div class="role reveal">
+            <div class="role-top">
+              <h3>Independent - AI-Assisted App Development</h3>
+              <span class="role-meta">Self-directed · 2025</span>
+            </div>
+            <div class="role-org">Personal projects</div>
+            <ul>
+              <li><strong>MLBB hero counter-pick analyzer:</strong> Multi-sheet scoring engine evaluating hero matchups across role advantage, stat differentials, damage type, power-spike timing, and hard-counter rules - now being scaled from Excel into a Supabase + Python web app.</li>
+              <li><strong>Crypto market dashboard &amp; ETL pipeline:</strong> Dark-themed live dashboard with candlestick charts and technical indicators (SMA, RSI), backed by a Python/yfinance ingestion script and a GitHub Actions deployment pipeline to Supabase and GitHub Pages.</li>
+              <li><strong>Working method:</strong> Uses AI as an active collaborator across architecture decisions, debugging, and iteration - while retaining full ownership of data structure, formula logic, and quality review.</li>
+            </ul>
+            <div class="role-skills">Prompt Engineering · Python · Supabase · GitHub Actions · GitHub Pages · SQL · Excel/VBA Modeling</div>
+          </div>
         </div>
       </div>
 
-      <div class="pivot-note reveal">
-        <h3>Why the pivot holds up</h3>
-        <p>Civil engineering trains you to inspect before you trust something - a beam, a wall, a login. That habit is the reason a career switch this sharp didn't cost him rigor; it just changed what he was inspecting.</p>
+      <!-- ===== CIVIL ENGINEERING TAB ===== -->
+      <div class="tab-panel" id="panel-civil">
+        <div class="timeline">
+          <div class="role reveal">
+            <div class="role-top">
+              <h3>Design and Engineering Operations In-Charge</h3>
+              <span class="status-pill archived">Jul 2021 - Sep 2022</span>
+              <span class="role-meta">Pasig / Ortigas</span>
+            </div>
+            <div class="role-org">Winsom Building Products Co. Ltd.</div>
+            <ul>
+              <li><strong>Technical design &amp; estimation:</strong> Site surveys and field measurements supporting 2D CAD shop drawings, quantity take-offs, and cost estimation for architectural product proposals.</li>
+              <li><strong>Supply chain &amp; logistics:</strong> End-to-end material delivery coordination with client architects, warehouse teams, and site crews for specialized architectural systems.</li>
+              <li><strong>Site mobilization &amp; permitting:</strong> Managed permits and delivery scheduling aligned with client site rules.</li>
+              <li><strong>Installation QA/QC:</strong> Supervised third-party crews and performed quality inspections against approved shop drawings.</li>
+            </ul>
+            <div class="role-skills">Site Field Surveys · 2D CAD Shop Drawings · Quantity Take-off &amp; Costing · Subcontractor Mgmt · QA/QC</div>
+          </div>
+
+          <div class="role reveal">
+            <div class="role-top">
+              <h3>Project Civil Engineer</h3>
+              <span class="status-pill archived">Jan 2020 - Feb 2021</span>
+              <span class="role-meta">Mandaluyong</span>
+            </div>
+            <div class="role-org">Hanston Commercial and Industrial Corp.</div>
+            <ul>
+              <li><strong>Owner's site representative:</strong> Daily structural QA/QC inspections on a multi-story commercial development, ensuring adherence to plans, specs, and building standards.</li>
+              <li><strong>Pre-pour inspection &amp; sign-off:</strong> Formwork alignment and rebar checks before approving concrete pours.</li>
+              <li><strong>Defect remediation:</strong> Coordinated with structural consultants and subcontractors on honeycomb defect fixes, witnessing high-strength repair mix testing.</li>
+              <li><strong>Live monitoring &amp; reporting:</strong> Supervised major concrete casting operations and kept owners updated on progress.</li>
+            </ul>
+            <div class="role-skills">Structural QA/QC · Concrete Pour Approval · Defect Remediation &amp; Material Testing · Owner Representation</div>
+          </div>
+
+          <div class="role reveal">
+            <div class="role-top">
+              <h3>Project Engineer / Project Manager</h3>
+              <span class="status-pill archived">Nov 2018 - Jan 2020</span>
+              <span class="role-meta">Pasay City / Bulacan Sites</span>
+            </div>
+            <div class="role-org">Jetti Petroleum Inc.</div>
+            <ul>
+              <li><strong>Full lifecycle contractor management:</strong> Oversaw General Contractors from bidding through construction to structural turnover for fuel station developments across Bulacan.</li>
+              <li><strong>Scope &amp; bidding administration:</strong> Defined project scopes and evaluated contractor proposals.</li>
+              <li><strong>Quality assurance:</strong> Enforced material compliance against approved engineering drawings and safety protocols.</li>
+              <li><strong>Schedule tracking:</strong> Gantt charts in MS Project to monitor timelines and report weekly progress.</li>
+            </ul>
+            <div class="role-skills">Contractor Bidding &amp; Evaluation · Site Inspection · MS Project / Gantt Charts · Drawing Verification</div>
+          </div>
+
+          <div class="role reveal">
+            <div class="role-top">
+              <h3>Project Supervisor / Project Manager</h3>
+              <span class="status-pill archived">Aug 2017 - Nov 2018</span>
+              <span class="role-meta">Biñan, Laguna</span>
+            </div>
+            <div class="role-org">CLG Shalom Builders</div>
+            <ul>
+              <li><strong>Bank renovation delivery:</strong> Managed off-hours interior additions and teller counter expansions for BPI Southern Luzon branches within tight weekend build windows.</li>
+              <li><strong>Client alignment &amp; CAD design:</strong> Met with BPI architects to draft 2D CAD layouts and secure client approvals before mobilization.</li>
+              <li><strong>Team leadership:</strong> Supervised two concurrent 6-person site teams plus specialized electrical subcontractors.</li>
+              <li><strong>Procurement &amp; logistics:</strong> Coordinated material sourcing, vehicle logistics, and weekly crew payroll.</li>
+            </ul>
+            <div class="role-skills">Client &amp; Architect Coordination · 2D CAD Drafting · Cost Estimation · Subcontractor Mgmt · Site Supervision</div>
+          </div>
+        </div>
+
+        <div class="pivot-note reveal">
+          <h3>Why the pivot holds up</h3>
+          <p>Civil engineering trains you to inspect before you trust something - a beam, a wall, a login, a model's output. That habit is the reason this pivot didn't cost rigor; it just changed what he's inspecting.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= IMPACT ================= -->
-  <section id="impact" class="on-paper">
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects" class="on-paper">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">Selected impact</span>
-        <h2>Measured, not just described.</h2>
+        <span class="eyebrow">What I'm building</span>
+        <h2>Shipped, and still shipping.</h2>
       </div>
-      <div class="impact-grid">
-        <div class="impact-card reveal">
-          <span class="tag">Incident management</span>
-          <h3>20+ tickets / day, 1,000+ users</h3>
-          <p>Owns the full incident lifecycle in ServiceNow for the ADB project - from triage to resolution - without letting the queue back up.</p>
-        </div>
-        <div class="impact-card reveal">
-          <span class="tag">Security operations</span>
-          <h3>Enterprise web security requests</h3>
-          <p>Audits URL whitelisting and domain-blocking requests against company standards, then hands Zscaler admins a technical brief they can act on immediately.</p>
-        </div>
-        <div class="impact-card reveal">
-          <span class="tag">VPN &amp; connectivity</span>
-          <h3>Tier 2 VPN root-cause resolution</h3>
-          <p>Diagnoses Zscaler authentication and secure-tunnel failures, escalating only what genuinely needs the global backend team.</p>
-        </div>
-        <div class="impact-card reveal">
-          <span class="tag">Infrastructure upgrades</span>
-          <h3>Zero downtime, every upgrade</h3>
-          <p>Performed Windows Server and database server upgrades at Accenture with post-upgrade validation and no disruption to critical applications.</p>
-        </div>
-        <div class="impact-card reveal">
-          <span class="tag">Change management</span>
-          <h3>End-to-end Change Requests</h3>
-          <p>Ran the full CR pipeline - ticket, technical assessment, implementation - holding every production change to strict compliance standards.</p>
-        </div>
-        <div class="impact-card reveal">
-          <span class="tag">Continuity</span>
-          <h3>24/7 global operations</h3>
-          <p>Coordinated weekend incident response, prioritizing by impact to keep business continuity unbroken around the clock.</p>
-        </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Cards are generated from settings.txt. Add, edit, or remove a project there
+             and this grid rearranges itself, no HTML editing needed. -->
       </div>
     </div>
   </section>
@@ -620,68 +754,41 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
   <section id="skills">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">Expertise</span>
-        <h2>The stack behind the tickets.</h2>
+        <span class="eyebrow">Toolkit</span>
+        <h2>What I build with.</h2>
       </div>
       <div class="skills-grid">
         <div class="skill-group reveal">
-          <h3>Network &amp; Security</h3>
+          <h3>AI / ML &amp; Prompting</h3>
+          <ul class="skill-list">
+            <li>Prompt engineering &amp; iterative refinement <span class="bar"><span style="width:80%"></span></span></li>
+            <li>AI-assisted architecture &amp; debugging <span class="bar"><span style="width:78%"></span></span></li>
+            <li>Agentic workflows &amp; automation <span class="bar"><span style="width:68%"></span></span></li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>App Development &amp; Data</h3>
+          <ul class="skill-list">
+            <li>Python (ETL, data pipelines) <span class="bar"><span style="width:72%"></span></span></li>
+            <li>Supabase &amp; SQL <span class="bar"><span style="width:75%"></span></span></li>
+            <li>Git / GitHub &amp; GitHub Pages <span class="bar"><span style="width:74%"></span></span></li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Network &amp; Systems</h3>
           <ul class="skill-list">
             <li>Zscaler VPN - Tier 2 support <span class="bar"><span style="width:92%"></span></span></li>
-            <li>URL whitelisting &amp; domain policy <span class="bar"><span style="width:85%"></span></span></li>
-            <li>Traffic monitoring &amp; stability <span class="bar"><span style="width:80%"></span></span></li>
+            <li>ServiceNow &amp; Active Directory <span class="bar"><span style="width:88%"></span></span></li>
+            <li>Windows Server, SQL Server, Dell Boomi <span class="bar"><span style="width:80%"></span></span></li>
           </ul>
         </div>
         <div class="skill-group reveal">
-          <h3>Systems &amp; Infrastructure</h3>
+          <h3>Civil &amp; Technical Foundations</h3>
           <ul class="skill-list">
-            <li>ServiceNow incident management <span class="bar"><span style="width:90%"></span></span></li>
-            <li>Windows Server &amp; SQL Server <span class="bar"><span style="width:82%"></span></span></li>
-            <li>Dell Boomi integration <span class="bar"><span style="width:75%"></span></span></li>
+            <li>2D CAD drafting &amp; site surveys <span class="bar"><span style="width:85%"></span></span></li>
+            <li>Structural QA/QC &amp; cost estimation <span class="bar"><span style="width:84%"></span></span></li>
+            <li>Project &amp; contractor management <span class="bar"><span style="width:86%"></span></span></li>
           </ul>
-        </div>
-        <div class="skill-group reveal">
-          <h3>Process &amp; Governance</h3>
-          <ul class="skill-list">
-            <li>Change Request lifecycle <span class="bar"><span style="width:88%"></span></span></li>
-            <li>SLA management <span class="bar"><span style="width:84%"></span></span></li>
-            <li>Access &amp; compliance audits <span class="bar"><span style="width:80%"></span></span></li>
-          </ul>
-        </div>
-        <div class="skill-group reveal">
-          <h3>Working style</h3>
-          <ul class="skill-list">
-            <li>Written &amp; verbal communication <span class="bar"><span style="width:90%"></span></span></li>
-            <li>Cross-functional coordination <span class="bar"><span style="width:88%"></span></span></li>
-            <li>Agentic AI &amp; workflow automation <span class="bar"><span style="width:70%"></span></span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CREDENTIALS ================= -->
-  <section id="credentials" class="on-paper">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Education &amp; credentials</span>
-        <h2>Licensed, certified, and still building.</h2>
-      </div>
-      <div class="cred-grid">
-        <div class="cred-card reveal">
-          <span class="eyebrow">2010 - 2016</span>
-          <h3>B.S. Civil Engineering</h3>
-          <p>Technological University of the Philippines - Taguig</p>
-        </div>
-        <div class="cred-card reveal">
-          <span class="eyebrow">Passed Nov 2016</span>
-          <h3>Licensed Civil Engineer</h3>
-          <p>PRC License No. 0147997</p>
-        </div>
-        <div class="cred-card reveal">
-          <span class="eyebrow">Completed 2023</span>
-          <h3>Boomi Professional &amp; Associate Integration Developer</h3>
-          <p>Dell Boomi Certifications</p>
         </div>
       </div>
     </div>
@@ -691,18 +798,34 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
   <section id="contact" class="contact">
     <div class="wrap reveal">
       <span class="eyebrow">Open channel</span>
-      <h2>Let's fix something together.</h2>
-      <p class="slate-text">Based in Biñan, Laguna - open to network support, systems engineering, and integration roles.</p>
+      <h2>Let's build something with AI.</h2>
+      <p class="slate-text" data-link-text="location">Based in Biñan, Laguna - open to AI engineering, AI-assisted application development, and integration roles.</p>
       <div class="contact-links">
-        <a href="mailto:fredrickmahinay18@gmail.com">fredrickmahinay18@gmail.com</a>
-        <a href="tel:+639610030671">0961 003 0671</a>
+        <a href="mailto:fredrickmahinay18@gmail.com" data-link="email" data-link-text="email">fredrickmahinay18@gmail.com</a>
+        <a href="tel:+639610030671" data-link="phone" data-link-text="phone">0961 003 0671</a>
+      </div>
+      <div class="contact-socials">
+        <div class="social-row">
+          <!-- TODO: replace # with your real profile URLs -->
+          <a class="social-btn" href="#" data-link="github" aria-label="GitHub profile" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+          </a>
+          <a class="social-btn" href="#" data-link="linkedin" aria-label="LinkedIn profile" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+          </a>
+          <a class="social-btn" href="#" data-link="facebook" aria-label="Facebook profile" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer>FREDRICK MAHINAY - NETWORK SUPPORT &amp; SYSTEMS ENGINEER - BUILT 2026</footer>
+<footer>
+  <div class="foot-mark">FREDRICK MAHINAY - BUILDING WITH AI - 2026</div>
+</footer>
 
 <script>
   // Avatar loader: tries DP.<ext> in the site root, falls back to monogram.
@@ -712,7 +835,7 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
     const fallback = document.getElementById('avatarFallback');
     let i = 0;
     function tryNext(){
-      if(i >= exts.length){ return; } // keep monogram fallback visible
+      if(i >= exts.length){ return; }
       const test = new Image();
       test.onload = function(){
         img.src = 'DP.' + exts[i];
@@ -725,23 +848,243 @@ Utility : "IBM Plex Mono" - timestamps, status pills, labels -
     tryNext();
   })();
 
-  // Scroll reveal
+  // Experience tab toggle
   (function(){
-    const items = document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){
-      items.forEach(el => el.classList.add('in'));
+    const buttons = document.querySelectorAll('.tab-btn');
+    const panels = { itai: document.getElementById('panel-itai'), civil: document.getElementById('panel-civil') };
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+        btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+        Object.values(panels).forEach(p => p.classList.remove('active'));
+        panels[btn.dataset.tab].classList.add('active');
+      });
+    });
+  })();
+
+  // ------------------------------------------------------------------
+  // Scroll reveal - reusable so cards built later (projects, sites)
+  // fade in the same way as everything else on the page.
+  // ------------------------------------------------------------------
+  const revealIO = ('IntersectionObserver' in window)
+    ? new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('in');
+            revealIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 })
+    : null;
+
+  function observeReveal(el){
+    if(revealIO){ revealIO.observe(el); }
+    else{ el.classList.add('in'); }
+  }
+
+  document.querySelectorAll('.reveal').forEach(observeReveal);
+
+  // ------------------------------------------------------------------
+  // SETTINGS: everything that changes often (links, email, phone,
+  // the project list, and the sites showcase) lives in settings.txt
+  // so it can be edited without touching any HTML or CSS.
+  //
+  // settings.txt is fetched at page load. If the file can't be
+  // reached (for instance when the page is opened directly from a
+  // folder instead of being served by a web server) the page falls
+  // back to the defaults built into FALLBACK_SETTINGS below, so the
+  // site never breaks, it just won't reflect settings.txt edits
+  // until it's served properly (any static host, including GitHub
+  // Pages, works fine).
+  // ------------------------------------------------------------------
+  const FALLBACK_SETTINGS = `
+EMAIL = fredrickmahinay18@gmail.com
+PHONE_DISPLAY = 0961 003 0671
+PHONE_LINK = +639610030671
+LOCATION = Based in Bi\u00f1an, Laguna. Open to AI engineering, AI-assisted application development, and integration roles.
+GITHUB = #
+LINKEDIN = #
+FACEBOOK = #
+
+PROJECT_START
+STATUS = In active development
+TITLE = MLBB Hero Counter-Pick Analyzer
+DESCRIPTION = A scoring engine that recommends the best counter-pick for any Mobile Legends: Bang Bang hero matchup, weighing role advantage, stat differentials, difficulty gap, damage type, power-spike timing, style matchup, and hard-counter rules. Started as a multi-sheet Excel workbook with 100+ dependent hard-counter rules, now being rebuilt as a full web app.
+TAGS = Excel / VBA, Python, Supabase, GitHub Pages
+DEMO_LINK = #
+CODE_LINK = #
+PROJECT_END
+
+PROJECT_START
+STATUS = Live
+TITLE = Crypto Market Dashboard & ETL Pipeline
+DESCRIPTION = A dark-themed, real-time cryptocurrency dashboard with live candlestick charts and technical indicators (SMA, RSI). Backed by a Python ETL script that pulls OHLCV data via yfinance across daily, hourly, and 4-hour timeframes for five coins, upserting into Supabase through an automated GitHub Actions pipeline.
+TAGS = JavaScript, Python / yfinance, Supabase, GitHub Actions
+DEMO_LINK = #
+CODE_LINK = #
+PROJECT_END
+`;
+
+  // A calm placeholder image (no outside network request) shown until
+  // a real screenshot is added, or if an IMAGE link fails to load.
+  const PLACEHOLDER_IMG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#dad5c7"/>
+          <stop offset="1" stop-color="#c8c2b2"/>
+        </linearGradient>
+      </defs>
+      <rect width="600" height="375" fill="url(#g)"/>
+      <g fill="none" stroke="#5b3fd6" stroke-width="1.6" stroke-linecap="round" opacity="0.55">
+        <circle cx="300" cy="168" r="34"/>
+        <path d="M300 134 L300 202 M266 168 L334 168"/>
+      </g>
+      <text x="300" y="240" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#5b3fd6" opacity="0.7">PREVIEW COMING SOON</text>
+    </svg>
+  `);
+
+  function escapeHtml(str){
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  // Parses the block-based settings.txt format:
+  //   KEY = value                (top level -> links/contact info)
+  //   PROJECT_START ... PROJECT_END   (repeatable project blocks)
+  //   SITE_START ... SITE_END         (repeatable site blocks)
+  function parseSettings(text){
+    const data = { links: {}, projects: [], sites: [] };
+    let block = null;
+    text.replace(/\r\n/g, '\n').split('\n').forEach(rawLine => {
+      const line = rawLine.trim();
+      if(!line || line.startsWith('#')) return;
+      if(line === 'PROJECT_START'){ block = { type:'project', obj:{} }; return; }
+      if(line === 'PROJECT_END'){ if(block) data.projects.push(block.obj); block = null; return; }
+      if(line === 'SITE_START'){ block = { type:'site', obj:{} }; return; }
+      if(line === 'SITE_END'){ if(block) data.sites.push(block.obj); block = null; return; }
+      const eq = line.indexOf('=');
+      if(eq === -1) return;
+      const key = line.slice(0, eq).trim();
+      const value = line.slice(eq + 1).trim();
+      if(block){ block.obj[key] = value; }
+      else{ data.links[key] = value; }
+    });
+    return data;
+  }
+
+  async function loadSettings(){
+    try{
+      const res = await fetch('settings.txt', { cache: 'no-store' });
+      if(!res.ok) throw new Error('settings.txt not found (' + res.status + ')');
+      const text = await res.text();
+      return parseSettings(text);
+    }catch(err){
+      console.warn('Using built-in default settings because settings.txt could not be loaded. ' +
+        'This is expected if you are previewing the file locally by double-clicking it ' +
+        'instead of through a web server or GitHub Pages.', err);
+      return parseSettings(FALLBACK_SETTINGS);
+    }
+  }
+
+  function renderLinks(links){
+    document.querySelectorAll('[data-link="github"]').forEach(a => { a.href = links.GITHUB || '#'; });
+    document.querySelectorAll('[data-link="linkedin"]').forEach(a => { a.href = links.LINKEDIN || '#'; });
+    document.querySelectorAll('[data-link="facebook"]').forEach(a => { a.href = links.FACEBOOK || '#'; });
+    document.querySelectorAll('[data-link="email"]').forEach(a => {
+      const email = links.EMAIL || '';
+      a.href = email ? ('mailto:' + email) : '#';
+      a.textContent = email;
+    });
+    document.querySelectorAll('[data-link="phone"]').forEach(a => {
+      a.href = links.PHONE_LINK ? ('tel:' + links.PHONE_LINK) : '#';
+      a.textContent = links.PHONE_DISPLAY || '';
+    });
+    document.querySelectorAll('[data-link-text="location"]').forEach(el => {
+      el.textContent = links.LOCATION || '';
+    });
+  }
+
+  const ICON_DEMO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>';
+  const ICON_GITHUB = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>';
+  const ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>';
+
+  function renderProjects(projects){
+    const grid = document.getElementById('projectsGrid');
+    if(!grid) return;
+    grid.innerHTML = '';
+
+    if(!projects.length){
+      const empty = document.createElement('div');
+      empty.className = 'empty-card reveal';
+      empty.innerHTML = '<h3>No projects listed yet</h3><p>Add a PROJECT_START / PROJECT_END block in settings.txt to feature one here.</p>';
+      grid.appendChild(empty);
+      observeReveal(empty);
       return;
     }
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    items.forEach(el => io.observe(el));
-  })();
+
+    projects.forEach(p => {
+      const tags = (p.TAGS || '').split(',').map(t => t.trim()).filter(Boolean);
+      const art = document.createElement('article');
+      art.className = 'project-card reveal';
+      art.innerHTML = `
+        <span class="project-status">\u25CF ${escapeHtml(p.STATUS || '')}</span>
+        <h3>${escapeHtml(p.TITLE || '')}</h3>
+        <p>${escapeHtml(p.DESCRIPTION || '')}</p>
+        <div class="project-tags">${tags.map(t => `<span>${escapeHtml(t)}</span>`).join('')}</div>
+        <div class="project-links">
+          <a href="${escapeHtml(p.DEMO_LINK || '#')}" target="_blank" rel="noopener">${ICON_DEMO} Demo</a>
+          <a href="${escapeHtml(p.CODE_LINK || '#')}" target="_blank" rel="noopener">${ICON_GITHUB} Code</a>
+        </div>
+      `;
+      grid.appendChild(art);
+      observeReveal(art);
+    });
+  }
+
+  function renderSites(sites){
+    const grid = document.getElementById('sitesGrid');
+    if(!grid) return;
+    grid.innerHTML = '';
+
+    if(!sites.length){
+      const empty = document.createElement('div');
+      empty.className = 'empty-card reveal';
+      empty.innerHTML = '<h3>No sites listed yet</h3><p>Add a SITE_START / SITE_END block in settings.txt with a name, link, image, and short description to feature it here.</p>';
+      grid.appendChild(empty);
+      observeReveal(empty);
+      return;
+    }
+
+    sites.forEach(s => {
+      const image = (s.IMAGE || '').trim() || PLACEHOLDER_IMG;
+      const link = s.LINK || '#';
+      const art = document.createElement('article');
+      art.className = 'site-card reveal';
+      art.innerHTML = `
+        <a class="site-thumb" href="${escapeHtml(link)}" target="_blank" rel="noopener">
+          <img src="${escapeHtml(image)}" alt="${escapeHtml(s.NAME || 'Site preview')}" loading="lazy">
+        </a>
+        <div class="site-body">
+          <h3>${escapeHtml(s.NAME || '')}</h3>
+          <p>${escapeHtml(s.DESCRIPTION || '')}</p>
+          <a class="site-visit" href="${escapeHtml(link)}" target="_blank" rel="noopener">Visit site ${ICON_ARROW}</a>
+        </div>
+      `;
+      const img = art.querySelector('img');
+      img.addEventListener('error', () => { img.src = PLACEHOLDER_IMG; }, { once: true });
+      grid.appendChild(art);
+      observeReveal(art);
+    });
+  }
+
+  loadSettings().then(settings => {
+    renderLinks(settings.links);
+    renderProjects(settings.projects);
+  });
 </script>
 
 </body>

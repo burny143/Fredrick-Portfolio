@@ -4,98 +4,92 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fredrick Mahinay - Building with AI</title>
-<meta name="description" content="Fredrick Mahinay - civil engineer turned network systems specialist, now building AI-powered applications. From structural loads to model weights.">
-
-<!--
-  ============================================================
-  DESIGN CONCEPT - read this before editing
-  ============================================================
-  The signature element is one continuous line drawing in the
-  hero: it begins as a civil-engineering TRUSS (load-bearing
-  triangles) and resolves into a NEURAL GRAPH (nodes + weighted
-  edges) - "structural loads" becoming "model weights," drawn
-  once, no caption needed. That's the whole positioning in one
-  shape.
-
-  PALETTE
-    --void        #10121A   graphite-black (dark sections)
-    --signal      #7C5CFF   electric violet - the "AI" accent
-    --amber       #E2A33B   warm accent, used ONLY for "current" tags
-    --paper       #EDEAE2   stone paper (light sections - cooler
-                             and greyer than a cream default)
-    --paper-ink   #15161C   text on paper sections
-    --slate       #8E93A6   muted secondary text
-
-  TYPE
-    Display : "Newsreader" italic  - hero line, section titles
-    Body    : "Space Grotesk"      - working text, geometric/engineered feel
-    Utility : "JetBrains Mono"     - dates, tags, labels (the "code editor" voice)
-
-  HOW TO ADD A NEW PROJECT
-    Find the <!-- PROJECT CARD TEMPLATE --> comment in the
-    Projects section and duplicate the whole <article> block.
-  ============================================================
--->
+<meta name="description" content="Fredrick Mahinay - civil engineer turned network systems specialist, now building AI-powered applications.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-  :root{
-    --void: #10121A;
-    --void-raised: #181b28;
-    --signal: #7C5CFF;
-    --signal-soft: rgba(124,92,255,0.14);
-    --signal-dim: rgba(124,92,255,0.4);
-    --amber: #E2A33B;
-    --paper: #EDEAE2;
-    --paper-raised: #E2DED2;
-    --paper-ink: #15161C;
-    --slate: #9195A8;
-    --slate-on-paper: #5c5f6d;
-    --line: rgba(255,255,255,0.09);
-    --line-paper: rgba(21,22,28,0.12);
+  :root {
+    --bg-color: #020205;
+    --cyan: #00f0ff;
+    --purple: #8a2be2;
+    --magenta: #ff00ff;
+    --text-main: #ffffff;
+    --text-muted: #8892b0;
+    --glass-bg: rgba(10, 10, 15, 0.4);
+    --glass-border: rgba(0, 240, 255, 0.15);
+    
     --maxw: 1140px;
     --pad: clamp(1.25rem, 5vw, 3.5rem);
   }
 
   *,*::before,*::after{ box-sizing: border-box; }
   html{ scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior: auto; }
-    *,*::before,*::after{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
-  }
-
+  
   body{
     margin:0;
-    background: var(--void);
-    color: #DDE0EA;
-    font-family: 'Space Grotesk', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ThreeJS Canvas & Overlay */
+  #canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.9);
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 4px, 3px 100%;
   }
 
   h1,h2,h3{
-    font-family: 'Newsreader', serif;
-    font-style: italic;
-    font-weight: 600;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
     line-height: 1.12;
     margin: 0 0 0.5em;
-    letter-spacing: -0.01em;
+    letter-spacing: 1px;
   }
 
-  em{ font-style: italic; color: var(--signal); }
+  em{ font-style: normal; color: var(--cyan); text-shadow: 0 0 8px var(--cyan); }
   a{ color: inherit; }
   img{ max-width:100%; display:block; }
+
+  /* Glassmorphism utility class */
+  .glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(138, 43, 226, 0.05);
+  }
 
   .eyebrow{
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.72rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--signal);
+    color: var(--cyan);
     display: inline-flex;
     align-items: center;
     gap: 0.6em;
@@ -103,11 +97,9 @@
   .eyebrow::before{
     content: "";
     width: 22px; height: 1px;
-    background: var(--signal);
+    background: var(--cyan);
     display: inline-block;
   }
-  section.on-paper .eyebrow{ color: #5b3fd6; }
-  section.on-paper .eyebrow::before{ background: #5b3fd6; }
 
   .wrap{
     max-width: var(--maxw);
@@ -116,31 +108,35 @@
   }
 
   :focus-visible{
-    outline: 2px solid var(--amber);
+    outline: 2px solid var(--magenta);
     outline-offset: 3px;
     border-radius: 2px;
   }
 
-  /* ---------------- SOCIAL ICONS (shared) ---------------- */
+  /* ---------------- SOCIAL ICONS ---------------- */
   .social-row{ display:flex; align-items:center; gap: 0.6rem; }
   .social-btn{
     width: 38px; height: 38px; border-radius: 8px;
     display:flex; align-items:center; justify-content:center;
-    border: 1px solid var(--line); color: #fff;
+    border: 1px solid rgba(0, 240, 255, 0.3); color: #fff;
     transition: all .2s ease;
     flex-shrink: 0;
   }
   .social-btn svg{ width:17px; height:17px; }
-  .social-btn:hover{ border-color: var(--signal); color: var(--signal); transform: translateY(-2px); background: var(--signal-soft); }
-  section.on-paper .social-btn{ border-color: var(--line-paper); color: var(--paper-ink); }
-  section.on-paper .social-btn:hover{ border-color: #5b3fd6; color:#5b3fd6; }
+  .social-btn:hover{ 
+      border-color: var(--cyan); 
+      color: var(--cyan); 
+      transform: translateY(-2px); 
+      background: rgba(0, 240, 255, 0.1); 
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+  }
 
   /* ---------------- NAV ---------------- */
   header.site-nav{
     position: fixed; top:0; left:0; right:0; z-index: 50;
     backdrop-filter: blur(10px);
-    background: rgba(16,18,26,0.75);
-    border-bottom: 1px solid var(--line);
+    background: rgba(2, 2, 5, 0.75);
+    border-bottom: 1px solid var(--glass-border);
   }
   .nav-inner{
     max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad);
@@ -148,17 +144,17 @@
     height: 64px; gap: 1rem;
   }
   .nav-mark{
-    font-family:'JetBrains Mono'; font-size:0.85rem; letter-spacing:0.05em;
+    font-family:'Rajdhani', sans-serif; font-size:1.2rem; letter-spacing:2px; font-weight: 700;
     color:#fff; text-decoration:none; white-space: nowrap;
   }
-  .nav-mark b{ color: var(--signal); }
+  .nav-mark b{ color: var(--cyan); text-shadow: 0 0 8px var(--cyan); }
   nav.nav-links{ display:flex; gap: 1.6rem; }
   nav.nav-links a{
     font-family:'JetBrains Mono'; font-size:0.72rem; letter-spacing:0.08em;
-    text-transform: uppercase; text-decoration:none; color: var(--slate);
-    transition: color .2s ease;
+    text-transform: uppercase; text-decoration:none; color: var(--text-muted);
+    transition: color .2s ease, text-shadow .2s ease;
   }
-  nav.nav-links a:hover{ color: var(--signal); }
+  nav.nav-links a:hover{ color: var(--cyan); text-shadow: 0 0 8px var(--cyan); }
   .nav-right{ display:flex; align-items:center; gap: 1.4rem; }
   .nav-social{ display:flex; gap:0.5rem; }
   .nav-social .social-btn{ width:32px; height:32px; border-radius:7px; }
@@ -171,145 +167,129 @@
     min-height: 100svh;
     display:flex; align-items:center;
     padding-top: 96px; padding-bottom: 4rem;
-    overflow: hidden;
-    background:
-      radial-gradient(circle at 88% 15%, rgba(124,92,255,0.14), transparent 45%),
-      var(--void);
-  }
-  .hero::before{
-    content:"";
-    position:absolute; inset:0;
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 42px 42px;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 78%);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 78%);
-    opacity: 0.5;
-    pointer-events:none;
   }
   .hero-grid{
     position: relative; z-index: 1;
-    display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem;
+    display:flex;
+    justify-content: flex-start;
     align-items:center;
     width:100%;
   }
-  @media (max-width: 880px){ .hero-grid{ grid-template-columns: 1fr; } }
+  .hero-content {
+      padding: 3rem;
+      max-width: 760px;
+  }
 
   .hero h1{
     font-size: clamp(2.3rem, 5vw, 3.9rem);
     color:#fff;
     max-width: 16ch;
+    background: linear-gradient(90deg, var(--cyan), var(--magenta));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));
   }
   .hero-sub{
     max-width: 48ch;
-    color: var(--slate);
+    color: var(--text-muted);
     font-size: 1.05rem;
     margin-top: 1.1rem;
   }
   .hero-cta{ display:flex; gap:0.9rem; margin-top: 2rem; flex-wrap: wrap; align-items:center; }
+  
   .btn{
-    font-family:'JetBrains Mono'; font-size: 0.78rem; letter-spacing:0.06em;
+    font-family:'Rajdhani', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing:2px;
     text-transform: uppercase; text-decoration:none;
     padding: 0.9em 1.4em; border-radius: 4px;
     display:inline-flex; align-items:center; gap: 0.5em;
-    transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    transition: all .2s ease;
   }
-  .btn-primary{ background: var(--signal); color: #fff; }
-  .btn-primary:hover{ transform: translateY(-2px); background:#8f70ff; }
-  .btn-ghost{ border: 1px solid var(--line); color: #fff; }
-  .btn-ghost:hover{ border-color: var(--signal); color: var(--signal); transform: translateY(-2px); }
+  .btn-primary{ 
+      background: transparent; color: var(--cyan); border: 1px solid var(--cyan); 
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.2), inset 0 0 10px rgba(0, 240, 255, 0.1);
+  }
+  .btn-primary:hover{ 
+      background: var(--cyan); color: var(--bg-color); 
+      box-shadow: 0 0 20px var(--cyan), 0 0 40px var(--cyan);
+  }
+  .btn-ghost{ 
+      border: 1px solid rgba(255, 0, 255, 0.5); color: var(--magenta); background: transparent; 
+  }
+  .btn-ghost:hover{ 
+      border-color: var(--magenta); background: rgba(255, 0, 255, 0.1); 
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.4); transform: translateY(-2px); 
+  }
 
   .hero-socials{ margin-top: 2.2rem; }
   .hero-socials .label{
     font-family:'JetBrains Mono'; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase;
-    color: var(--slate); display:block; margin-bottom:0.7rem;
+    color: var(--text-muted); display:block; margin-bottom:0.7rem;
   }
-
-  /* signature schematic: truss -> neural graph */
-  .schematic-wrap{
-    position:relative;
-    aspect-ratio: 1 / 1;
-    max-width: 440px;
-    justify-self: center;
-  }
-  .schematic-wrap svg{ width:100%; height:100%; overflow: visible; }
-  .schem-line{
-    fill:none; stroke: var(--signal); stroke-width: 1.6;
-    stroke-linecap: round; stroke-linejoin: round;
-    stroke-dasharray: 900; stroke-dashoffset: 900;
-    animation: draw 2.6s ease forwards 0.2s;
-  }
-  .schem-line.dim{ stroke: rgba(124,92,255,0.32); stroke-width:1; }
-  .schem-line.amber{ stroke: var(--amber); }
-  .schem-node{ fill: var(--void); stroke: var(--signal); stroke-width: 1.6; opacity:0; animation: fadeIn .6s ease forwards; }
-  .schem-node.amber{ stroke: var(--amber); }
-  .schem-label{ font-family:'JetBrains Mono'; font-size: 7px; letter-spacing:0.05em; fill: var(--slate); opacity:0; animation: fadeIn .6s ease forwards; }
-  @keyframes draw{ to{ stroke-dashoffset: 0; } }
-  @keyframes fadeIn{ to{ opacity:1; } }
 
   /* ---------------- AVATAR ---------------- */
   .avatar{
     width: 132px; height:132px; border-radius: 10px;
-    border: 1px solid var(--line-paper);
+    border: 1px solid var(--glass-border);
     display:flex; align-items:center; justify-content:center;
     overflow:hidden; position:relative;
-    background: linear-gradient(160deg, #dad5c7, var(--paper));
+    background: rgba(138, 43, 226, 0.1);
     margin-bottom: 1.6rem;
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.2);
   }
   .avatar img{ width:100%; height:100%; object-fit: cover; display:none; }
   .avatar .monogram{
-    font-family:'Newsreader'; font-style:italic; font-size: 2.1rem; color: #5b3fd6;
+    font-family:'Rajdhani'; font-weight:700; font-size: 2.1rem; color: var(--cyan); text-shadow: 0 0 10px var(--cyan);
   }
-  .avatar .corner{ position:absolute; width:10px; height:10px; border: 1.5px solid #5b3fd6; opacity:0.6; }
+  .avatar .corner{ position:absolute; width:10px; height:10px; border: 1.5px solid var(--cyan); opacity:0.6; }
   .avatar .corner.tl{ top:6px; left:6px; border-right:none; border-bottom:none; }
   .avatar .corner.br{ bottom:6px; right:6px; border-left:none; border-top:none; }
 
   /* ---------------- SECTIONS ---------------- */
-  section{ padding: clamp(4rem, 9vw, 7rem) 0; position: relative; }
-  section.on-paper{ background: var(--paper); color: var(--paper-ink); }
-  section.on-paper .slate-text{ color: var(--slate-on-paper); }
-  .slate-text{ color: var(--slate); }
-  section.sites-section{ background: var(--paper-raised); border-top: 1px solid var(--line-paper); }
+  section{ padding: clamp(4rem, 9vw, 7rem) 0; position: relative; z-index: 10; }
+  .slate-text{ color: var(--text-muted); }
 
   .section-head{ max-width: 62ch; margin-bottom: 3rem; }
-  .section-head h2{ font-size: clamp(1.7rem, 3.4vw, 2.5rem); margin-top: 0.5rem; }
+  .section-head h2{ font-size: clamp(1.7rem, 3.4vw, 2.5rem); margin-top: 0.5rem; color: #fff; }
 
   /* ---- About ---- */
   .about-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items:start; }
   @media (max-width: 800px){ .about-grid{ grid-template-columns:1fr; } }
-  .about-grid p{ margin: 0 0 1.15em; font-size: 1.02rem; }
+  
+  .about-content { padding: 2.5rem; }
+  
+  .about-grid p{ margin: 0 0 1.15em; font-size: 1.02rem; color: var(--text-muted); }
   .about-grid p:last-child{ margin-bottom:0; }
   .pivot-badge{
     display:inline-flex; align-items:center; gap:0.6em;
     font-family:'JetBrains Mono'; font-size: 0.72rem; letter-spacing: 0.08em;
-    text-transform:uppercase; color:#5b3fd6;
-    border: 1px solid rgba(91,63,214,0.3); border-radius: 4px;
+    text-transform:uppercase; color: var(--magenta);
+    border: 1px solid rgba(255, 0, 255, 0.3); border-radius: 4px;
     padding: 0.45em 0.8em; margin-bottom: 1.4rem;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.1);
   }
   .stat-strip{ display:grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.2rem; }
-  .stat{ border-left: 2px solid rgba(91,63,214,0.3); padding-left: 1rem; }
-  .stat .num{ font-family:'Newsreader'; font-style:italic; font-size: 1.9rem; color:#15161C; display:block; }
-  .stat .label{ font-family:'JetBrains Mono'; font-size: 0.66rem; letter-spacing:0.05em; text-transform:uppercase; color: var(--slate-on-paper); }
+  .stat{ border-left: 2px solid rgba(0, 240, 255, 0.5); padding-left: 1rem; }
+  .stat .num{ font-family:'Rajdhani'; font-weight:700; font-size: 1.9rem; color:#fff; display:block; text-shadow: 0 0 5px var(--cyan); }
+  .stat .label{ font-family:'JetBrains Mono'; font-size: 0.66rem; letter-spacing:0.05em; text-transform:uppercase; color: var(--text-muted); }
   @media (max-width: 520px){ .stat-strip{ grid-template-columns: 1fr; } }
 
-  .cred-strip{ margin-top: 2.4rem; padding-top: 1.8rem; border-top: 1px solid var(--line-paper); display:flex; flex-direction:column; gap:0.7rem; }
-  .cred-item{ display:flex; gap:0.9rem; align-items:baseline; font-size:0.92rem; }
-  .cred-item .cred-when{ font-family:'JetBrains Mono'; font-size:0.68rem; color: var(--slate-on-paper); white-space:nowrap; min-width:8ch; }
+  .cred-strip{ margin-top: 2.4rem; padding-top: 1.8rem; border-top: 1px solid var(--glass-border); display:flex; flex-direction:column; gap:0.7rem; }
+  .cred-item{ display:flex; gap:0.9rem; align-items:baseline; font-size:0.92rem; color: #fff; }
+  .cred-item .cred-when{ font-family:'JetBrains Mono'; font-size:0.68rem; color: var(--cyan); white-space:nowrap; min-width:8ch; }
 
   /* ---- Experience tabs ---- */
   .tab-toggle{
     display:inline-flex; padding: 4px; border-radius: 8px;
-    background: var(--void-raised); border: 1px solid var(--line);
+    background: rgba(10, 10, 15, 0.6); border: 1px solid var(--glass-border);
     margin-bottom: 2.6rem; gap: 4px;
   }
   .tab-btn{
     font-family:'JetBrains Mono'; font-size: 0.74rem; letter-spacing:0.05em; text-transform:uppercase;
-    background: transparent; border: none; color: var(--slate);
+    background: transparent; border: none; color: var(--text-muted);
     padding: 0.75em 1.2em; border-radius: 6px; cursor:pointer;
     transition: all .2s ease;
   }
-  .tab-btn.active{ background: var(--signal); color: #fff; }
+  .tab-btn.active{ background: var(--cyan); color: var(--bg-color); font-weight: 600; box-shadow: 0 0 10px var(--cyan); }
   .tab-btn:not(.active):hover{ color:#fff; }
 
   .tab-panel{ display:none; }
@@ -319,36 +299,29 @@
   .timeline{ position:relative; margin-top: 1rem; }
   .timeline::before{
     content:""; position:absolute; left: 0; top:6px; bottom: 6px; width:1px;
-    background: linear-gradient(to bottom, var(--signal), transparent);
+    background: linear-gradient(to bottom, var(--cyan), transparent);
   }
-  .role{ position:relative; padding: 0 0 2.6rem 2.2rem; }
-  .role:last-child{ padding-bottom:0; }
+  .role{ position:relative; padding: 2rem; margin-left: 2rem; margin-bottom: 2rem; }
   .role::before{
-    content:""; position:absolute; left:-4px; top:6px; width:9px; height:9px;
-    border-radius: 50%; background: var(--void); border: 1.5px solid var(--signal);
+    content:""; position:absolute; left:-36px; top:36px; width:11px; height:11px;
+    border-radius: 50%; background: var(--bg-color); border: 2px solid var(--cyan);
+    box-shadow: 0 0 10px var(--cyan);
   }
-  .role.current::before{ background: var(--signal); box-shadow: 0 0 0 4px var(--signal-dim); }
+  .role.current::before{ background: var(--cyan); box-shadow: 0 0 15px var(--cyan), 0 0 0 4px rgba(0, 240, 255, 0.2); }
   .role-top{ display:flex; flex-wrap:wrap; align-items: baseline; gap: 0.8em 1em; margin-bottom: 0.35rem; }
-  .role-top h3{ font-size: 1.25rem; color:#fff; margin:0; font-style: normal; }
-  .role-meta{ font-family:'JetBrains Mono'; font-size: 0.7rem; letter-spacing:0.05em; color: var(--slate); }
+  .role-top h3{ font-size: 1.25rem; color:#fff; margin:0; }
+  .role-meta{ font-family:'JetBrains Mono'; font-size: 0.7rem; letter-spacing:0.05em; color: var(--text-muted); }
   .status-pill{
     font-family:'JetBrains Mono'; font-size: 0.62rem; letter-spacing:0.08em; text-transform:uppercase;
     padding: 0.25em 0.6em; border-radius: 3px; border:1px solid;
   }
-  .status-pill.current{ color: var(--amber); border-color: rgba(226,163,59,0.45); background: rgba(226,163,59,0.08); }
-  .status-pill.archived{ color: var(--slate); border-color: var(--line); }
-  .role-org{ font-family:'JetBrains Mono'; font-size: 0.78rem; color: #b3a3ff; margin-bottom: 0.9rem; }
-  .role ul{ margin: 0; padding-left: 1.1rem; color: #C4CCD6; }
+  .status-pill.current{ color: var(--magenta); border-color: rgba(255, 0, 255, 0.45); background: rgba(255, 0, 255, 0.08); box-shadow: 0 0 5px rgba(255, 0, 255, 0.3); }
+  .status-pill.archived{ color: var(--text-muted); border-color: rgba(255,255,255,0.1); }
+  .role-org{ font-family:'JetBrains Mono'; font-size: 0.78rem; color: var(--cyan); margin-bottom: 0.9rem; }
+  .role ul{ margin: 0; padding-left: 1.1rem; color: var(--text-muted); }
   .role li{ margin-bottom: 0.5rem; }
-  .role li::marker{ color: var(--signal); }
-  .role-skills{ font-family:'JetBrains Mono'; font-size: 0.72rem; color: var(--slate); margin-top: 0.9rem; line-height:1.7; }
-
-  .pivot-note{
-    margin-top: 2.6rem; padding: 1.4rem 1.6rem; border-left: 2px solid var(--amber);
-    background: rgba(226,163,59,0.05); border-radius: 0 6px 6px 0;
-  }
-  .pivot-note h3{ font-size: 1rem; color:#fff; margin-bottom: 0.4rem; font-style: italic; }
-  .pivot-note p{ margin:0; color: var(--slate); font-size: 0.94rem; }
+  .role li::marker{ color: var(--cyan); }
+  .role-skills{ font-family:'JetBrains Mono'; font-size: 0.72rem; color: #fff; margin-top: 1.2rem; line-height:1.7; opacity: 0.7; }
 
   /* ---- Projects ---- */
   .projects-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
@@ -356,109 +329,74 @@
   @media (max-width: 660px){ .projects-grid{ grid-template-columns: 1fr; } }
 
   .project-card{
-    background: #fff; border: 1px solid var(--line-paper); border-radius: 10px;
     padding: 1.8rem; display:flex; flex-direction:column;
     transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
   }
-  .project-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px rgba(21,22,28,0.08); border-color: rgba(91,63,214,0.3); }
+  .project-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.8), 0 0 20px rgba(0, 240, 255, 0.2); border-color: var(--cyan); }
   .project-status{
     font-family:'JetBrains Mono'; font-size: 0.62rem; letter-spacing:0.08em; text-transform:uppercase;
-    color: #5b3fd6; display:inline-block; margin-bottom: 0.9rem;
+    color: var(--cyan); display:inline-block; margin-bottom: 0.9rem; text-shadow: 0 0 5px var(--cyan);
   }
-  .project-card h3{ font-size: 1.25rem; margin: 0 0 0.6rem; font-style: normal; color: var(--paper-ink); }
-  .project-card p{ font-size: 0.94rem; color: var(--slate-on-paper); margin: 0 0 1.1rem; flex-grow: 1; }
+  .project-card h3{ font-size: 1.25rem; margin: 0 0 0.6rem; color: #fff; }
+  .project-card p{ font-size: 0.94rem; color: var(--text-muted); margin: 0 0 1.1rem; flex-grow: 1; }
   .project-tags{ display:flex; flex-wrap:wrap; gap: 0.4rem; margin-bottom: 1.3rem; }
   .project-tags span{
     font-family:'JetBrains Mono'; font-size: 0.66rem; letter-spacing:0.03em;
-    background: var(--paper-raised); color: var(--slate-on-paper);
-    padding: 0.35em 0.65em; border-radius: 4px;
+    background: rgba(138, 43, 226, 0.15); color: #e0d4ff;
+    padding: 0.35em 0.65em; border-radius: 4px; border: 1px solid rgba(138, 43, 226, 0.3);
   }
   .project-links{ display:flex; gap: 0.8rem; margin-top:auto; }
   .project-links a{
     font-family:'JetBrains Mono'; font-size: 0.74rem; text-decoration:none;
-    color: var(--paper-ink); display:inline-flex; align-items:center; gap:0.4em;
-    padding: 0.55em 0.9em; border: 1px solid var(--line-paper); border-radius: 5px;
-    transition: all .2s ease;
+    color: #fff; display:inline-flex; align-items:center; gap:0.4em;
+    padding: 0.55em 0.9em; border: 1px solid var(--glass-border); border-radius: 5px;
+    transition: all .2s ease; background: rgba(0,0,0,0.3);
   }
-  .project-links a:hover{ border-color:#5b3fd6; color:#5b3fd6; }
+  .project-links a:hover{ border-color:var(--cyan); color:var(--cyan); box-shadow: 0 0 10px rgba(0,240,255,0.2); }
   .project-links svg{ width:13px; height:13px; }
-
-  .project-card.is-template{
-    background: transparent; border: 1.5px dashed rgba(91,63,214,0.35);
-    align-items:center; justify-content:center; text-align:center; min-height: 260px;
-  }
-  .project-card.is-template h3{ color: #5b3fd6; }
-  .project-card.is-template p{ flex-grow:0; }
-
-  /* ---- Sites showcase ---- */
-  .sites-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
-  @media (max-width: 980px){ .sites-grid{ grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 660px){ .sites-grid{ grid-template-columns: 1fr; } }
-
-  .site-card{
-    background: #fff; border: 1px solid var(--line-paper); border-radius: 10px;
-    display:flex; flex-direction:column; overflow:hidden;
-    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  }
-  .site-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px rgba(21,22,28,0.08); border-color: rgba(91,63,214,0.3); }
-  .site-thumb{ display:block; aspect-ratio: 16 / 10; overflow:hidden; background: var(--paper-raised); }
-  .site-thumb img{ width:100%; height:100%; object-fit:cover; transition: transform .5s ease; }
-  .site-card:hover .site-thumb img{ transform: scale(1.05); }
-  .site-body{ padding: 1.5rem 1.6rem 1.7rem; display:flex; flex-direction:column; flex-grow:1; }
-  .site-body h3{ font-size: 1.1rem; margin: 0 0 0.5rem; font-style: normal; color: var(--paper-ink); }
-  .site-body p{ font-size: 0.92rem; color: var(--slate-on-paper); margin: 0 0 1.2rem; flex-grow:1; }
-  .site-visit{
-    font-family:'JetBrains Mono'; font-size: 0.74rem; letter-spacing:0.03em;
-    text-decoration:none; color: #5b3fd6; display:inline-flex; align-items:center; gap:0.4em;
-    margin-top:auto; align-self:flex-start;
-  }
-  .site-visit svg{ width:12px; height:12px; transition: transform .2s ease; }
-  .site-visit:hover svg{ transform: translate(2px,-2px); }
-
-  .empty-card{
-    background: transparent; border: 1.5px dashed rgba(91,63,214,0.35);
-    border-radius: 10px; padding: 1.8rem;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    text-align:center; min-height: 220px; grid-column: 1 / -1;
-  }
-  .empty-card h3{ color: #5b3fd6; font-size: 1.1rem; margin-bottom: 0.5rem; }
-  .empty-card p{ color: var(--slate-on-paper); font-size: 0.92rem; margin:0; max-width: 46ch; }
 
   /* ---- Skills ---- */
   .skills-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem 3rem; }
   @media (max-width: 700px){ .skills-grid{ grid-template-columns: 1fr; } }
+  
+  .skill-group { padding: 2rem; }
+  
   .skill-group h3{
     font-family:'JetBrains Mono'; font-size: 0.78rem; letter-spacing:0.08em; text-transform:uppercase;
-    color: var(--signal); font-weight:500; font-style:normal; margin-bottom: 1rem;
+    color: var(--magenta); margin-bottom: 1rem; text-shadow: 0 0 5px var(--magenta);
   }
   .skill-list{ list-style:none; margin:0; padding:0; }
   .skill-list li{
     display:flex; justify-content:space-between; align-items:center;
-    padding: 0.7em 0; border-bottom: 1px solid var(--line);
-    font-size: 0.95rem;
+    padding: 0.7em 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.95rem; color: #fff;
   }
   .skill-list li:last-child{ border-bottom:none; }
-  .skill-list .bar{ width: 90px; height:3px; background: var(--line); position:relative; border-radius:2px; overflow:hidden; flex-shrink:0; margin-left: 1rem; }
-  .skill-list .bar span{ position:absolute; left:0; top:0; bottom:0; background: var(--signal); border-radius:2px; }
+  .skill-list .bar{ width: 90px; height:4px; background: rgba(255,255,255,0.1); position:relative; border-radius:2px; overflow:hidden; flex-shrink:0; margin-left: 1rem; }
+  .skill-list .bar span{ position:absolute; left:0; top:0; bottom:0; background: var(--cyan); border-radius:2px; box-shadow: 0 0 8px var(--cyan); }
 
   /* ---- Contact ---- */
-  .contact{ background: var(--void); text-align:center; }
+  .contact{ text-align:center; padding-bottom: 6rem; }
   .contact .wrap{ max-width: 720px; }
   .contact h2{ font-size: clamp(2rem, 5vw, 3.1rem); color:#fff; }
   .contact-links{ display:flex; justify-content:center; gap:1.2rem; margin-top: 2rem; flex-wrap:wrap; }
   .contact-links a{
-    font-family:'JetBrains Mono'; font-size:0.82rem; text-decoration:none; color: var(--slate);
-    border:1px solid var(--line); padding: 0.9em 1.3em; border-radius:5px;
+    font-family:'JetBrains Mono'; font-size:0.82rem; text-decoration:none; color: #fff;
+    border:1px solid var(--glass-border); padding: 0.9em 1.3em; border-radius:5px;
+    background: rgba(10, 10, 15, 0.6); backdrop-filter: blur(5px);
     transition: all .2s ease;
   }
-  .contact-links a:hover{ color: var(--signal); border-color: var(--signal); transform: translateY(-2px); }
+  .contact-links a:hover{ color: var(--bg-color); background: var(--cyan); border-color: var(--cyan); box-shadow: 0 0 15px var(--cyan); transform: translateY(-2px); }
   .contact-socials{ margin-top: 2.6rem; display:flex; justify-content:center; }
 
   footer{
     padding: 2.6rem var(--pad); text-align:center;
     display:flex; flex-direction:column; align-items:center; gap:1.2rem;
+    border-top: 1px solid var(--glass-border);
+    background: rgba(2, 2, 5, 0.8);
+    backdrop-filter: blur(10px);
   }
-  footer .foot-mark{ font-family:'JetBrains Mono'; font-size:0.7rem; color: var(--slate); letter-spacing:0.04em; }
+  footer .foot-mark{ font-family:'JetBrains Mono'; font-size:0.7rem; color: var(--text-muted); letter-spacing:0.04em; }
 
   /* reveal-on-scroll */
   .reveal{ opacity:0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
@@ -466,6 +404,9 @@
 </style>
 </head>
 <body>
+
+<div id="canvas-container"></div>
+<div class="overlay"></div>
 
 <header class="site-nav">
   <div class="nav-inner">
@@ -479,15 +420,11 @@
     </nav>
     <div class="nav-right">
       <div class="nav-social">
-        <!-- TODO: replace # with your real profile URLs -->
         <a class="social-btn" href="#" data-link="github" aria-label="GitHub profile" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
         </a>
         <a class="social-btn" href="#" data-link="linkedin" aria-label="LinkedIn profile" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
-        </a>
-        <a class="social-btn" href="#" data-link="facebook" aria-label="Facebook profile" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
         </a>
       </div>
     </div>
@@ -499,7 +436,7 @@
   <!-- ================= HERO ================= -->
   <section class="hero">
     <div class="wrap hero-grid">
-      <div>
+      <div class="glass-panel hero-content reveal">
         <span class="eyebrow">Civil Engineer → Systems Engineer → AI Builder</span>
         <h1>From structural loads to <em>model weights.</em></h1>
         <p class="hero-sub">Fredrick Mahinay - licensed civil engineer turned enterprise network &amp; systems specialist, now spending every spare hour designing, building, and shipping applications with AI as a core collaborator. Currently building a hero-analytics tool for Mobile Legends and a live crypto market dashboard, end to end.</p>
@@ -507,74 +444,23 @@
           <a class="btn btn-primary" href="#projects">See what I'm building</a>
           <a class="btn btn-ghost" href="#contact">Get in touch</a>
         </div>
-        <div class="hero-socials">
-          <span class="label">Find me on</span>
-          <div class="social-row">
-            <!-- TODO: replace # with your real profile URLs -->
-            <a class="social-btn" href="#" data-link="github" aria-label="GitHub profile" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
-            </a>
-            <a class="social-btn" href="#" data-link="linkedin" aria-label="LinkedIn profile" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
-            </a>
-            <a class="social-btn" href="#" data-link="facebook" aria-label="Facebook profile" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="schematic-wrap" aria-hidden="true">
-        <!-- Signature element: truss (civil engineering) resolving into a neural graph (AI) -->
-        <svg viewBox="0 0 400 400">
-          <!-- truss triangles, left side -->
-          <path class="schem-line dim" d="M40,260 L100,180 L160,260 L220,180" style="animation-delay:0.2s" />
-          <path class="schem-line dim" d="M40,260 L160,260" style="animation-delay:0.3s" />
-          <path class="schem-line dim" d="M100,180 L220,180" style="animation-delay:0.35s" />
-
-          <!-- transition line: truss node becomes first neural node -->
-          <path class="schem-line" d="M220,180 L270,150 L320,120" style="animation-delay:0.9s" />
-          <!-- neural graph, right side -->
-          <path class="schem-line" d="M320,120 L360,90" style="animation-delay:1.5s" />
-          <path class="schem-line" d="M320,120 L370,150" style="animation-delay:1.6s" />
-          <path class="schem-line" d="M270,150 L320,190" style="animation-delay:1.7s" />
-          <path class="schem-line" d="M320,190 L370,150" style="animation-delay:1.9s" />
-          <path class="schem-line" d="M320,190 L360,220" style="animation-delay:2.0s" />
-
-          <!-- truss joint nodes -->
-          <circle class="schem-node" cx="40" cy="260" r="4" style="animation-delay:0.5s" />
-          <circle class="schem-node" cx="100" cy="180" r="4" style="animation-delay:0.55s" />
-          <circle class="schem-node" cx="160" cy="260" r="4" style="animation-delay:0.6s" />
-          <circle class="schem-node amber" cx="220" cy="180" r="5" style="animation-delay:0.7s" />
-
-          <!-- neural nodes -->
-          <circle class="schem-node" cx="270" cy="150" r="4" style="animation-delay:1.1s" />
-          <circle class="schem-node" cx="320" cy="120" r="4.5" style="animation-delay:1.3s" />
-          <circle class="schem-node" cx="360" cy="90" r="4" style="animation-delay:1.8s" />
-          <circle class="schem-node" cx="370" cy="150" r="4" style="animation-delay:2.0s" />
-          <circle class="schem-node" cx="320" cy="190" r="4.5" style="animation-delay:1.9s" />
-          <circle class="schem-node" cx="360" cy="220" r="4" style="animation-delay:2.2s" />
-
-          <text class="schem-label" x="70" y="290" style="animation-delay:2.4s">LOAD PATH</text>
-          <text class="schem-label" x="325" y="240" style="animation-delay:2.6s">MODEL WEIGHTS</text>
-        </svg>
       </div>
     </div>
   </section>
 
   <!-- ================= ABOUT / JOURNEY ================= -->
-  <section id="about" class="on-paper">
+  <section id="about">
     <div class="wrap about-grid">
-      <div class="reveal">
+      <div class="reveal glass-panel about-content">
         <div class="avatar">
           <img id="avatarImg" alt="Portrait of Fredrick Mahinay">
           <span class="monogram" id="avatarFallback">FM</span>
           <span class="corner tl"></span><span class="corner br"></span>
         </div>
         <span class="eyebrow">The journey</span>
-        <h2>Built for rigor. Now building with AI.</h2>
+        <h2>Built for rigor.<br>Now building with AI.</h2>
       </div>
-      <div class="reveal">
+      <div class="reveal glass-panel about-content">
         <span class="pivot-badge">◆ Now building AI-powered apps</span>
         <p>From 2017 to 2022, Fredrick worked as a licensed civil engineer - Project Engineer, Project Supervisor, and Design &amp; Engineering Operations In-Charge across four companies - running site inspections, structural QA/QC, cost estimation, and cross-functional coordination on live construction sites. He passed the civil engineering licensure exam in November 2016.</p>
         <p>In 2023 he rebuilt that foundation inside IT, applying the same inspect-before-you-trust discipline to enterprise systems: supporting network infrastructure at Accenture, then managing Tier-2 network and security operations for the Asian Development Bank project at Indra.</p>
@@ -582,12 +468,12 @@
         <div class="stat-strip">
           <div class="stat"><span class="num">6 yrs</span><span class="label">Civil engineering foundation</span></div>
           <div class="stat"><span class="num">2</span><span class="label">AI-assisted apps in active build</span></div>
-          <div class="stat"><span class="num">1,000+</span><span class="label">Users supported in IT ops</span></div>
+          <div class="stat"><span class="num">1k+</span><span class="label">Users supported in IT ops</span></div>
         </div>
         <div class="cred-strip">
           <div class="cred-item"><span class="cred-when">2016</span><span>Licensed Civil Engineer - PRC License No. 0147997</span></div>
-          <div class="cred-item"><span class="cred-when">2023</span><span>Dell Boomi Associate &amp; Professional Integration Developer certifications</span></div>
-          <div class="cred-item"><span class="cred-when">Now</span><span>Self-directed study in AI engineering - prompting, agentic workflows, applied ML tooling</span></div>
+          <div class="cred-item"><span class="cred-when">2023</span><span>Dell Boomi Associate &amp; Professional Integration Developer</span></div>
+          <div class="cred-item"><span class="cred-when">Now</span><span>Self-directed study in AI engineering - prompting, agents</span></div>
         </div>
       </div>
     </div>
@@ -606,10 +492,9 @@
         <button class="tab-btn" role="tab" aria-selected="false" data-tab="civil">Civil Engineering</button>
       </div>
 
-      <!-- ===== IT / SOFTWARE / AI TAB ===== -->
       <div class="tab-panel active" id="panel-itai">
         <div class="timeline">
-          <div class="role reveal current">
+          <div class="role glass-panel reveal current">
             <div class="role-top">
               <h3>Network &amp; Deskside Support Engineer</h3>
               <span class="status-pill current">May 2025 - Present</span>
@@ -623,10 +508,10 @@
               <li><strong>On-site diagnostics:</strong> Physical site visits to verify Wi-Fi coverage, wall port connectivity, and coordinate port activations with Facilities.</li>
               <li><strong>Deskside support:</strong> Hardware provisioning, Active Directory resets, diagnostics, and detailed ServiceNow ticket logging.</li>
             </ul>
-            <div class="role-skills">L2 Troubleshooting · ZPA Onboarding · Zscaler &amp; DNS · ServiceNow · Active Directory · Cross-team Coordination</div>
+            <div class="role-skills">L2 Troubleshooting · ZPA Onboarding · Zscaler &amp; DNS · ServiceNow · Active Directory</div>
           </div>
 
-          <div class="role reveal">
+          <div class="role glass-panel reveal">
             <div class="role-top">
               <h3>Custom Associate Software Engineer</h3>
               <span class="status-pill archived">May 2023 - Feb 2025</span>
@@ -638,31 +523,15 @@
               <li><strong>Data &amp; integration troubleshooting:</strong> Investigated production data errors using Oracle SQL and Microsoft SQL, tracing pipelines through Dell Boomi and TIBCO.</li>
               <li><strong>Change management:</strong> Authored and executed Change Requests and Service Requests for backend updates and Windows Server / SQL Server upgrades with zero downtime.</li>
               <li><strong>Incident coordination:</strong> Rotational Incident Coordinator for P1 to P3 incidents, keeping global operations uninterrupted.</li>
-              <li><strong>Vendor &amp; SME collaboration:</strong> Worked directly with client SMEs and third-party vendors on bug diagnosis and patch deployment.</li>
             </ul>
-            <div class="role-skills">Oracle SQL &amp; MS SQL · Dell Boomi / TIBCO · Incident Mgmt (P1 to P3) · Change Mgmt (CHG/RITM) · Post-migration Config</div>
-          </div>
-
-          <div class="role reveal">
-            <div class="role-top">
-              <h3>Independent - AI-Assisted App Development</h3>
-              <span class="role-meta">Self-directed · 2025</span>
-            </div>
-            <div class="role-org">Personal projects</div>
-            <ul>
-              <li><strong>MLBB hero counter-pick analyzer:</strong> Multi-sheet scoring engine evaluating hero matchups across role advantage, stat differentials, damage type, power-spike timing, and hard-counter rules - now being scaled from Excel into a Supabase + Python web app.</li>
-              <li><strong>Crypto market dashboard &amp; ETL pipeline:</strong> Dark-themed live dashboard with candlestick charts and technical indicators (SMA, RSI), backed by a Python/yfinance ingestion script and a GitHub Actions deployment pipeline to Supabase and GitHub Pages.</li>
-              <li><strong>Working method:</strong> Uses AI as an active collaborator across architecture decisions, debugging, and iteration - while retaining full ownership of data structure, formula logic, and quality review.</li>
-            </ul>
-            <div class="role-skills">Prompt Engineering · Python · Supabase · GitHub Actions · GitHub Pages · SQL · Excel/VBA Modeling</div>
+            <div class="role-skills">Oracle SQL &amp; MS SQL · Dell Boomi / TIBCO · Incident Mgmt (P1 to P3) · Change Mgmt (CHG/RITM)</div>
           </div>
         </div>
       </div>
 
-      <!-- ===== CIVIL ENGINEERING TAB ===== -->
       <div class="tab-panel" id="panel-civil">
         <div class="timeline">
-          <div class="role reveal">
+          <div class="role glass-panel reveal">
             <div class="role-top">
               <h3>Design and Engineering Operations In-Charge</h3>
               <span class="status-pill archived">Jul 2021 - Sep 2022</span>
@@ -671,14 +540,13 @@
             <div class="role-org">Winsom Building Products Co. Ltd.</div>
             <ul>
               <li><strong>Technical design &amp; estimation:</strong> Site surveys and field measurements supporting 2D CAD shop drawings, quantity take-offs, and cost estimation for architectural product proposals.</li>
-              <li><strong>Supply chain &amp; logistics:</strong> End-to-end material delivery coordination with client architects, warehouse teams, and site crews for specialized architectural systems.</li>
-              <li><strong>Site mobilization &amp; permitting:</strong> Managed permits and delivery scheduling aligned with client site rules.</li>
+              <li><strong>Supply chain &amp; logistics:</strong> End-to-end material delivery coordination with client architects, warehouse teams, and site crews.</li>
               <li><strong>Installation QA/QC:</strong> Supervised third-party crews and performed quality inspections against approved shop drawings.</li>
             </ul>
-            <div class="role-skills">Site Field Surveys · 2D CAD Shop Drawings · Quantity Take-off &amp; Costing · Subcontractor Mgmt · QA/QC</div>
+            <div class="role-skills">Site Field Surveys · 2D CAD Shop Drawings · Quantity Take-off &amp; Costing · QA/QC</div>
           </div>
 
-          <div class="role reveal">
+          <div class="role glass-panel reveal">
             <div class="role-top">
               <h3>Project Civil Engineer</h3>
               <span class="status-pill archived">Jan 2020 - Feb 2021</span>
@@ -686,67 +554,24 @@
             </div>
             <div class="role-org">Hanston Commercial and Industrial Corp.</div>
             <ul>
-              <li><strong>Owner's site representative:</strong> Daily structural QA/QC inspections on a multi-story commercial development, ensuring adherence to plans, specs, and building standards.</li>
+              <li><strong>Owner's site representative:</strong> Daily structural QA/QC inspections on a multi-story commercial development.</li>
               <li><strong>Pre-pour inspection &amp; sign-off:</strong> Formwork alignment and rebar checks before approving concrete pours.</li>
-              <li><strong>Defect remediation:</strong> Coordinated with structural consultants and subcontractors on honeycomb defect fixes, witnessing high-strength repair mix testing.</li>
-              <li><strong>Live monitoring &amp; reporting:</strong> Supervised major concrete casting operations and kept owners updated on progress.</li>
             </ul>
-            <div class="role-skills">Structural QA/QC · Concrete Pour Approval · Defect Remediation &amp; Material Testing · Owner Representation</div>
+            <div class="role-skills">Structural QA/QC · Concrete Pour Approval · Defect Remediation &amp; Material Testing</div>
           </div>
-
-          <div class="role reveal">
-            <div class="role-top">
-              <h3>Project Engineer / Project Manager</h3>
-              <span class="status-pill archived">Nov 2018 - Jan 2020</span>
-              <span class="role-meta">Pasay City / Bulacan Sites</span>
-            </div>
-            <div class="role-org">Jetti Petroleum Inc.</div>
-            <ul>
-              <li><strong>Full lifecycle contractor management:</strong> Oversaw General Contractors from bidding through construction to structural turnover for fuel station developments across Bulacan.</li>
-              <li><strong>Scope &amp; bidding administration:</strong> Defined project scopes and evaluated contractor proposals.</li>
-              <li><strong>Quality assurance:</strong> Enforced material compliance against approved engineering drawings and safety protocols.</li>
-              <li><strong>Schedule tracking:</strong> Gantt charts in MS Project to monitor timelines and report weekly progress.</li>
-            </ul>
-            <div class="role-skills">Contractor Bidding &amp; Evaluation · Site Inspection · MS Project / Gantt Charts · Drawing Verification</div>
-          </div>
-
-          <div class="role reveal">
-            <div class="role-top">
-              <h3>Project Supervisor / Project Manager</h3>
-              <span class="status-pill archived">Aug 2017 - Nov 2018</span>
-              <span class="role-meta">Biñan, Laguna</span>
-            </div>
-            <div class="role-org">CLG Shalom Builders</div>
-            <ul>
-              <li><strong>Bank renovation delivery:</strong> Managed off-hours interior additions and teller counter expansions for BPI Southern Luzon branches within tight weekend build windows.</li>
-              <li><strong>Client alignment &amp; CAD design:</strong> Met with BPI architects to draft 2D CAD layouts and secure client approvals before mobilization.</li>
-              <li><strong>Team leadership:</strong> Supervised two concurrent 6-person site teams plus specialized electrical subcontractors.</li>
-              <li><strong>Procurement &amp; logistics:</strong> Coordinated material sourcing, vehicle logistics, and weekly crew payroll.</li>
-            </ul>
-            <div class="role-skills">Client &amp; Architect Coordination · 2D CAD Drafting · Cost Estimation · Subcontractor Mgmt · Site Supervision</div>
-          </div>
-        </div>
-
-        <div class="pivot-note reveal">
-          <h3>Why the pivot holds up</h3>
-          <p>Civil engineering trains you to inspect before you trust something - a beam, a wall, a login, a model's output. That habit is the reason this pivot didn't cost rigor; it just changed what he's inspecting.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ================= PROJECTS ================= -->
-  <section id="projects" class="on-paper">
+  <section id="projects">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">What I'm building</span>
         <h2>Shipped, and still shipping.</h2>
       </div>
-
-      <div class="projects-grid" id="projectsGrid">
-        <!-- Cards are generated from settings.txt. Add, edit, or remove a project there
-             and this grid rearranges itself, no HTML editing needed. -->
-      </div>
+      <div class="projects-grid" id="projectsGrid"></div>
     </div>
   </section>
 
@@ -758,36 +583,20 @@
         <h2>What I build with.</h2>
       </div>
       <div class="skills-grid">
-        <div class="skill-group reveal">
+        <div class="skill-group glass-panel reveal">
           <h3>AI / ML &amp; Prompting</h3>
           <ul class="skill-list">
-            <li>Prompt engineering &amp; iterative refinement <span class="bar"><span style="width:80%"></span></span></li>
+            <li>Prompt engineering &amp; iteration <span class="bar"><span style="width:80%"></span></span></li>
             <li>AI-assisted architecture &amp; debugging <span class="bar"><span style="width:78%"></span></span></li>
             <li>Agentic workflows &amp; automation <span class="bar"><span style="width:68%"></span></span></li>
           </ul>
         </div>
-        <div class="skill-group reveal">
+        <div class="skill-group glass-panel reveal">
           <h3>App Development &amp; Data</h3>
           <ul class="skill-list">
             <li>Python (ETL, data pipelines) <span class="bar"><span style="width:72%"></span></span></li>
             <li>Supabase &amp; SQL <span class="bar"><span style="width:75%"></span></span></li>
             <li>Git / GitHub &amp; GitHub Pages <span class="bar"><span style="width:74%"></span></span></li>
-          </ul>
-        </div>
-        <div class="skill-group reveal">
-          <h3>Network &amp; Systems</h3>
-          <ul class="skill-list">
-            <li>Zscaler VPN - Tier 2 support <span class="bar"><span style="width:92%"></span></span></li>
-            <li>ServiceNow &amp; Active Directory <span class="bar"><span style="width:88%"></span></span></li>
-            <li>Windows Server, SQL Server, Dell Boomi <span class="bar"><span style="width:80%"></span></span></li>
-          </ul>
-        </div>
-        <div class="skill-group reveal">
-          <h3>Civil &amp; Technical Foundations</h3>
-          <ul class="skill-list">
-            <li>2D CAD drafting &amp; site surveys <span class="bar"><span style="width:85%"></span></span></li>
-            <li>Structural QA/QC &amp; cost estimation <span class="bar"><span style="width:84%"></span></span></li>
-            <li>Project &amp; contractor management <span class="bar"><span style="width:86%"></span></span></li>
           </ul>
         </div>
       </div>
@@ -796,27 +605,13 @@
 
   <!-- ================= CONTACT ================= -->
   <section id="contact" class="contact">
-    <div class="wrap reveal">
+    <div class="wrap reveal glass-panel" style="padding: 4rem; margin: 0 auto;">
       <span class="eyebrow">Open channel</span>
       <h2>Let's build something with AI.</h2>
       <p class="slate-text" data-link-text="location">Based in Biñan, Laguna - open to AI engineering, AI-assisted application development, and integration roles.</p>
       <div class="contact-links">
         <a href="mailto:fredrickmahinay18@gmail.com" data-link="email" data-link-text="email">fredrickmahinay18@gmail.com</a>
         <a href="tel:+639610030671" data-link="phone" data-link-text="phone">0961 003 0671</a>
-      </div>
-      <div class="contact-socials">
-        <div class="social-row">
-          <!-- TODO: replace # with your real profile URLs -->
-          <a class="social-btn" href="#" data-link="github" aria-label="GitHub profile" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
-          </a>
-          <a class="social-btn" href="#" data-link="linkedin" aria-label="LinkedIn profile" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
-          </a>
-          <a class="social-btn" href="#" data-link="facebook" aria-label="Facebook profile" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
-          </a>
-        </div>
       </div>
     </div>
   </section>
@@ -827,8 +622,244 @@
   <div class="foot-mark">FREDRICK MAHINAY - BUILDING WITH AI - 2026</div>
 </footer>
 
+<!-- External Three.js Dependency -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<!-- Background & Scroll Interactions Logic with Data Packets -->
 <script>
-  // Avatar loader: tries DP.<ext> in the site root, falls back to monogram.
+    // --- THREE.JS SCENE SETUP ---
+    const container = document.getElementById('canvas-container');
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x020205, 0.0006);
+
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 6000);
+    camera.position.z = 600;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
+
+    // --- GLOW TEXTURE GENERATOR ---
+    function createGlowTexture() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 64; canvas.height = 64;
+        const ctx = canvas.getContext('2d');
+        const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+        gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+        gradient.addColorStop(0.2, 'rgba(0, 240, 255, 0.9)');
+        gradient.addColorStop(0.5, 'rgba(138, 43, 226, 0.4)');
+        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, 64, 64);
+        return new THREE.CanvasTexture(canvas);
+    }
+    const glowTexture = createGlowTexture();
+
+    // --- INFINITE NETWORK SEGMENT GENERATOR WITH PACKETS ---
+    const segmentDepth = 1500;
+    const segmentCount = 4;
+    const segments = [];
+    const activePackets = []; // Stores traveling packet data for animation
+
+    function createNetworkSegment() {
+        const group = new THREE.Group();
+        const nodeCount = 100;
+        const maxConnections = 3;
+        const connectionDistance = 280;
+
+        const nodeGeometry = new THREE.BufferGeometry();
+        const nodePositions = new Float32Array(nodeCount * 3);
+        const nodeColors = new Float32Array(nodeCount * 3);
+
+        const colorCyan = new THREE.Color(0x00f0ff);
+        const colorPurple = new THREE.Color(0x8a2be2);
+
+        for (let i = 0; i < nodeCount; i++) {
+            nodePositions[i * 3] = (Math.random() - 0.5) * 2000;
+            nodePositions[i * 3 + 1] = (Math.random() - 0.5) * 1200;
+            nodePositions[i * 3 + 2] = -Math.random() * segmentDepth;
+
+            const mixColor = colorCyan.clone().lerp(colorPurple, Math.random());
+            nodeColors[i * 3] = mixColor.r;
+            nodeColors[i * 3 + 1] = mixColor.g;
+            nodeColors[i * 3 + 2] = mixColor.b;
+        }
+
+        nodeGeometry.setAttribute('position', new THREE.BufferAttribute(nodePositions, 3));
+        nodeGeometry.setAttribute('color', new THREE.BufferAttribute(nodeColors, 3));
+
+        const nodeMaterial = new THREE.PointsMaterial({
+            size: 18,
+            map: glowTexture,
+            transparent: true,
+            opacity: 0.85,
+            vertexColors: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
+        });
+        const nodes = new THREE.Points(nodeGeometry, nodeMaterial);
+        group.add(nodes);
+
+        // Generate edges
+        const edges = [];
+        for (let i = 0; i < nodeCount; i++) {
+            let connections = 0;
+            const v1 = new THREE.Vector3(nodePositions[i * 3], nodePositions[i * 3 + 1], nodePositions[i * 3 + 2]);
+            for (let j = i + 1; j < nodeCount; j++) {
+                if (connections >= maxConnections) break;
+                const v2 = new THREE.Vector3(nodePositions[j * 3], nodePositions[j * 3 + 1], nodePositions[j * 3 + 2]);
+                if (v1.distanceTo(v2) < connectionDistance) {
+                    edges.push({ start: v1.clone(), end: v2.clone() });
+                    connections++;
+                }
+            }
+        }
+
+        const linePositions = new Float32Array(edges.length * 6);
+        edges.forEach((edge, index) => {
+            linePositions[index * 6] = edge.start.x;
+            linePositions[index * 6 + 1] = edge.start.y;
+            linePositions[index * 6 + 2] = edge.start.z;
+            linePositions[index * 6 + 3] = edge.end.x;
+            linePositions[index * 6 + 4] = edge.end.y;
+            linePositions[index * 6 + 5] = edge.end.z;
+        });
+
+        const lineGeometry = new THREE.BufferGeometry();
+        lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+        
+        const baseLineMaterial = new THREE.LineBasicMaterial({
+            color: 0x3a1078, 
+            transparent: true,
+            opacity: 0.25,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
+        });
+        const baseLines = new THREE.LineSegments(lineGeometry, baseLineMaterial);
+        group.add(baseLines);
+
+        // --- Data Packet Light Points Traveling Along Edges ---
+        const packetCount = Math.min(edges.length, 25);
+        const packetGeo = new THREE.BufferGeometry();
+        const packetPos = new Float32Array(packetCount * 3);
+        packetGeo.setAttribute('position', new THREE.BufferAttribute(packetPos, 3));
+
+        const packetMat = new THREE.PointsMaterial({
+            size: 14,
+            color: 0x00f0ff,
+            map: glowTexture,
+            transparent: true,
+            opacity: 0.95,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
+        });
+
+        const packetPoints = new THREE.Points(packetGeo, packetMat);
+        group.add(packetPoints);
+
+        // Initialize packet animation data
+        const segmentPackets = [];
+        for (let p = 0; p < packetCount; p++) {
+            const edgeIndex = Math.floor(Math.random() * edges.length);
+            segmentPackets.push({
+                edgeIndex: edgeIndex,
+                progress: Math.random(),
+                speed: 0.005 + Math.random() * 0.008
+            });
+        }
+
+        activePackets.push({
+            group: group,
+            edges: edges,
+            packets: segmentPackets,
+            geometry: packetGeo
+        });
+
+        return group;
+    }
+
+    // Initialize segments
+    for (let i = 0; i < segmentCount; i++) {
+        const seg = createNetworkSegment();
+        seg.position.z = -i * segmentDepth;
+        scene.add(seg);
+        segments.push(seg);
+    }
+
+    // --- WINDOW RESIZE ---
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // --- SCROLL VELOCITY TRACKER FOR TIME WARP ---
+    let scrollOffset = 0;
+    let autoOffset = 0;
+    let lastScrollY = window.scrollY;
+    let targetScrollVelocity = 0;
+    let currentScrollVelocity = 0;
+
+    window.addEventListener('scroll', () => {
+        scrollOffset = window.scrollY * 1.8; 
+        targetScrollVelocity = window.scrollY - lastScrollY;
+        lastScrollY = window.scrollY;
+    });
+
+    // --- ANIMATION LOOP ---
+    function animate() {
+        requestAnimationFrame(animate);
+
+        // Camera forward movement
+        autoOffset += 1.2; 
+        const totalTravel = autoOffset + scrollOffset;
+        const targetZ = 600 - totalTravel;
+        camera.position.z += (targetZ - camera.position.z) * 0.1;
+        scene.rotation.z = Math.sin(Date.now() * 0.0001) * 0.1;
+
+        // Smooth scroll velocity interpolation for time warp effect
+        currentScrollVelocity += (targetScrollVelocity - currentScrollVelocity) * 0.15;
+        targetScrollVelocity *= 0.82; // Friction decay
+
+        // Speed multiplier based on active scroll velocity
+        const timeWarpFactor = 1.0 + Math.min(Math.abs(currentScrollVelocity) * 0.35, 12.0);
+
+        // Animate packets traveling along edges
+        activePackets.forEach(segData => {
+            const posAttr = segData.geometry.attributes.position;
+            segData.packets.forEach((pkt, idx) => {
+                pkt.progress += pkt.speed * timeWarpFactor;
+                if (pkt.progress >= 1.0) {
+                    pkt.progress = 0.0;
+                    pkt.edgeIndex = Math.floor(Math.random() * segData.edges.length);
+                }
+                const edge = segData.edges[pkt.edgeIndex];
+                // Linear interpolation between edge start and end nodes
+                const x = edge.start.x + (edge.end.x - edge.start.x) * pkt.progress;
+                const y = edge.start.y + (edge.end.y - edge.start.y) * pkt.progress;
+                const z = edge.start.z + (edge.end.z - edge.start.z) * pkt.progress;
+
+                posAttr.setXYZ(idx, x, y, z);
+            });
+            posAttr.needsUpdate = true;
+        });
+
+        // Infinite loop recycling of segments
+        segments.forEach(seg => {
+            if (seg.position.z > camera.position.z + 200) {
+                seg.position.z -= segmentDepth * segmentCount; 
+            }
+        });
+
+        renderer.render(scene, camera);
+    }
+
+    animate();
+</script>
+
+<!-- Original Portfolio Logic (Tabs, Fallbacks, Settings) -->
+<script>
   (function(){
     const exts = ['jpg','jpeg','png','webp','JPG','JPEG','PNG','WEBP'];
     const img = document.getElementById('avatarImg');
@@ -848,7 +879,6 @@
     tryNext();
   })();
 
-  // Experience tab toggle
   (function(){
     const buttons = document.querySelectorAll('.tab-btn');
     const panels = { itai: document.getElementById('panel-itai'), civil: document.getElementById('panel-civil') };
@@ -862,10 +892,6 @@
     });
   })();
 
-  // ------------------------------------------------------------------
-  // Scroll reveal - reusable so cards built later (projects, sites)
-  // fade in the same way as everything else on the page.
-  // ------------------------------------------------------------------
   const revealIO = ('IntersectionObserver' in window)
     ? new IntersectionObserver((entries)=>{
         entries.forEach(entry=>{
@@ -881,22 +907,8 @@
     if(revealIO){ revealIO.observe(el); }
     else{ el.classList.add('in'); }
   }
-
   document.querySelectorAll('.reveal').forEach(observeReveal);
 
-  // ------------------------------------------------------------------
-  // SETTINGS: everything that changes often (links, email, phone,
-  // the project list, and the sites showcase) lives in settings.txt
-  // so it can be edited without touching any HTML or CSS.
-  //
-  // settings.txt is fetched at page load. If the file can't be
-  // reached (for instance when the page is opened directly from a
-  // folder instead of being served by a web server) the page falls
-  // back to the defaults built into FALLBACK_SETTINGS below, so the
-  // site never breaks, it just won't reflect settings.txt edits
-  // until it's served properly (any static host, including GitHub
-  // Pages, works fine).
-  // ------------------------------------------------------------------
   const FALLBACK_SETTINGS = `
 EMAIL = fredrickmahinay18@gmail.com
 PHONE_DISPLAY = 0961 003 0671
@@ -909,7 +921,7 @@ FACEBOOK = #
 PROJECT_START
 STATUS = In active development
 TITLE = MLBB Hero Counter-Pick Analyzer
-DESCRIPTION = A scoring engine that recommends the best counter-pick for any Mobile Legends: Bang Bang hero matchup, weighing role advantage, stat differentials, difficulty gap, damage type, power-spike timing, style matchup, and hard-counter rules. Started as a multi-sheet Excel workbook with 100+ dependent hard-counter rules, now being rebuilt as a full web app.
+DESCRIPTION = A scoring engine that recommends the best counter-pick for any Mobile Legends: Bang Bang hero matchup, weighing role advantage, stat differentials, difficulty gap, damage type, power-spike timing, style matchup, and hard-counter rules.
 TAGS = Excel / VBA, Python, Supabase, GitHub Pages
 DEMO_LINK = #
 CODE_LINK = #
@@ -918,44 +930,17 @@ PROJECT_END
 PROJECT_START
 STATUS = Live
 TITLE = Crypto Market Dashboard & ETL Pipeline
-DESCRIPTION = A dark-themed, real-time cryptocurrency dashboard with live candlestick charts and technical indicators (SMA, RSI). Backed by a Python ETL script that pulls OHLCV data via yfinance across daily, hourly, and 4-hour timeframes for five coins, upserting into Supabase through an automated GitHub Actions pipeline.
+DESCRIPTION = A dark-themed, real-time cryptocurrency dashboard with live candlestick charts and technical indicators (SMA, RSI). Backed by a Python ETL script that pulls OHLCV data via yfinance across daily, hourly, and 4-hour timeframes for five coins.
 TAGS = JavaScript, Python / yfinance, Supabase, GitHub Actions
 DEMO_LINK = #
 CODE_LINK = #
 PROJECT_END
 `;
 
-  // A calm placeholder image (no outside network request) shown until
-  // a real screenshot is added, or if an IMAGE link fails to load.
-  const PLACEHOLDER_IMG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375">
-      <defs>
-        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#dad5c7"/>
-          <stop offset="1" stop-color="#c8c2b2"/>
-        </linearGradient>
-      </defs>
-      <rect width="600" height="375" fill="url(#g)"/>
-      <g fill="none" stroke="#5b3fd6" stroke-width="1.6" stroke-linecap="round" opacity="0.55">
-        <circle cx="300" cy="168" r="34"/>
-        <path d="M300 134 L300 202 M266 168 L334 168"/>
-      </g>
-      <text x="300" y="240" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#5b3fd6" opacity="0.7">PREVIEW COMING SOON</text>
-    </svg>
-  `);
-
   function escapeHtml(str){
-    return String(str == null ? '' : str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
+    return String(str == null ? '' : str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
-  // Parses the block-based settings.txt format:
-  //   KEY = value                (top level -> links/contact info)
-  //   PROJECT_START ... PROJECT_END   (repeatable project blocks)
-  //   SITE_START ... SITE_END         (repeatable site blocks)
   function parseSettings(text){
     const data = { links: {}, projects: [], sites: [] };
     let block = null;
@@ -979,13 +964,9 @@ PROJECT_END
   async function loadSettings(){
     try{
       const res = await fetch('settings.txt', { cache: 'no-store' });
-      if(!res.ok) throw new Error('settings.txt not found (' + res.status + ')');
-      const text = await res.text();
-      return parseSettings(text);
+      if(!res.ok) throw new Error('settings.txt not found');
+      return parseSettings(await res.text());
     }catch(err){
-      console.warn('Using built-in default settings because settings.txt could not be loaded. ' +
-        'This is expected if you are previewing the file locally by double-clicking it ' +
-        'instead of through a web server or GitHub Pages.', err);
       return parseSettings(FALLBACK_SETTINGS);
     }
   }
@@ -1003,33 +984,19 @@ PROJECT_END
       a.href = links.PHONE_LINK ? ('tel:' + links.PHONE_LINK) : '#';
       a.textContent = links.PHONE_DISPLAY || '';
     });
-    document.querySelectorAll('[data-link-text="location"]').forEach(el => {
-      el.textContent = links.LOCATION || '';
-    });
   }
 
   const ICON_DEMO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>';
   const ICON_GITHUB = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>';
-  const ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>';
 
   function renderProjects(projects){
     const grid = document.getElementById('projectsGrid');
     if(!grid) return;
     grid.innerHTML = '';
-
-    if(!projects.length){
-      const empty = document.createElement('div');
-      empty.className = 'empty-card reveal';
-      empty.innerHTML = '<h3>No projects listed yet</h3><p>Add a PROJECT_START / PROJECT_END block in settings.txt to feature one here.</p>';
-      grid.appendChild(empty);
-      observeReveal(empty);
-      return;
-    }
-
     projects.forEach(p => {
       const tags = (p.TAGS || '').split(',').map(t => t.trim()).filter(Boolean);
       const art = document.createElement('article');
-      art.className = 'project-card reveal';
+      art.className = 'project-card glass-panel reveal';
       art.innerHTML = `
         <span class="project-status">\u25CF ${escapeHtml(p.STATUS || '')}</span>
         <h3>${escapeHtml(p.TITLE || '')}</h3>
@@ -1040,42 +1007,6 @@ PROJECT_END
           <a href="${escapeHtml(p.CODE_LINK || '#')}" target="_blank" rel="noopener">${ICON_GITHUB} Code</a>
         </div>
       `;
-      grid.appendChild(art);
-      observeReveal(art);
-    });
-  }
-
-  function renderSites(sites){
-    const grid = document.getElementById('sitesGrid');
-    if(!grid) return;
-    grid.innerHTML = '';
-
-    if(!sites.length){
-      const empty = document.createElement('div');
-      empty.className = 'empty-card reveal';
-      empty.innerHTML = '<h3>No sites listed yet</h3><p>Add a SITE_START / SITE_END block in settings.txt with a name, link, image, and short description to feature it here.</p>';
-      grid.appendChild(empty);
-      observeReveal(empty);
-      return;
-    }
-
-    sites.forEach(s => {
-      const image = (s.IMAGE || '').trim() || PLACEHOLDER_IMG;
-      const link = s.LINK || '#';
-      const art = document.createElement('article');
-      art.className = 'site-card reveal';
-      art.innerHTML = `
-        <a class="site-thumb" href="${escapeHtml(link)}" target="_blank" rel="noopener">
-          <img src="${escapeHtml(image)}" alt="${escapeHtml(s.NAME || 'Site preview')}" loading="lazy">
-        </a>
-        <div class="site-body">
-          <h3>${escapeHtml(s.NAME || '')}</h3>
-          <p>${escapeHtml(s.DESCRIPTION || '')}</p>
-          <a class="site-visit" href="${escapeHtml(link)}" target="_blank" rel="noopener">Visit site ${ICON_ARROW}</a>
-        </div>
-      `;
-      const img = art.querySelector('img');
-      img.addEventListener('error', () => { img.src = PLACEHOLDER_IMG; }, { once: true });
       grid.appendChild(art);
       observeReveal(art);
     });
