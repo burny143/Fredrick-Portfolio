@@ -72,7 +72,7 @@ STATUS = In active development
 TITLE = Crypto Market Dashboard & ETL Pipeline
 DESCRIPTION = A dark-themed, real-time cryptocurrency dashboard with live candlestick charts and technical indicators (SMA, RSI). Backed by a Python ETL script that pulls OHLCV data via yfinance across daily, hourly, and 4-hour timeframes for five coins, upserting into Supabase through an automated GitHub Actions pipeline.
 TAGS = JavaScript, Python / yfinance, Supabase, GitHub Actions
-DEMO_LINK = https://github.com/burny143/crypto-etl
-CODE_LINK = https://burny143.github.io/crypto-etl/
+DEMO_LINK = https://burny143.github.io/crypto-etl/
+CODE_LINK = https://github.com/burny143/crypto-etl/
 PROJECT_END
 
